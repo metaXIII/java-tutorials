@@ -1,4 +1,4 @@
-package com.metaxiii.fr.conversion.custom;
+package com.metaxiii.fr.conversion.configuration;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

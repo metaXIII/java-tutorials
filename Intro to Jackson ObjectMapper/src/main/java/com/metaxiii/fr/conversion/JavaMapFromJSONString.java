@@ -9,12 +9,9 @@ import java.util.Map;
 
 @Slf4j
 public class JavaMapFromJSONString {
-    public static void main(String[] args) throws JsonProcessingException {
+    public Map<String, Object> process(final String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        String jsonCarArray = "{\"color\": \"Black\", \"type\": \"BMW\"}";
-        Map<String, Object> cars = objectMapper.readValue(jsonCarArray, new TypeReference<>() {
+        return objectMapper.readValue(json, new TypeReference<>() {
         });
-        log.info(cars.keySet().toString());
-        log.info(cars.values().toString());
     }
 }
