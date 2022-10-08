@@ -1,5 +1,6 @@
 package com.metaxiii.fr.conversion;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metaxiii.fr.model.Car;
 import lombok.extern.slf4j.Slf4j;
@@ -10,17 +11,18 @@ import java.net.URL;
 
 @Slf4j
 public class JsonToJavaObject {
-    public static void main(String[] args) throws IOException {
+    public Car processAsObject(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\" }";
-        Car car = objectMapper.readValue(json, Car.class);
-        log.info("it should be black: " + car.getColor());
-        log.info("it should be BMW: " + car.getType());
-        car = objectMapper.readValue(new File("src/test/resources/json_car.json"), Car.class);
-        log.info("it should be yellow: " + car.getColor());
-        log.info("it should be diesel: " + car.getType());
-        car = objectMapper.readValue(new URL("file:src/test/resources/json_car_url.json"), Car.class);
-        log.info("it should be pink: " + car.getColor());
-        log.info("it should be diesel: " + car.getType());
+        return objectMapper.readValue(json, Car.class);
+    }
+
+    public Car processAsFile(final File file) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(file, Car.class);
+    }
+
+    public Car processAsUrl(final URL url) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(url, Car.class);
     }
 }

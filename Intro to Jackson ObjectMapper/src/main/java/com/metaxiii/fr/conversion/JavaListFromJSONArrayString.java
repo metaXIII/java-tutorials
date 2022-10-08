@@ -12,19 +12,15 @@ import java.util.List;
 @Slf4j
 public class JavaListFromJSONArrayString {
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public List<Car> processAsList(final String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        String jsonCarArray = "[{\"color\": \"Black\", \"type\": \"BMW\"}, {\"color\": \"Red\", \"type\": \"Fiat\"}]";
-        List<Car> cars = objectMapper.readValue(jsonCarArray, new TypeReference<>() {
+        return objectMapper.readValue(json, new TypeReference<>() {
         });
-        log.info(cars.get(0).getColor());
-        log.info(cars.get(1).getColor());
+    }
 
-        log.info("in array : ");
-        ObjectMapper objectMapperArray = new ObjectMapper();
-        objectMapperArray.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
-        Car[] carsArray = objectMapper.readValue(jsonCarArray, Car[].class);
-        log.info(carsArray[0].getColor());
-
+    public Car[] processAsArray(final String json) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
+        return objectMapper.readValue(json, Car[].class);
     }
 }

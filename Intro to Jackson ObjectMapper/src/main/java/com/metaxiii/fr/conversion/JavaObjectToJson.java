@@ -9,11 +9,9 @@ import java.io.IOException;
 
 @Slf4j
 public class JavaObjectToJson {
-    public static void main(String[] args) throws IOException {
+    public String process(final Car car) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Car car = new Car("black", "electric");
         objectMapper.writeValue(new File("target/car.json"), car);
-        String carAsString = objectMapper.writeValueAsString(car);
-        log.info(carAsString);
+        return objectMapper.writeValueAsString(car);
     }
 }

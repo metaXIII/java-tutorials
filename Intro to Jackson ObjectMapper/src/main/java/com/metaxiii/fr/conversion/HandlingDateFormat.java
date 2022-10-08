@@ -12,14 +12,13 @@ import java.util.Date;
 
 @Slf4j
 public class HandlingDateFormat {
-    public static void main(String[] args) throws JsonProcessingException {
+    public String process(final Car car) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm a z");
         objectMapper.setDateFormat(df);
         Request request = new Request();
-        request.setCar(new Car("green", "twingo"));
+        request.setCar(car);
         request.setDatePurcharsed(new Date());
-        String carAsString = objectMapper.writeValueAsString(request);
-        log.info(carAsString);
+        return objectMapper.writeValueAsString(request);
     }
 }
