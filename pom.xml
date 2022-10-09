@@ -21,6 +21,7 @@
         <module>spring-boot-start</module>
         <module>Serialize and deserialize enums with jackson</module>
         <module>report</module>
+        <module>jackson-json-view</module>
     </modules>
 
     <properties>
