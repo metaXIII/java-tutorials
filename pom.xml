@@ -22,6 +22,7 @@
         <module>Serialize and deserialize enums with jackson</module>
         <module>report</module>
         <module>jackson-json-view</module>
+        <module>error-handling-for-rest-with-spring</module>
     </modules>
 
     <properties>
@@ -36,7 +37,8 @@
             **/config/*.java,
             **/entity/*.java,
             **/enums/*.java,
-            **/dto/*.java
+            **/dto/*.java,
+            **/exceptions/*.java
         </sonar.coverage.exclusions>
         <!--suppress UnresolvedMavenProperty -->
         <sonar.coverage.jacoco.xmlReportPaths>
