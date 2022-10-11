@@ -9,3 +9,5 @@
 [Serialize and deserialize enums](./Serialize%20and%20deserialize%20enums%20with%20jackson)
 
 [Jackson JSON view](./jackson-json-view)
+
+[Error handling with spring](./error-handling-for-rest-with-spring)
