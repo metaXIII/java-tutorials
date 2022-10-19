@@ -24,6 +24,7 @@
         <module>jackson-json-view</module>
         <module>error-handling-for-rest-with-spring</module>
         <module>jackson-date</module>
+        <module>springwebclient-vs-resttemplate</module>
     </modules>
 
     <properties>
