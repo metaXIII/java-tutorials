@@ -13,3 +13,7 @@
 [Error handling with spring](./error-handling-for-rest-with-spring)
 
 [Jackson Date](./jackson-date)
+
+[Spring web client vs Rest template](./springwebclient-vs-resttemplate)
+
+[Jackson annotations](./jackson-annotations)
