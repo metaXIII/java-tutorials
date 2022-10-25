@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class DuplicateItem {
-    public int id;
-    public String itemName;
-    public User owner;
+    private int id;
+    private String itemName;
+    private User owner;
 }

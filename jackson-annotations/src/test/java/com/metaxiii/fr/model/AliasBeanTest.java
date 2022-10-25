@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AliasBeanTest {
     @Test
-    public void whenDeserializingUsingJsonAlias_thenCorrect() throws IOException {
+    void whenDeserializingUsingJsonAlias_thenCorrect() throws IOException {
         String json = "{\"fName\": \"John\", \"lastName\": \"Green\"}";
         AliasBean aliasBean = new ObjectMapper().readerFor(AliasBean.class).readValue(json);
         assertEquals("John", aliasBean.getFirstName());

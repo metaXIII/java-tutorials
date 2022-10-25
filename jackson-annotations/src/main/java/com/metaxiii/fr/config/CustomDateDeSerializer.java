@@ -1,6 +1,5 @@
 package com.metaxiii.fr.config;
 
-import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -23,7 +22,7 @@ public class CustomDateDeSerializer extends StdDeserializer<Date> {
 
 
     @Override
-    public Date deserialize(final JsonParser jsonParser, final DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public Date deserialize(final JsonParser jsonParser, final DeserializationContext deserializationContext) throws IOException {
         String date = jsonParser.getText();
         try {
             return formatter.parse(date);
