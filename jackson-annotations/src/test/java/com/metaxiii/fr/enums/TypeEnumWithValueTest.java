@@ -8,9 +8,8 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TypeEnumWithValueTest {
-
     @Test
-    public void whenSerializingUsingJsonValue_thenCorrect()
+    void whenSerializingUsingJsonValue_thenCorrect()
             throws IOException {
         String enumAsString = new ObjectMapper()
                 .writeValueAsString(TypeEnumWithValue.TYPE1);

@@ -26,6 +26,7 @@
         <module>jackson-date</module>
         <module>springwebclient-vs-resttemplate</module>
         <module>jackson-annotations</module>
+        <module>spring security integration test</module>
     </modules>
 
     <properties>
