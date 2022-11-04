@@ -17,3 +17,5 @@
 [Spring web client vs Rest template](./springwebclient-vs-resttemplate)
 
 [Jackson annotations](./jackson-annotations)
+
+[Entity To DTO Conversion for a Spring REST API](./entity-dto-conversion-rest-api)

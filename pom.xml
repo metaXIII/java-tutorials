@@ -27,6 +27,7 @@
         <module>springwebclient-vs-resttemplate</module>
         <module>jackson-annotations</module>
         <module>spring security integration test</module>
+        <module>entity-dto-conversion-rest-api</module>
     </modules>
 
     <properties>
