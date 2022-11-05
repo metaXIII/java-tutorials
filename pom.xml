@@ -28,6 +28,7 @@
         <module>jackson-annotations</module>
         <module>spring security integration test</module>
         <module>entity-dto-conversion-rest-api</module>
+        <module>actuator</module>
     </modules>
 
     <properties>

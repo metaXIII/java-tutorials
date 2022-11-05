@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: Learn actuator
+management:
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info
+info:
+  application:
+    name: ${spring.application.name}
+    description: Actuator with spring boot 2
+
