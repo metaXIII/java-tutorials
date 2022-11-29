@@ -23,10 +23,12 @@ public class WebSecurityConfigurer {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/private/**")
+        http.authorizeHttpRequests()
+                .requestMatchers("/private/**")
                 .hasRole("USER")
-                .antMatchers("/public/**")
+                .and()
+                .authorizeHttpRequests()
+                .requestMatchers("/public/**")
                 .permitAll()
                 .and()
                 .httpBasic();
