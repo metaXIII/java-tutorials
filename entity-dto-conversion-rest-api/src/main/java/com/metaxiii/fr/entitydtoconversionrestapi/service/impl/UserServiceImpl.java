@@ -9,15 +9,16 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
-    @Override
-    public User getCurrentUser() {
-        Preference preference = new Preference();
-        preference.setId(1L);
-        preference.setTimezone("Europe/Paris");
-        User user = new User();
-        user.setId(1L);
-        user.setName("metaxiii");
-        user.setPreference(preference);
-        return user;
-    }
+
+  @Override
+  public User getCurrentUser() {
+    Preference preference = new Preference();
+    preference.setId(1L);
+    preference.setTimezone("Europe/Paris");
+    User user = new User();
+    user.setId(1L);
+    user.setName("metaxiii");
+    user.setPreference(preference);
+    return user;
+  }
 }

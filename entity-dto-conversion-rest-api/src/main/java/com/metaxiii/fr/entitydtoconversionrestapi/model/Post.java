@@ -4,29 +4,30 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
-    private String title;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    private String url;
+  private String title;
 
-    private String date;
+  private String url;
 
-    private String redditID;
+  private String date;
 
-    private Date submissionDate;
+  private String redditID;
 
-    private boolean sent;
+  private Date submissionDate;
 
-    private String userName;
+  private boolean sent;
+
+  private String userName;
 }

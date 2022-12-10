@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class RawBean {
-    private String name;
-    @JsonRawValue
-    private String json;
+
+  private String name;
+
+  @JsonRawValue
+  private String json;
 }

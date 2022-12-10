@@ -7,9 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class EntityDtoConversionRestApiApplicationTests {
 
-    @Test
-    void contextLoads() {
-        Assertions.assertDoesNotThrow(() -> EntityDtoConversionRestApiApplication.main(new String[]{}));
-    }
-
+  @Test
+  void contextLoads() {
+    Assertions.assertDoesNotThrow(() ->
+      EntityDtoConversionRestApiApplication.main(new String[] {})
+    );
+  }
 }

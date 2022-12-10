@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class AliasBean {
-    @JsonAlias({"fName", "f_name"})
-    private String firstName;
-    private String lastName;
+
+  @JsonAlias({ "fName", "f_name" })
+  private String firstName;
+
+  private String lastName;
 }

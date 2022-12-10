@@ -12,6 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserWithRoot {
-    private int id;
-    private String name;
+
+  private int id;
+  private String name;
 }

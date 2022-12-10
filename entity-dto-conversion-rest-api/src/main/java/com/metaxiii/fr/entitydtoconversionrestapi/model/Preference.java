@@ -11,9 +11,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Preference {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
-    private String timezone;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+
+  private String timezone;
 }

@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Foo {
-    private Long id;
-    private String fooInclude;
+
+  private Long id;
+  private String fooInclude;
 }

@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @RequiredArgsConstructor
 public class BeanWithInject {
-    @JacksonInject
-    private int id;
-    private String name;
+
+  @JacksonInject
+  private int id;
+
+  private String name;
 }

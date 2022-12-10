@@ -8,12 +8,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BeanWithCreator {
-    private int id;
-    private String name;
 
-    @JsonCreator
-    public BeanWithCreator(@JsonProperty("custom_id") int id, @JsonProperty("custom_name") String name) {
-        this.id = id;
-        this.name = name;
-    }
+  private int id;
+  private String name;
+
+  @JsonCreator
+  public BeanWithCreator(
+    @JsonProperty("custom_id") int id,
+    @JsonProperty("custom_name") String name
+  ) {
+    this.id = id;
+    this.name = name;
+  }
 }

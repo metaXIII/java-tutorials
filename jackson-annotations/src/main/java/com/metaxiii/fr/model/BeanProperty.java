@@ -11,7 +11,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BeanProperty {
-    private int id;
-    @JsonProperty(value = "my_name")
-    private String name;
+
+  private int id;
+
+  @JsonProperty(value = "my_name")
+  private String name;
 }

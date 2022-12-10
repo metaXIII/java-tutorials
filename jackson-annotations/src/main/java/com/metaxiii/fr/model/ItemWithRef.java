@@ -9,9 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ItemWithRef {
-    private int id;
-    private String name;
 
-    @JsonManagedReference
-    public UserWithRef owner;
+  private int id;
+  private String name;
+
+  @JsonManagedReference
+  public UserWithRef owner;
 }

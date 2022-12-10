@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.metaxiii.fr.entity")
 @SpringBootApplication
 public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
+
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
 }
