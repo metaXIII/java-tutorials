@@ -2,17 +2,16 @@ package com.metaxiii.fr.service;
 
 import com.metaxiii.fr.dto.BookDTO;
 import com.metaxiii.fr.entity.Book;
-
 import java.util.List;
 
 public interface BookService {
-    Iterable<Book> findAll();
+  Iterable<Book> findAll();
 
-    List<Book> findByTitle(String title);
+  List<Book> findByTitle(String title);
 
-    Book findById(Long id);
+  Book findById(Long id);
 
-    Book save(BookDTO book);
+  Book save(BookDTO book);
 
-    void deleteById(Long id);
+  void deleteById(Long id);
 }

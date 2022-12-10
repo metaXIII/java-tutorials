@@ -7,8 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class JSONtoJacksonJsonNode {
-    public JsonNode process(final String json) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readTree(json);
-    }
+
+  public JsonNode process(final String json) throws JsonProcessingException {
+    ObjectMapper objectMapper = new ObjectMapper();
+    return objectMapper.readTree(json);
+  }
 }

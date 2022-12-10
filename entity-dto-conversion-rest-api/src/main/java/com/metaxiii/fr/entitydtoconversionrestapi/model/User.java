@@ -14,12 +14,13 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @OneToOne
-    private Preference preference;
+  private String name;
+
+  @OneToOne
+  private Preference preference;
 }

@@ -7,5 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CityWithDistanceAsJsonCustomDeserializor {
-    private DistanceDeserializer distance;
+
+  private DistanceDeserializer distance;
 }

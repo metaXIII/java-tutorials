@@ -7,5 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CityWithDistanceAsJsonValue {
-    private DistanceAsJsonValue distance;
+
+  private DistanceAsJsonValue distance;
 }

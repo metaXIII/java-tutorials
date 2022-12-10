@@ -9,15 +9,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class User {
-    private int id;
-    private Name name;
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @JsonIgnoreType
-    public static class Name {
-        private String firstName;
-        private String lastName;
-    }
+  private int id;
+  private Name name;
+
+  @Getter
+  @Setter
+  @AllArgsConstructor
+  @JsonIgnoreType
+  public static class Name {
+
+    private String firstName;
+    private String lastName;
+  }
 }

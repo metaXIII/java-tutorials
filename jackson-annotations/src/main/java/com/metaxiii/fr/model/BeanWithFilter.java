@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 @JsonFilter(value = "myFilter")
 public class BeanWithFilter {
-    private int id;
-    private String name;
+
+  private int id;
+  private String name;
 }

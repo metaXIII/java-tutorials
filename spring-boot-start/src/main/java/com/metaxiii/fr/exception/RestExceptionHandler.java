@@ -12,16 +12,38 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler({BookNotFoundException.class})
-    protected ResponseEntity<Object> handleNotFound(Exception exception, WebRequest webRequest) {
-        return handleExceptionInternal(exception, "Book not found", new HttpHeaders(), HttpStatus.NOT_FOUND,
-                webRequest);
-    }
 
-    @ExceptionHandler({BookIdMismatchException.class, ConstraintViolationException.class,
-            DataIntegrityViolationException.class})
-    public ResponseEntity<Object> handleBadRequest(Exception exception, WebRequest webRequest) {
-        return handleExceptionInternal(exception, exception.getLocalizedMessage(), new HttpHeaders(),
-                HttpStatus.BAD_REQUEST, webRequest);
+  @ExceptionHandler({ BookNotFoundException.class })
+  protected ResponseEntity<Object> handleNotFound(
+    Exception exception,
+    WebRequest webRequest
+  ) {
+    return handleExceptionInternal(
+      exception,
+      "Book not found",
+      new HttpHeaders(),
+      HttpStatus.NOT_FOUND,
+      webRequest
+    );
+  }
+
+  @ExceptionHandler(
+    {
+      BookIdMismatchException.class,
+      ConstraintViolationException.class,
+      DataIntegrityViolationException.class,
     }
+  )
+  public ResponseEntity<Object> handleBadRequest(
+    Exception exception,
+    WebRequest webRequest
+  ) {
+    return handleExceptionInternal(
+      exception,
+      exception.getLocalizedMessage(),
+      new HttpHeaders(),
+      HttpStatus.BAD_REQUEST,
+      webRequest
+    );
+  }
 }

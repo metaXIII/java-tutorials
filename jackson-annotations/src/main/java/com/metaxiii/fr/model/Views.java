@@ -5,9 +5,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Views {
-    public interface Public {
-    }
 
-    public interface Internal extends Public {
-    }
+  public interface Public {}
+
+  public interface Internal extends Public {}
 }

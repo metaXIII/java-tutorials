@@ -1,30 +1,32 @@
 package com.metaxiii.fr.entitydtoconversionrestapi.dto;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 public class PostDto {
-    private Long id;
 
-    private String title;
+  private Long id;
 
-    private String url;
+  private String title;
 
-    private String date;
+  private String url;
 
-    private UserDto user;
+  private String date;
 
-    public void setSubmissionDate(Date date, String timezone) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone(timezone));
-        this.date = simpleDateFormat.format(date);
-    }
+  private UserDto user;
+
+  public void setSubmissionDate(Date date, String timezone) {
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+      "yyyy-MM-dd HH:mm"
+    );
+    simpleDateFormat.setTimeZone(TimeZone.getTimeZone(timezone));
+    this.date = simpleDateFormat.format(date);
+  }
 }

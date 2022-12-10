@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Car
-{
-    private String color;
-    private String type;
+public class Car {
+
+  private String color;
+  private String type;
 }

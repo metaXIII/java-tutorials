@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class PrivateBean {
-    private int id;
-    private String name;
+
+  private int id;
+  private String name;
 }

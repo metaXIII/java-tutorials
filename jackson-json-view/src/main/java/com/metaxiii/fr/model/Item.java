@@ -11,12 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Item {
-    @JsonView(Views.Public.class)
-    private int id;
 
-    @JsonView(Views.Public.class)
-    private String itemName;
+  @JsonView(Views.Public.class)
+  private int id;
 
-    @JsonView(Views.Internal.class)
-    private String ownerName;
+  @JsonView(Views.Public.class)
+  private String itemName;
+
+  @JsonView(Views.Internal.class)
+  private String ownerName;
 }

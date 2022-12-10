@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Tweet {
-    private String content;
-    private String author;
+
+  private String content;
+  private String author;
 }

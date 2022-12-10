@@ -12,20 +12,22 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
-@JsonPropertyOrder({"custom_name", "id"})
+@JsonPropertyOrder({ "custom_name", "id" })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MyBean {
-    @Getter
-    private int id;
-    private String name;
 
-    @JsonGetter(value = "custom_name")
-    public String getName() {
-        return name;
-    }
+  @Getter
+  private int id;
 
-    @JsonSetter("other")
-    public void setTheName(String name) {
-        this.name = name;
-    }
+  private String name;
+
+  @JsonGetter(value = "custom_name")
+  public String getName() {
+    return name;
+  }
+
+  @JsonSetter("other")
+  public void setTheName(String name) {
+    this.name = name;
+  }
 }

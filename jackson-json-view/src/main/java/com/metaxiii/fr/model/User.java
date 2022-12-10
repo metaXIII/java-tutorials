@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private int id;
 
-    @JsonView(value = Views.Public.class)
-    public String name;
+  private int id;
+
+  @JsonView(value = Views.Public.class)
+  public String name;
 }
