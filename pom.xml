@@ -29,6 +29,7 @@
         <module>spring security integration test</module>
         <module>entity-dto-conversion-rest-api</module>
         <module>actuator</module>
+        <module>powerful_comparison_with_lambdas</module>
     </modules>
 
     <properties>
@@ -89,12 +90,6 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
-            <plugin>
-                <groupId>com.hubspot.maven.plugins</groupId>
-                <artifactId>prettier-maven-plugin</artifactId>
-                <!-- Find the latest version at https://github.com/jhipster/prettier-java/releases -->
-                <version>0.19</version>
-            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -112,13 +107,6 @@
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.8</version>
-                </plugin>
-                <plugin>
-                    <groupId>com.hubspot.maven.plugins</groupId>
-                    <artifactId>prettier-maven-plugin</artifactId>
-                    <configuration>
-                        <prettierJavaVersion>1.5.0</prettierJavaVersion >
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
