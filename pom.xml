@@ -30,6 +30,7 @@
         <module>entity-dto-conversion-rest-api</module>
         <module>actuator</module>
         <module>powerful_comparison_with_lambdas</module>
+        <module>partition list in java</module>
     </modules>
 
     <properties>

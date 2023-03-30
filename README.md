@@ -21,3 +21,5 @@
 [Entity To DTO Conversion for a Spring REST API](./entity-dto-conversion-rest-api)
 
 [Powerful Comparison with Lambdas](./powerful_comparison_with_lambdas)
+
+[Partition a list in Java](./partition%20list%20in%20java)
