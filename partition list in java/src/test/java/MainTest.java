@@ -12,10 +12,10 @@ import java.util.stream.Stream;
 import org.apache.commons.collections4.ListUtils;
 import org.junit.jupiter.api.Test;
 
-public class MainTest {
+class MainTest {
 
   @Test
-  public void givenList_whenParitioningIntoNSublists_thenCorrect() {
+  void givenList_whenParitioningIntoNSublists_thenCorrect() {
     List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
     List<List<Integer>> subSets = Lists.partition(intList, 3);
     List<Integer> lastPartition = subSets.get(2);
@@ -25,7 +25,7 @@ public class MainTest {
   }
 
   @Test
-  public void givenCollection_whenParitioningIntoNSublists_thenCorrect() {
+  void givenCollection_whenParitioningIntoNSublists_thenCorrect() {
     Collection<Integer> intCollection = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
     Iterable<List<Integer>> subSets = Iterables.partition(intCollection, 3);
     List<Integer> firstPartition = subSets.iterator().next();
@@ -34,7 +34,7 @@ public class MainTest {
   }
 
   @Test
-  public void givenListPartitioned_whenOriginalListIsModified_thenPartitionsChangeAsWell() {
+  void givenListPartitioned_whenOriginalListIsModified_thenPartitionsChangeAsWell() {
     List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
     List<List<Integer>> subSets = Lists.partition(intList, 3);
     intList.add(9);
@@ -44,7 +44,7 @@ public class MainTest {
   }
 
   @Test
-  public void givenList_whenParitioningIntoNSublists_thenCorrectWithApacheCollections() {
+  void givenList_whenParitioningIntoNSublists_thenCorrectWithApacheCollections() {
     List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
     List<List<Integer>> subSets = ListUtils.partition(intList, 3);
     List<Integer> lastPartition = subSets.get(2);
@@ -54,7 +54,7 @@ public class MainTest {
   }
 
   @Test
-  public void givenList_whenParitioningIntoSublistsUsingPartitionBy_thenCorrect() {
+  void givenList_whenParitioningIntoSublistsUsingPartitionBy_thenCorrect() {
     List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
     Map<Boolean, List<Integer>> groups = intList.stream().collect(Collectors.partitioningBy(s -> s > 6));
     List<List<Integer>> subSets = new ArrayList<List<Integer>>(groups.values());
@@ -76,7 +76,7 @@ public class MainTest {
   }
 
   @Test
-  public void givenList_whenSplittingBySeparator_thenCorrect() {
+  void givenList_whenSplittingBySeparator_thenCorrect() {
     List<Integer> intList = Lists.newArrayList(1, 2, 3, 0, 4, 5, 6, 0, 7, 8);
     int[] indexes = Stream
       .of(
