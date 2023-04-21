@@ -32,6 +32,7 @@
         <module>powerful_comparison_with_lambdas</module>
         <module>partition list in java</module>
         <module>CompletableFuture</module>
+        <module>guava cache</module>
     </modules>
 
     <properties>
