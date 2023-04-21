@@ -87,6 +87,11 @@
             <artifactId>CompletableFuture</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>guava-cache</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
