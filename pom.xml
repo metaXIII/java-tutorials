@@ -33,6 +33,7 @@
         <module>partition list in java</module>
         <module>CompletableFuture</module>
         <module>guava cache</module>
+        <module>guava - Join and split</module>
     </modules>
 
     <properties>
