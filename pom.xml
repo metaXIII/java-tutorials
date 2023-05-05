@@ -35,6 +35,7 @@
         <module>guava cache</module>
         <module>guava - Join and split</module>
         <module>guava write and read from file</module>
+        <module>guava list</module>
     </modules>
 
     <properties>
