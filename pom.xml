@@ -38,6 +38,7 @@
         <module>guava list</module>
         <module>Guava - Sets</module>
         <module>Guava - Maps</module>
+        <module>Guava CharMatcher</module>
     </modules>
 
     <properties>
