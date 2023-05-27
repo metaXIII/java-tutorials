@@ -37,6 +37,7 @@
         <module>guava write and read from file</module>
         <module>guava list</module>
         <module>Guava - Sets</module>
+        <module>Guava - Maps</module>
     </modules>
 
     <properties>
