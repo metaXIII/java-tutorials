@@ -39,6 +39,9 @@
         <module>Guava - Sets</module>
         <module>Guava - Maps</module>
         <module>Guava CharMatcher</module>
+        <module>Get a Random Element From a Set in Java</module>
+        <module>Get the Indexes of Regex Pattern Matches in Java</module>
+        <module>Extract Text Between Square Brackets</module>
         <module>spring-data-get-last-record</module>
     </modules>
 
