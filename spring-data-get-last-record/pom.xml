@@ -7,31 +7,23 @@
         <artifactId>parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>spring-security-integration-test</artifactId>
+    <artifactId>spring-data-get-last-record</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring security integration test</name>
-    <description>spring security integration test</description>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
+    <name>spring-data-get-last-record</name>
+    <description>spring-data-get-last-record</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
