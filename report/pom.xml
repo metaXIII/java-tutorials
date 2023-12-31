@@ -124,6 +124,21 @@
         </dependency>
         <dependency>
             <groupId>com.metaxiii.fr</groupId>
+            <artifactId>Get_a_Random_Element_From_a_Set_in_Java</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>Get_the_Indexes_of_Regex_Pattern_Matches_in_Java</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>Extract_Text_Between_Square_Brackets</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
             <artifactId>spring-data-get-last-record</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
