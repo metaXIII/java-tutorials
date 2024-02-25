@@ -14,9 +14,6 @@
     <version>1.0-SNAPSHOT</version>
     <name>spring-boot-start</name>
     <description>spring-boot-start</description>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
