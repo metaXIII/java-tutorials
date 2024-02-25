@@ -13,9 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>error-handling-for-rest-with-spring</name>
     <description>error-handling-for-rest-with-spring</description>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -43,12 +43,13 @@
         <module>Get the Indexes of Regex Pattern Matches in Java</module>
         <module>Extract Text Between Square Brackets</module>
         <module>spring-data-get-last-record</module>
+        <module>mask-email-adress-phone</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <sonar.organization>metaxiii</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.coverage.exclusions>
