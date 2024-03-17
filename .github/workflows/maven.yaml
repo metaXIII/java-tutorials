@@ -30,8 +30,13 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      - name: Setup xvfb for screen 0
+        run: Xvfb :1 -screen 0 1600x1200x24 &
       - name: Build and analyze
         env:
+          DISPLAY: :1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=metaXIII_java-tutorials
+      - name: Tear down xvfb
+        run: killall Xvfb
