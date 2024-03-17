@@ -46,6 +46,7 @@
         <module>mask-email-adress-phone</module>
         <module>count-number-unique</module>
         <module>intro-jfreechart</module>
+        <module>initial-name</module>
     </modules>
 
     <properties>
