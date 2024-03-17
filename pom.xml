@@ -44,6 +44,7 @@
         <module>Extract Text Between Square Brackets</module>
         <module>spring-data-get-last-record</module>
         <module>mask-email-adress-phone</module>
+        <module>count-number-unique</module>
     </modules>
 
     <properties>
