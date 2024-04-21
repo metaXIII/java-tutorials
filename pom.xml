@@ -47,6 +47,7 @@
         <module>count-number-unique</module>
         <module>intro-jfreechart</module>
         <module>initial-name</module>
+        <module>statements_before_super</module>
     </modules>
 
     <properties>
