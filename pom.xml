@@ -48,6 +48,7 @@
         <module>intro-jfreechart</module>
         <module>initial-name</module>
         <module>statements_before_super</module>
+        <module>open-html</module>
         <module>string-to-offsetdatetime</module>
         <module>implement-builder-pattern</module>
         <module>string-cast-vs-valueof</module>
