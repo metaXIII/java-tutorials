@@ -53,6 +53,7 @@
         <module>implement-builder-pattern</module>
         <module>string-cast-vs-valueof</module>
         <module>gzip-compress-create-byte-array</module>
+        <module>simple-mail</module>
     </modules>
 
     <properties>
