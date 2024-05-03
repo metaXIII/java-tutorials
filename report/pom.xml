@@ -177,6 +177,11 @@
             <artifactId>implement-builder-pattern</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>string-cast-vs-valueof</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
