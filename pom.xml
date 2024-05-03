@@ -49,6 +49,7 @@
         <module>initial-name</module>
         <module>statements_before_super</module>
         <module>string-to-offsetdatetime</module>
+        <module>implement-builder-pattern</module>
     </modules>
 
     <properties>
@@ -57,15 +58,16 @@
         <maven.compiler.target>21</maven.compiler.target>
         <sonar.organization>metaxiii</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>
-            **/model/*.java,
+        <sonar.exclusions>**/model/*.java,
             **/configuration/*.java,
             **/config/*.java,
             **/entity/*.java,
             **/enums/*.java,
             **/dto/*.java,
             **/exceptions/*.java
-        </sonar.coverage.exclusions>
+        </sonar.exclusions>
+        <sonar.coverage.exclusions>${sonar.exclusions}</sonar.coverage.exclusions>
+        <sonar.cpd.exclusions>${sonar.exclusions}</sonar.cpd.exclusions>
         <!--suppress UnresolvedMavenProperty -->
         <sonar.coverage.jacoco.xmlReportPaths>
             ${maven.multiModuleProjectDirectory}/report/target/site/jacoco-aggregate/jacoco.xml
