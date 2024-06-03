@@ -6,17 +6,16 @@ import java.util.concurrent.Future;
 
 public class Main {
 
+  @SuppressWarnings("resource")
   public Future<String> calculateAsync() {
-    CompletableFuture<String> completableFuture = new CompletableFuture<>();
+    final CompletableFuture<String> completableFuture = new CompletableFuture<>();
     Executors
       .newCachedThreadPool()
-      .submit(
-        () -> {
-          Thread.sleep(500);
-          completableFuture.complete("Hello");
-          return null;
-        }
-      );
+      .submit(() -> {
+        Thread.sleep(500);
+        completableFuture.complete("Hello");
+        return null;
+      });
     return completableFuture;
   }
 
