@@ -54,6 +54,7 @@
         <module>string-cast-vs-valueof</module>
         <module>gzip-compress-create-byte-array</module>
         <module>simple-mail</module>
+        <module>remove-bracket-characters</module>
     </modules>
 
     <properties>
