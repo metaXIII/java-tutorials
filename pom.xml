@@ -59,6 +59,7 @@
         <module>convert-int-unsigned-byte</module>
         <module>mode-integer-array</module>
         <module>string-delete-digits</module>
+        <module>arraylist-no-duplicates</module>
     </modules>
 
     <properties>
