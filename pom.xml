@@ -57,6 +57,7 @@
         <module>remove-bracket-characters</module>
         <module>convert-org-w3c-dom-document-string</module>
         <module>convert-int-unsigned-byte</module>
+        <module>mode-integer-array</module>
     </modules>
 
     <properties>
