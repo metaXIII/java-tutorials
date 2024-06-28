@@ -63,6 +63,7 @@
         <module>mapstruct-lombok</module>
         <module>passing-method-parameter</module>
         <module>avoid-no-multipart-boundary-was-found</module>
+        <module>hibernate-reactive</module>
     </modules>
 
     <properties>
