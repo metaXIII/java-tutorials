@@ -56,6 +56,7 @@
         <module>simple-mail</module>
         <module>remove-bracket-characters</module>
         <module>convert-org-w3c-dom-document-string</module>
+        <module>convert-int-unsigned-byte</module>
     </modules>
 
     <properties>

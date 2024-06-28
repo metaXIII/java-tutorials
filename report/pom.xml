@@ -207,6 +207,11 @@
             <artifactId>convert-org-w3c-dom-document-string</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>convert-int-unsigned-byte</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
