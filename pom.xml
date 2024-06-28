@@ -60,6 +60,7 @@
         <module>mode-integer-array</module>
         <module>string-delete-digits</module>
         <module>arraylist-no-duplicates</module>
+        <module>mapstruct-lombok</module>
     </modules>
 
     <properties>
