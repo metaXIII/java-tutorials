@@ -61,6 +61,7 @@
         <module>string-delete-digits</module>
         <module>arraylist-no-duplicates</module>
         <module>mapstruct-lombok</module>
+        <module>passing-method-parameter</module>
     </modules>
 
     <properties>
