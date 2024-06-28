@@ -62,6 +62,7 @@
         <module>arraylist-no-duplicates</module>
         <module>mapstruct-lombok</module>
         <module>passing-method-parameter</module>
+        <module>avoid-no-multipart-boundary-was-found</module>
     </modules>
 
     <properties>
