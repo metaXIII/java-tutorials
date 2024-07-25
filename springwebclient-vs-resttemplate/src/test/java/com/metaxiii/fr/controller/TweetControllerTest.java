@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@DirtiesContext
 @AutoConfigureWebTestClient
+@ActiveProfiles(value = "test")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class TweetControllerTest {
 
   @Autowired
@@ -32,13 +32,7 @@ class TweetControllerTest {
 
   @Test
   void getTweetsBlocking() {
-    webTestClient
-      .get()
-      .uri("/tweets-blocking")
-      .exchange()
-      .expectStatus()
-      .is2xxSuccessful()
-      .expectBodyList(Tweet.class);
+    webTestClient.get().uri("/tweets-blocking").exchange().expectStatus().is2xxSuccessful().expectBodyList(Tweet.class);
   }
 
   @Test

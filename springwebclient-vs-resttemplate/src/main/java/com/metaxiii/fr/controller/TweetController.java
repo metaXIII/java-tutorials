@@ -1,10 +1,12 @@
 package com.metaxiii.fr.controller;
 
 import com.metaxiii.fr.model.Tweet;
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -15,11 +17,15 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
-@RestController
 @Slf4j
+@RestController
 public class TweetController {
 
-  private static final String URL = "http://localhost:8080/slow-service-tweets";
+  private final ServerProperties serverProperties;
+
+  public TweetController(final ServerProperties serverProperties) {
+    this.serverProperties = serverProperties;
+  }
 
   @GetMapping("/slow-service-tweets")
   public List<Tweet> getAllTweets() throws InterruptedException {
@@ -34,9 +40,9 @@ public class TweetController {
   @GetMapping("/tweets-blocking")
   public List<Tweet> getTweetsBlocking() {
     log.info("Starting BLOCKING Controller!");
-    RestTemplate restTemplate = new RestTemplate();
-    ResponseEntity<List<Tweet>> response = restTemplate.exchange(
-      URL,
+    final RestTemplate restTemplate = new RestTemplate();
+    final ResponseEntity<List<Tweet>> response = restTemplate.exchange(
+      URI.create("http://localhost:" + serverProperties.getPort() + "/slow-service-tweets"),
       HttpMethod.GET,
       null,
       new ParameterizedTypeReference<>() {}
@@ -47,16 +53,13 @@ public class TweetController {
     return result;
   }
 
-  @GetMapping(
-    value = "/tweets-non-blocking",
-    produces = MediaType.TEXT_EVENT_STREAM_VALUE
-  )
+  @GetMapping(value = "/tweets-non-blocking", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public Flux<Tweet> getTweetsNonBlocking() {
     log.info("Starting NON-BLOCKING Controller!");
-    Flux<Tweet> tweetFlux = WebClient
+    final Flux<Tweet> tweetFlux = WebClient
       .create()
       .get()
-      .uri(URL)
+      .uri(URI.create("http://localhost:" + serverProperties.getPort() + "/slow-service-tweets"))
       .retrieve()
       .bodyToFlux(Tweet.class);
     //noinspection CallingSubscribeInNonBlockingScope
