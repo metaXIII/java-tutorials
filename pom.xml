@@ -66,6 +66,7 @@
         <module>hibernate-reactive</module>
         <module>string-insert-emoji</module>
         <module>gson-convert-jsonarray-hashmap</module>
+        <module>test-whether-file-image</module>
     </modules>
 
     <properties>
