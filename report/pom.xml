@@ -262,6 +262,41 @@
             <artifactId>month-number-name-convert</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>draw-random-hexadecimal-number</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>sort-string-array-length-comparator</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>string-etract-after-last-occurence-match</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>lombok-extensionmethod</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>sort-map-value-list-streams</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>arraylist-include-string-arrays</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metaxiii.fr</groupId>
+            <artifactId>convert-joda-time-datetime-sql-timestamp</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
