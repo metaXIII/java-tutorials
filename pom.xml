@@ -68,6 +68,13 @@
         <module>gson-convert-jsonarray-hashmap</module>
         <module>test-whether-file-image</module>
         <module>month-number-name-convert</module>
+        <module>draw-random-hexadecimal-number</module>
+        <module>sort-string-array-length-comparator</module>
+        <module>string-etract-after-last-occurence-match</module>
+        <module>lombok-extensionmethod</module>
+        <module>sort-map-value-list-streams</module>
+        <module>arraylist-include-string-arrays</module>
+        <module>convert-joda-time-datetime-sql-timestamp</module>
     </modules>
 
     <properties>
@@ -109,6 +116,10 @@
             <artifactId>junit-jupiter-params</artifactId>
             <version>5.10.3</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
         </dependency>
     </dependencies>
 
