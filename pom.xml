@@ -75,6 +75,7 @@
         <module>sort-map-value-list-streams</module>
         <module>arraylist-include-string-arrays</module>
         <module>convert-joda-time-datetime-sql-timestamp</module>
+        <module>array-custom-tostring</module>
     </modules>
 
     <properties>
