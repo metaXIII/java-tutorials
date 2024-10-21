@@ -18,52 +18,17 @@ import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class MainTest {
-  private Main main;
 
-  @BeforeEach
-  void init() {
-    main = new Main();
-  }
+  private Main main;
 
   @AfterEach
   void endEach() {
     main = null;
   }
 
-  @Test
-  void whenRunningCompletableFutureAsynchronously_thenGetMethodWaitsForResult()
-    throws InterruptedException, ExecutionException {
-    final var completableFuture = main.calculateAsync();
-    final var result = completableFuture.get();
-    assertEquals("Hello", result);
-  }
-
-  @Test
-  void whenRunningCompletableFutureWithResult_thenGetMethodReturnsImmediately()
-    throws InterruptedException, ExecutionException {
-    final var completableFuture = CompletableFuture.completedFuture("Hello");
-    final var result = completableFuture.get();
-    assertEquals("Hello", result);
-  }
-
-  @Test
-  void whenCreatingCompletableFutureWithSupplyAsync_thenFutureReturnsValue()
-    throws ExecutionException, InterruptedException {
-    final var future = CompletableFuture.supplyAsync(() -> "Hello");
-    assertEquals("Hello", future.get());
-  }
-
-  @Test
-  void whenAddingThenApplyToFuture_thenFunctionExecutesAfterComputationIsFinished()
-    throws ExecutionException, InterruptedException {
-    final var completableFuture = CompletableFuture.supplyAsync(
-      () -> {
-        await().pollDelay(5, TimeUnit.SECONDS).untilAsserted(() -> assertTrue(true));
-        return "Hello";
-      }
-    );
-    final var future = completableFuture.thenApply(s -> s + " World");
-    assertEquals("Hello World", future.get());
+  @BeforeEach
+  void init() {
+    main = new Main();
   }
 
   @Test
@@ -74,6 +39,25 @@ class MainTest {
   }
 
   @Test
+  void whenAddingThenApplyAsyncToFuture_thenFunctionExecutesAfterComputationIsFinished()
+    throws ExecutionException, InterruptedException {
+    final var completableFuture = CompletableFuture.supplyAsync(() -> "Hello");
+    final var future = completableFuture.thenApplyAsync(s -> s + " World");
+    assertEquals("Hello World", future.get());
+  }
+
+  @Test
+  void whenAddingThenApplyToFuture_thenFunctionExecutesAfterComputationIsFinished()
+    throws ExecutionException, InterruptedException {
+    final var completableFuture = CompletableFuture.supplyAsync(() -> {
+      await().pollDelay(5, TimeUnit.SECONDS).untilAsserted(() -> assertTrue(true));
+      return "Hello";
+    });
+    final var future = completableFuture.thenApply(s -> s + " World");
+    assertEquals("Hello World", future.get());
+  }
+
+  @Test
   void whenAddingThenRunToFuture_thenFunctionExecutesAfterComputationIsFinished() {
     final var completableFuture = CompletableFuture.supplyAsync(() -> "Hello");
     final var future = completableFuture.thenRun(() -> System.out.println("Computation finished."));
@@ -81,41 +65,10 @@ class MainTest {
   }
 
   @Test
-  void whenUsingThenCompose_thenFuturesExecuteSequentially() throws ExecutionException, InterruptedException {
-    final var completableFuture = CompletableFuture
-      .supplyAsync(() -> "Hello")
-      .thenCompose(s -> CompletableFuture.supplyAsync(() -> s + " World"));
-    assertEquals("Hello World", completableFuture.get());
-  }
-
-  @Test
-  void whenUsingThenCombine_thenWaitForExecutionOfBothFutures() throws ExecutionException, InterruptedException {
-    final var completableFuture = CompletableFuture
-      .supplyAsync(() -> "Hello")
-      .thenCombine(CompletableFuture.supplyAsync(() -> " World"), (s1, s2) -> s1 + s2);
-    assertEquals("Hello World", completableFuture.get());
-  }
-
-  @Test
-  void whenUsingThenAcceptBoth_thenWaitForExecutionOfBothFutures() {
-    assertDoesNotThrow(
-      () ->
-        CompletableFuture
-          .supplyAsync(() -> "Hello")
-          .thenAcceptBoth(CompletableFuture.supplyAsync(() -> " World"), (s1, s2) -> System.out.println(s1 + s2))
-    );
-  }
-
-  @Test
-  void whenPassingTransformation_thenFunctionExecutionWithThenApply() throws InterruptedException, ExecutionException {
-    final var finalResult = main.compute().thenApply(s -> s + 1);
-    assertEquals(11, finalResult.get());
-  }
-
-  @Test
-  void whenPassingPreviousStage_thenFunctionExecutionWithThenCompose() throws InterruptedException, ExecutionException {
-    CompletableFuture<Integer> finalResult = main.compute().thenCompose(integer -> main.computeAnother(integer));
-    assertEquals(20, (int) finalResult.get());
+  void whenCreatingCompletableFutureWithSupplyAsync_thenFutureReturnsValue()
+    throws ExecutionException, InterruptedException {
+    final var future = CompletableFuture.supplyAsync(() -> "Hello");
+    assertEquals("Hello", future.get());
   }
 
   @Test
@@ -135,20 +88,18 @@ class MainTest {
     assertEquals("Hello Beautiful World", combined);
   }
 
+  @NullSource
   @ParameterizedTest
   @ValueSource(strings = "you")
-  @NullSource
   void whenFutureThrows_thenHandleMethodReceivesException(final String name)
     throws ExecutionException, InterruptedException {
     CompletableFuture<String> completableFuture = CompletableFuture
-      .supplyAsync(
-        () -> {
-          if (name == null) {
-            throw new RuntimeException("Computation error!");
-          }
-          return "Hello, " + name;
+      .supplyAsync(() -> {
+        if (name == null) {
+          throw new RuntimeException("Computation error!");
         }
-      )
+        return "Hello, " + name;
+      })
       .handle((s, t) -> s != null ? s : "Hello, Stranger!");
     if (name == null) {
       assertEquals("Hello, Stranger!", completableFuture.get());
@@ -158,10 +109,55 @@ class MainTest {
   }
 
   @Test
-  void whenAddingThenApplyAsyncToFuture_thenFunctionExecutesAfterComputationIsFinished()
-    throws ExecutionException, InterruptedException {
-    final var completableFuture = CompletableFuture.supplyAsync(() -> "Hello");
-    final var future = completableFuture.thenApplyAsync(s -> s + " World");
-    assertEquals("Hello World", future.get());
+  void whenPassingPreviousStage_thenFunctionExecutionWithThenCompose() throws InterruptedException, ExecutionException {
+    CompletableFuture<Integer> finalResult = main.compute().thenCompose(integer -> main.computeAnother(integer));
+    assertEquals(20, (int) finalResult.get());
+  }
+
+  @Test
+  void whenPassingTransformation_thenFunctionExecutionWithThenApply() throws InterruptedException, ExecutionException {
+    final var finalResult = main.compute().thenApply(s -> s + 1);
+    assertEquals(11, finalResult.get());
+  }
+
+  @Test
+  void whenRunningCompletableFutureAsynchronously_thenGetMethodWaitsForResult()
+    throws InterruptedException, ExecutionException {
+    final var completableFuture = main.calculateAsync();
+    final var result = completableFuture.get();
+    assertEquals("Hello", result);
+  }
+
+  @Test
+  void whenRunningCompletableFutureWithResult_thenGetMethodReturnsImmediately()
+    throws InterruptedException, ExecutionException {
+    final var completableFuture = CompletableFuture.completedFuture("Hello");
+    final var result = completableFuture.get();
+    assertEquals("Hello", result);
+  }
+
+  @Test
+  void whenUsingThenAcceptBoth_thenWaitForExecutionOfBothFutures() {
+    assertDoesNotThrow(() ->
+      CompletableFuture
+        .supplyAsync(() -> "Hello")
+        .thenAcceptBoth(CompletableFuture.supplyAsync(() -> " World"), (s1, s2) -> System.out.println(s1 + s2))
+    );
+  }
+
+  @Test
+  void whenUsingThenCombine_thenWaitForExecutionOfBothFutures() throws ExecutionException, InterruptedException {
+    final var completableFuture = CompletableFuture
+      .supplyAsync(() -> "Hello")
+      .thenCombine(CompletableFuture.supplyAsync(() -> " World"), (s1, s2) -> s1 + s2);
+    assertEquals("Hello World", completableFuture.get());
+  }
+
+  @Test
+  void whenUsingThenCompose_thenFuturesExecuteSequentially() throws ExecutionException, InterruptedException {
+    final var completableFuture = CompletableFuture
+      .supplyAsync(() -> "Hello")
+      .thenCompose(s -> CompletableFuture.supplyAsync(() -> s + " World"));
+    assertEquals("Hello World", completableFuture.get());
   }
 }
