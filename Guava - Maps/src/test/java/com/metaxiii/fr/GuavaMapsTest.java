@@ -79,7 +79,6 @@ class GuavaMapsTest {
   void whenGroupingListsUsingMultimap_thenGrouped() {
     final var names = Lists.newArrayList("John", "Adam", "Tom");
     final var func = new Function<String, Integer>() {
-
       public Integer apply(final String input) {
         return input.length();
       }

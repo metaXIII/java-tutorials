@@ -1,6 +1,10 @@
 package com.metaxiii.fr.conversion;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
@@ -12,10 +16,8 @@ import org.junit.jupiter.api.Test;
 class SerializationDeserializationTest {
 
   private SerializationDeserialization serializationDeserialization;
-  private static final String JSON =
-    "{ \"color\" : \"Black\", \"type\" : \"BMW\", \"year\" : \"2022\" }";
-  private static final String GOOD_JSON =
-    "{ \"color\" : \"Black\", \"type\" : \"BMW\"}";
+  private static final String JSON = "{ \"color\" : \"Black\", \"type\" : \"BMW\", \"year\" : \"2022\" }";
+  private static final String GOOD_JSON = "{ \"color\" : \"Black\", \"type\" : \"BMW\"}";
 
   @BeforeEach
   public void init() {
@@ -32,9 +34,7 @@ class SerializationDeserializationTest {
     assertThrows(
       UnrecognizedPropertyException.class,
       () -> {
-        final Car car = serializationDeserialization.processWithUnrecognizedPropertyException(
-          JSON
-        );
+        final Car car = serializationDeserialization.processWithUnrecognizedPropertyException(JSON);
         assertNull(car);
       }
     );
@@ -43,9 +43,7 @@ class SerializationDeserializationTest {
   @Test
   void itShouldNotThrowsUnrecognizedPropertyExceptionWhenObjectMapperIsNotConfigureForDeserialization() {
     assertDoesNotThrow(() -> {
-      final Car car = serializationDeserialization.processWithUnrecognizedPropertyException(
-        GOOD_JSON
-      );
+      final Car car = serializationDeserialization.processWithUnrecognizedPropertyException(GOOD_JSON);
       assertNotNull(car);
     });
   }
@@ -62,9 +60,7 @@ class SerializationDeserializationTest {
   @Test
   void itShouldRenderJsonNode() {
     assertDoesNotThrow(() -> {
-      final JsonNode jsonNodeRoot = serializationDeserialization.processJsonNode(
-        JSON
-      );
+      final JsonNode jsonNodeRoot = serializationDeserialization.processJsonNode(JSON);
       JsonNode jsonNodeYear = jsonNodeRoot.get("year");
       assertEquals("2022", jsonNodeYear.asText());
     });

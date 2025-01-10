@@ -10,9 +10,7 @@ import java.util.Date;
 
 public class CustomDateDeSerializer extends StdDeserializer<Date> {
 
-  private final SimpleDateFormat formatter = new SimpleDateFormat(
-    "dd-MM-yyyy hh:mm:ss"
-  );
+  private final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
   public CustomDateDeSerializer() {
     this(null);
@@ -23,10 +21,8 @@ public class CustomDateDeSerializer extends StdDeserializer<Date> {
   }
 
   @Override
-  public Date deserialize(
-    final JsonParser jsonParser,
-    final DeserializationContext deserializationContext
-  ) throws IOException {
+  public Date deserialize(final JsonParser jsonParser, final DeserializationContext deserializationContext)
+    throws IOException {
     String date = jsonParser.getText();
     try {
       return formatter.parse(date);

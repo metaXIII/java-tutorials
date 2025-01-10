@@ -1,7 +1,5 @@
 package com.metaxiii.fr.controller;
 
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
-import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -18,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metaxiii.fr.entity.Book;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,10 +34,8 @@ public class BookControllerTest {
   @Autowired
   private MockMvc mockMvc;
 
-  private static Book getBook(final MvcResult mvcResult)
-    throws JsonProcessingException, UnsupportedEncodingException {
-    return new ObjectMapper()
-      .readValue(mvcResult.getResponse().getContentAsString(), Book.class);
+  private static Book getBook(final MvcResult mvcResult) throws JsonProcessingException, UnsupportedEncodingException {
+    return new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Book.class);
   }
 
   public static String ObjectToJson(final Book obj) {
@@ -51,10 +48,7 @@ public class BookControllerTest {
 
   @Test
   void whenGetAllBooks_thenOK() throws Exception {
-    mockMvc
-      .perform(get(API_ROOT).with(csrf()))
-      .andDo(print())
-      .andExpect(status().isOk());
+    mockMvc.perform(get(API_ROOT).with(csrf())).andDo(print()).andExpect(status().isOk());
   }
 
   @Test
@@ -62,12 +56,7 @@ public class BookControllerTest {
     Book book = createRandomBook();
     book.setAuthor(null);
     mockMvc
-      .perform(
-        post(API_ROOT)
-          .with(csrf())
-          .content(ObjectToJson(book))
-          .contentType(MediaType.APPLICATION_JSON)
-      )
+      .perform(post(API_ROOT).with(csrf()).content(ObjectToJson(book)).contentType(MediaType.APPLICATION_JSON))
       .andDo(print())
       .andExpect(status().isBadRequest());
   }
@@ -82,10 +71,7 @@ public class BookControllerTest {
       .andExpect(status().isOk())
       .andReturn();
     List<Book> bookReturn = new ObjectMapper()
-      .readValue(
-        mvcResult.getResponse().getContentAsString(),
-        new TypeReference<>() {}
-      );
+      .readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<>() {});
     assertTrue(bookReturn.size() > 0);
   }
 
@@ -105,7 +91,7 @@ public class BookControllerTest {
   @Test
   void whenGetNotExistBookById_thenNotFound() throws Exception {
     mockMvc
-      .perform(get(API_ROOT + "/" + randomNumeric(4)).with(csrf()))
+      .perform(get(API_ROOT + "/" + RandomStringUtils.secure().nextNumeric(4)).with(csrf()))
       .andDo(print())
       .andExpect(status().isNotFound());
   }
@@ -114,12 +100,7 @@ public class BookControllerTest {
   void whenCreateNewBook_thenCreated() throws Exception {
     Book book = createRandomBook();
     mockMvc
-      .perform(
-        post(API_ROOT)
-          .with(csrf())
-          .content(ObjectToJson(book))
-          .contentType(MediaType.APPLICATION_JSON)
-      )
+      .perform(post(API_ROOT).with(csrf()).content(ObjectToJson(book)).contentType(MediaType.APPLICATION_JSON))
       .andDo(print())
       .andExpect(status().isCreated());
   }
@@ -132,10 +113,7 @@ public class BookControllerTest {
     book.setAuthor("newAuthor");
     mockMvc
       .perform(
-        put(API_ROOT + location)
-          .with(csrf())
-          .content(ObjectToJson(book))
-          .contentType(MediaType.APPLICATION_JSON)
+        put(API_ROOT + location).with(csrf()).content(ObjectToJson(book)).contentType(MediaType.APPLICATION_JSON)
       )
       .andDo(print())
       .andExpect(status().isOk());
@@ -152,29 +130,19 @@ public class BookControllerTest {
   void whenDeleteCreatedBook_thenOk() throws Exception {
     Book book = createRandomBook();
     String location = createBookAsUri(book);
-    mockMvc
-      .perform(delete(API_ROOT + location).with(csrf()))
-      .andDo(print())
-      .andExpect(status().isOk());
-    mockMvc
-      .perform(get(API_ROOT + location))
-      .andDo(print())
-      .andExpect(status().isNotFound());
+    mockMvc.perform(delete(API_ROOT + location).with(csrf())).andDo(print()).andExpect(status().isOk());
+    mockMvc.perform(get(API_ROOT + location)).andDo(print()).andExpect(status().isNotFound());
   }
 
   @Test
-  void itshouldThrowsBookMismatchExceptionWhenUpdateHasDifferentBookIdAndId()
-    throws Exception {
+  void itshouldThrowsBookMismatchExceptionWhenUpdateHasDifferentBookIdAndId() throws Exception {
     Book book = createRandomBook();
     String location = createBookAsUri(book);
-    book.setId(Long.valueOf(randomNumeric(6)));
+    book.setId(Long.valueOf(RandomStringUtils.secure().nextNumeric(6)));
     book.setAuthor("newAuthor");
     mockMvc
       .perform(
-        put(API_ROOT + location)
-          .with(csrf())
-          .content(ObjectToJson(book))
-          .contentType(MediaType.APPLICATION_JSON)
+        put(API_ROOT + location).with(csrf()).content(ObjectToJson(book)).contentType(MediaType.APPLICATION_JSON)
       )
       .andDo(print())
       .andExpect(status().isBadRequest());
@@ -182,19 +150,14 @@ public class BookControllerTest {
 
   private Book createRandomBook() {
     Book book = new Book();
-    book.setTitle(randomAlphabetic(10));
-    book.setAuthor(randomAlphabetic(15));
+    book.setTitle(RandomStringUtils.secure().nextNumeric(10));
+    book.setAuthor(RandomStringUtils.secure().nextNumeric(15));
     return book;
   }
 
   private String createBookAsUri(Book book) throws Exception {
     final MvcResult mvcResult = mockMvc
-      .perform(
-        post(API_ROOT)
-          .with(csrf())
-          .content(ObjectToJson(book))
-          .contentType(MediaType.APPLICATION_JSON)
-      )
+      .perform(post(API_ROOT).with(csrf()).content(ObjectToJson(book)).contentType(MediaType.APPLICATION_JSON))
       .andDo(print())
       .andExpect(status().isCreated())
       .andReturn();

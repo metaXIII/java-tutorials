@@ -31,16 +31,12 @@ class ItemControllerTest {
       .andDo(print())
       .andExpect(status().isOk())
       .andReturn();
-    final Item item = new ObjectMapper()
-      .readValue(mvcResult.getResponse().getContentAsString(), Item.class);
+    final Item item = new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Item.class);
     assertEquals(1, item.getId());
     assertEquals("item name", item.getItemName());
     assertEquals("owner", item.getOwnerName());
     final String string = new ObjectMapper().writeValueAsString(item);
-    assertEquals(
-      "{\"id\":1,\"itemName\":\"item name\",\"ownerName\":\"owner\"}",
-      string
-    );
+    assertEquals("{\"id\":1,\"itemName\":\"item name\",\"ownerName\":\"owner\"}", string);
   }
 
   @Test
@@ -50,14 +46,11 @@ class ItemControllerTest {
       .andDo(print())
       .andExpect(status().isOk())
       .andReturn();
-    final Item item = new ObjectMapper()
-      .readValue(mvcResult.getResponse().getContentAsString(), Item.class);
+    final Item item = new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Item.class);
     assertEquals(1, item.getId());
     assertEquals("item name", item.getItemName());
     Jackson2ObjectMapperBuilder mapperBuilder = new Jackson2ObjectMapperBuilder();
-    final ObjectMapper mapper = mapperBuilder
-      .build()
-      .setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    final ObjectMapper mapper = mapperBuilder.build().setSerializationInclusion(JsonInclude.Include.NON_NULL);
     final String string = mapper.writeValueAsString(item);
     assertEquals("{\"id\":1,\"itemName\":\"item name\"}", string);
   }

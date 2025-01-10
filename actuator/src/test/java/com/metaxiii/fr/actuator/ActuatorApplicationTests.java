@@ -20,20 +20,12 @@ class ActuatorApplicationTests {
 
   @Test
   void contextLoads() {
-    Assertions.assertDoesNotThrow(() ->
-      ActuatorApplication.main(new String[] {})
-    );
+    Assertions.assertDoesNotThrow(() -> ActuatorApplication.main(new String[] {}));
   }
 
   @Test
   void itShouldCallActuator() throws Exception {
-    mockMvc
-      .perform(MockMvcRequestBuilders.get("/actuator"))
-      .andDo(print())
-      .andExpect(status().isOk());
-    mockMvc
-      .perform(MockMvcRequestBuilders.get("/actuator/info"))
-      .andDo(print())
-      .andExpect(status().isOk());
+    mockMvc.perform(MockMvcRequestBuilders.get("/actuator")).andDo(print()).andExpect(status().isOk());
+    mockMvc.perform(MockMvcRequestBuilders.get("/actuator/info")).andDo(print()).andExpect(status().isOk());
   }
 }

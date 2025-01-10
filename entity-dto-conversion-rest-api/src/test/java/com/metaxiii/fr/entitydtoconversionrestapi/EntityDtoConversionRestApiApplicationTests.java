@@ -9,8 +9,6 @@ class EntityDtoConversionRestApiApplicationTests {
 
   @Test
   void contextLoads() {
-    Assertions.assertDoesNotThrow(() ->
-      EntityDtoConversionRestApiApplication.main(new String[] {})
-    );
+    Assertions.assertDoesNotThrow(() -> EntityDtoConversionRestApiApplication.main(new String[] {}));
   }
 }

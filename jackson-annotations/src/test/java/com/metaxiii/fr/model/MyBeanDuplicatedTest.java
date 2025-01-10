@@ -12,10 +12,7 @@ class MyBeanDuplicatedTest {
   @Test
   void whenDisablingAllAnnotations_thenAllDisabled() throws IOException {
     MyBean bean = new MyBean(1, null);
-    final JsonMapper mapper = JsonMapper
-      .builder()
-      .disable(MapperFeature.USE_ANNOTATIONS)
-      .build();
+    final JsonMapper mapper = JsonMapper.builder().disable(MapperFeature.USE_ANNOTATIONS).build();
     String result = mapper.writeValueAsString(bean);
     System.out.println(result);
     assertTrue(result.contains("1"));

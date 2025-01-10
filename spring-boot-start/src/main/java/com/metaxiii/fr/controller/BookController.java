@@ -33,9 +33,7 @@ public class BookController {
   }
 
   @GetMapping("/title/{book-title}")
-  public List<Book> findByTitle(
-    @PathVariable(name = "book-title") String title
-  ) {
+  public List<Book> findByTitle(@PathVariable(name = "book-title") String title) {
     return bookService.findByTitle(title);
   }
 

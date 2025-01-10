@@ -10,8 +10,6 @@ class SpringSecurityIntegrationTestApplicationTests {
 
   @Test
   void contextLoads() {
-    assertDoesNotThrow(() ->
-      SpringSecurityIntegrationTestApplication.main(new String[] {})
-    );
+    assertDoesNotThrow(() -> SpringSecurityIntegrationTestApplication.main(new String[] {}));
   }
 }

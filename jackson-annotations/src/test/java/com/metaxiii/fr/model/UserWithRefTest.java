@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 class UserWithRefTest {
 
   @Test
-  void whenSerializingUsingJacksonReferenceAnnotation_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJacksonReferenceAnnotation_thenCorrect() throws JsonProcessingException {
     UserWithRef user = new UserWithRef(1, "John");
     ItemWithRef item = new ItemWithRef(2, "book", user);
     user.addItem(item);

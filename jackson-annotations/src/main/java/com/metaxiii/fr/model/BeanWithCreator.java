@@ -13,10 +13,7 @@ public class BeanWithCreator {
   private String name;
 
   @JsonCreator
-  public BeanWithCreator(
-    @JsonProperty("custom_id") int id,
-    @JsonProperty("custom_name") String name
-  ) {
+  public BeanWithCreator(@JsonProperty("custom_id") int id, @JsonProperty("custom_name") String name) {
     this.id = id;
     this.name = name;
   }

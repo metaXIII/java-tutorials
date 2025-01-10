@@ -16,20 +16,16 @@ class SecuredControllerRestTemplateIntegrationTest {
   private TestRestTemplate template;
 
   @Test
-  void givenRequestOnPrivateService_shouldFailWith401() throws Exception {
-    ResponseEntity<String> result = template.getForEntity(
-      "/private/hello",
-      String.class
-    );
-    assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
-  }
-
-  @Test
-  void givenAuthRequestOnPrivateService_shouldSucceedWith200()
-    throws Exception {
+  void givenAuthRequestOnPrivateService_shouldSucceedWith200() {
     ResponseEntity<String> result = template
       .withBasicAuth("spring", "secret")
       .getForEntity("/private/hello", String.class);
     assertEquals(HttpStatus.OK, result.getStatusCode());
+  }
+
+  @Test
+  void givenRequestOnPrivateService_shouldFailWith401() {
+    ResponseEntity<String> result = template.getForEntity("/private/hello", String.class);
+    assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
   }
 }

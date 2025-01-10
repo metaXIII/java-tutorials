@@ -1,6 +1,7 @@
 package com.metaxiii.fr.conversion;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.metaxiii.fr.model.Car;
 import org.junit.jupiter.api.AfterEach;

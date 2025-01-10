@@ -24,19 +24,12 @@ class SecuredControllerSpringBootIntegrationTest {
 
   @BeforeEach
   public void setup() {
-    mvc =
-      MockMvcBuilders
-        .webAppContextSetup(context)
-        .apply(springSecurity())
-        .build();
+    mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
   }
 
   @WithMockUser("spring")
   @Test
-  void givenAuthRequestOnPrivateService_shouldSucceedWith200()
-    throws Exception {
-    mvc
-      .perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON))
-      .andExpect(status().isOk());
+  void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
+    mvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
   }
 }

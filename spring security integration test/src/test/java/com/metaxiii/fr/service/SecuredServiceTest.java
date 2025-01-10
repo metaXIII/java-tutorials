@@ -17,14 +17,11 @@ class SecuredServiceTest {
 
   @Test
   void givenUnauthenticated_whenCallService_thenThrowsException() {
-    assertThrows(
-      AuthenticationCredentialsNotFoundException.class,
-      () -> service.sayHelloSecured()
-    );
+    assertThrows(AuthenticationCredentialsNotFoundException.class, () -> service.sayHelloSecured());
   }
 
-  @WithMockUser(username = "spring")
   @Test
+  @WithMockUser(username = "springExample")
   void givenAuthenticated_whenCallServiceWithSecured_thenOk() {
     assertFalse(service.sayHelloSecured().isEmpty());
   }

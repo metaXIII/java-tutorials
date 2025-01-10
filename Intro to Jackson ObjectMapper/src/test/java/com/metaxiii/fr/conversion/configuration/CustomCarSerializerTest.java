@@ -1,6 +1,7 @@
 package com.metaxiii.fr.conversion.configuration;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,19 +15,12 @@ class CustomCarSerializerTest {
 
   private static final String JSON = "{\"car_brand\":\"renault\"}";
   private ObjectMapper mapper = new ObjectMapper();
-  private SimpleModule module = new SimpleModule(
-    "CustomCarSerializer",
-    new Version(1, 0, 0, null, null, null)
-  );
+  private SimpleModule module = new SimpleModule("CustomCarSerializer", new Version(1, 0, 0, null, null, null));
 
   @BeforeEach
   public void init() {
     this.mapper = new ObjectMapper();
-    this.module =
-      new SimpleModule(
-        "CustomCarSerializer",
-        new Version(1, 0, 0, null, null, null)
-      );
+    this.module = new SimpleModule("CustomCarSerializer", new Version(1, 0, 0, null, null, null));
   }
 
   @AfterEach

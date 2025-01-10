@@ -31,11 +31,7 @@ class PostControllerTest {
   @Test
   void getPosts() throws Exception {
     final var url = "/0/1/asc/userName";
-    final var mvcResult = mockMvc
-      .perform(get(url))
-      .andDo(print())
-      .andExpect(status().isOk())
-      .andReturn();
+    final var mvcResult = mockMvc.perform(get(url)).andDo(print()).andExpect(status().isOk()).andReturn();
     ObjectMapper objectMapper = new ObjectMapper();
     Assertions.assertDoesNotThrow(() -> {
       final List<PostDto> result = objectMapper.readValue(

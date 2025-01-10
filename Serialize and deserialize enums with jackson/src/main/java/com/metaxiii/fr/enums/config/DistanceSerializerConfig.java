@@ -6,19 +6,15 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.metaxiii.fr.enums.DistanceSerializer;
 import java.io.IOException;
 
-public class DistanceSerializerConfig
-  extends StdSerializer<DistanceSerializer> {
+public class DistanceSerializerConfig extends StdSerializer<DistanceSerializer> {
 
   public DistanceSerializerConfig() {
     super(DistanceSerializer.class);
   }
 
   @Override
-  public void serialize(
-    final DistanceSerializer distance,
-    final JsonGenerator gen,
-    final SerializerProvider provider
-  ) throws IOException {
+  public void serialize(final DistanceSerializer distance, final JsonGenerator gen, final SerializerProvider provider)
+    throws IOException {
     gen.writeStartObject();
     gen.writeFieldName("name");
     gen.writeString((distance.name()));

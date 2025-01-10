@@ -29,9 +29,6 @@ class FooControllerTest {
 
   @Test
   void findFooThrowsAccessException() throws Exception {
-    mockMvc
-      .perform(get("/other"))
-      .andDo(print())
-      .andExpect(status().isForbidden());
+    mockMvc.perform(get("/other")).andDo(print()).andExpect(status().isForbidden());
   }
 }

@@ -8,8 +8,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
-    <groupId>com.metaxiii.fr</groupId>
     <artifactId>spring-boot-start</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>spring-boot-start</name>

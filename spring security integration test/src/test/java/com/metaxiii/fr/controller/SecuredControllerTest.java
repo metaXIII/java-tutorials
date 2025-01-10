@@ -19,24 +19,17 @@ class SecuredControllerTest {
   @Test
   @WithMockUser(value = "none")
   void givenAuthRequestOnPublicService_shouldSucceedWith200() throws Exception {
-    mockMvc
-      .perform(get("/public/hello").contentType(MediaType.APPLICATION_JSON))
-      .andExpect(status().isOk());
+    mockMvc.perform(get("/public/hello").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
   }
 
   @Test
   void givenRequestOnPrivateService_shouldFailWith401() throws Exception {
-    mockMvc
-      .perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON))
-      .andExpect(status().isUnauthorized());
+    mockMvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isUnauthorized());
   }
 
   @WithMockUser(value = "spring")
   @Test
-  void givenAuthRequestOnPrivateService_shouldSucceedWith200()
-    throws Exception {
-    mockMvc
-      .perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON))
-      .andExpect(status().isOk());
+  void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
+    mockMvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
   }
 }

@@ -34,10 +34,7 @@ public class PostController {
 
   private PostDto toDTO(final Post post) {
     PostDto postDto = modelMapper.map(post, PostDto.class);
-    postDto.setSubmissionDate(
-      post.getSubmissionDate(),
-      userService.getCurrentUser().getPreference().getTimezone()
-    );
+    postDto.setSubmissionDate(post.getSubmissionDate(), userService.getCurrentUser().getPreference().getTimezone());
     return postDto;
   }
 }

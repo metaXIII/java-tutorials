@@ -28,9 +28,7 @@ class JavaListFromJSONArrayStringTest {
   @Test
   void processAsList() {
     assertDoesNotThrow(() -> {
-      final List<Car> cars = javaListFromJSONArrayString.processAsList(
-        JSON_CAR_ARRAY
-      );
+      final List<Car> cars = javaListFromJSONArrayString.processAsList(JSON_CAR_ARRAY);
       assertEquals("Black", cars.get(0).getColor());
       assertEquals("Red", cars.get(1).getColor());
     });
@@ -39,9 +37,7 @@ class JavaListFromJSONArrayStringTest {
   @Test
   void processAsArray() {
     assertDoesNotThrow(() -> {
-      final Car[] cars = javaListFromJSONArrayString.processAsArray(
-        JSON_CAR_ARRAY
-      );
+      final Car[] cars = javaListFromJSONArrayString.processAsArray(JSON_CAR_ARRAY);
       assertEquals("Black", cars[0].getColor());
       assertEquals("Red", cars[1].getColor());
     });

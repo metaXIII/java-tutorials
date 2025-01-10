@@ -1,6 +1,7 @@
 package com.metaxiii.fr.entitydtoconversionrestapi.service.impl;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.metaxiii.fr.entitydtoconversionrestapi.model.Post;
 import java.util.List;
@@ -21,12 +22,7 @@ class PostServiceImplTest {
   @Test
   void getPostsList() {
     assertDoesNotThrow(() -> {
-      final List<Post> postsList = postService.getPostsList(
-        0,
-        1,
-        "asc",
-        "userName"
-      );
+      final List<Post> postsList = postService.getPostsList(0, 1, "asc", "userName");
       assertEquals(1, postsList.size());
     });
   }

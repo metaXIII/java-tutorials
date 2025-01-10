@@ -20,7 +20,6 @@ class HumanTest {
     Collections.sort(
       humans,
       new Comparator<>() {
-
         @Override
         public int compare(Human h1, Human h2) {
           return h1.getName().compareTo(h2.getName());
@@ -71,15 +70,13 @@ class HumanTest {
     List<Human> humans = new ArrayList<>(
       List.of(new Human("Sarah", 10), new Human("Sarah", 10), new Human("Zack", 12))
     );
-    humans.sort(
-      (lhs, rhs) -> {
-        if (lhs.getName().equals(rhs.getName())) {
-          return Integer.compare(lhs.getAge(), rhs.getAge());
-        } else {
-          return lhs.getName().compareTo(rhs.getName());
-        }
+    humans.sort((lhs, rhs) -> {
+      if (lhs.getName().equals(rhs.getName())) {
+        return Integer.compare(lhs.getAge(), rhs.getAge());
+      } else {
+        return lhs.getName().compareTo(rhs.getName());
       }
-    );
+    });
     assertEquals(humans.get(0), new Human("Sarah", 10));
   }
 
@@ -161,16 +158,14 @@ class HumanTest {
     humans.add(null);
     humans.add(new Human("Jack", 12));
     humans.add(null);
-    humans.sort(
-      (h1, h2) -> {
-        if (h1 == null) {
-          return h2 == null ? 0 : 1;
-        } else if (h2 == null) {
-          return -1;
-        }
-        return h1.getName().compareTo(h2.getName());
+    humans.sort((h1, h2) -> {
+      if (h1 == null) {
+        return h2 == null ? 0 : 1;
+      } else if (h2 == null) {
+        return -1;
       }
-    );
+      return h1.getName().compareTo(h2.getName());
+    });
     assertNotNull(humans.get(0));
     assertNull(humans.get(1));
     assertNull(humans.get(2));

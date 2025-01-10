@@ -24,10 +24,7 @@ public enum DistanceAsJSONCreator {
     @JsonProperty("meters") double meters
   ) {
     for (DistanceAsJSONCreator distance : DistanceAsJSONCreator.values()) {
-      if (
-        distance.unit.equals(unit) &&
-        Double.compare(distance.meters, meters) == 0
-      ) {
+      if (distance.unit.equals(unit) && Double.compare(distance.meters, meters) == 0) {
         return distance;
       }
     }
