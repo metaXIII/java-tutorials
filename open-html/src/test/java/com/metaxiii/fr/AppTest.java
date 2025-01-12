@@ -3,7 +3,6 @@ package com.metaxiii.fr;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,13 +21,14 @@ class AppTest {
     absolutePath = file.getAbsolutePath();
   }
 
-  //Test work but not passing on github actions
-  //  @Test
-  //  void givenHtmlFile_whenUsingDesktopClass_thenOpenFileInDefaultBrowser() throws IOException {
-  //    final var htmlFile = new File(absolutePath);
-  //    Desktop.getDesktop().browse(htmlFile.toURI());
-  //    assertTrue(true);
-  //  }
+  // Test work but not passing on github actions
+  // @Test
+  // void givenHtmlFile_whenUsingDesktopClass_thenOpenFileInDefaultBrowser()
+  // throws IOException {
+  // final var htmlFile = new File(absolutePath);
+  // Desktop.getDesktop().browse(htmlFile.toURI());
+  // assertTrue(true);
+  // }
 
   @Test
   void givenHtmlFile_whenUsingProcessBuilder_thenOpenFileInDefaultBrowser() throws IOException {

@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 class UserWithRootTest {
 
   @Test
-  void whenSerializingUsingJsonRootName_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJsonRootName_thenCorrect() throws JsonProcessingException {
     UserWithRoot user = new UserWithRoot(1, "John");
     ObjectMapper mapper = new ObjectMapper();
     mapper.enable(SerializationFeature.WRAP_ROOT_VALUE);

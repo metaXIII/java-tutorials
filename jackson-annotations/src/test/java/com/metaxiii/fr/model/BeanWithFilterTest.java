@@ -13,14 +13,10 @@ import org.junit.jupiter.api.Test;
 class BeanWithFilterTest {
 
   @Test
-  void whenSerializingUsingJsonFilter_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJsonFilter_thenCorrect() throws JsonProcessingException {
     BeanWithFilter bean = new BeanWithFilter(1, "My bean");
     FilterProvider filters = new SimpleFilterProvider()
-      .addFilter(
-        "myFilter",
-        SimpleBeanPropertyFilter.filterOutAllExcept("name")
-      );
+      .addFilter("myFilter", SimpleBeanPropertyFilter.filterOutAllExcept("name"));
     String result = new ObjectMapper().writer(filters).writeValueAsString(bean);
     System.out.println(result);
     assertTrue(result.contains("My bean"));

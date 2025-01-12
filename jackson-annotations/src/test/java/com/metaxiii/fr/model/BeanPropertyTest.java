@@ -1,6 +1,7 @@
 package com.metaxiii.fr.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -15,9 +16,7 @@ class BeanPropertyTest {
     System.out.println(result);
     assertTrue(result.contains("My bean"));
     assertTrue(result.contains("1"));
-    MyBean resultBean = new ObjectMapper()
-      .readerFor(MyBean.class)
-      .readValue(result);
+    MyBean resultBean = new ObjectMapper().readerFor(MyBean.class).readValue(result);
     assertEquals("My bean", resultBean.getName());
   }
 }

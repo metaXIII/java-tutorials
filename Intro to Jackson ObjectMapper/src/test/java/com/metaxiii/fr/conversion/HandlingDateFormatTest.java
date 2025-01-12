@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 class HandlingDateFormatTest {
 
   private HandlingDateFormat handlingDateFormat;
-  private static final String JSON =
-    "{\"car\":{\"color\":\"Black\",\"type\":\"BMW\"},\"datePurcharsed\":\"";
+  private static final String JSON = "{\"car\":{\"color\":\"Black\",\"type\":\"BMW\"},\"datePurcharsed\":\"";
 
   @BeforeEach
   public void init() {

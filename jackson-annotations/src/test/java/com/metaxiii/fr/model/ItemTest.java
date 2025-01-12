@@ -10,12 +10,9 @@ import org.junit.jupiter.api.Test;
 class ItemTest {
 
   @Test
-  void whenSerializingUsingJsonView_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJsonView_thenCorrect() throws JsonProcessingException {
     Item item = new Item(2, "book", "John");
-    String result = new ObjectMapper()
-      .writerWithView(Views.Public.class)
-      .writeValueAsString(item);
+    String result = new ObjectMapper().writerWithView(Views.Public.class).writeValueAsString(item);
     System.out.println(result);
     assertTrue(result.contains("book"));
     assertTrue(result.contains("2"));
@@ -23,8 +20,7 @@ class ItemTest {
   }
 
   @Test
-  void whenSerializingUsingMixInAnnotation_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingMixInAnnotation_thenCorrect() throws JsonProcessingException {
     DuplicateItem item = new DuplicateItem(1, "book", null);
     String result = new ObjectMapper().writeValueAsString(item);
     System.out.println(result);

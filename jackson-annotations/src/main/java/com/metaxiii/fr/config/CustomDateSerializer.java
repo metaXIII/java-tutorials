@@ -9,9 +9,7 @@ import java.util.Date;
 
 public class CustomDateSerializer extends StdSerializer<Date> {
 
-  private final SimpleDateFormat formatter = new SimpleDateFormat(
-    "dd-MM-yyyy hh:mm:ss"
-  );
+  private final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
   public CustomDateSerializer() {
     this(null);

@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 class BeanWithIgnoreTest {
 
   @Test
-  void whenSerializingUsingJsonIgnoreProperties_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJsonIgnoreProperties_thenCorrect() throws JsonProcessingException {
     BeanWithIgnore bean = new BeanWithIgnore(1, "My bean", 1);
     String result = new ObjectMapper().writeValueAsString(bean);
     assertTrue(result.contains("My bean"));
@@ -19,8 +18,7 @@ class BeanWithIgnoreTest {
   }
 
   @Test
-  void whenSerializingUsingJsonIgnore_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJsonIgnore_thenCorrect() throws JsonProcessingException {
     BeanWithIgnore bean = new BeanWithIgnore(1, "My bean", 1);
     String result = new ObjectMapper().writeValueAsString(bean);
     System.out.println(result);

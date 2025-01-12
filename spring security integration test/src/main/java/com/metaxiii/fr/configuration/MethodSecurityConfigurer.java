@@ -1,8 +1,8 @@
 package com.metaxiii.fr.configuration;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity(securedEnabled = true)
 public class MethodSecurityConfigurer extends WebSecurityConfigurer {}

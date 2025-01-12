@@ -27,8 +27,7 @@ public class FooController {
   }
 
   @GetMapping("/other")
-  ResponseEntity<Foo> findFooThrowsAccessException()
-    throws AccessDeniedException {
+  ResponseEntity<Foo> findFooThrowsAccessException() throws AccessDeniedException {
     throw new AccessDeniedException("Not allowed here");
   }
 

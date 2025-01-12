@@ -1,6 +1,7 @@
 package com.metaxiii.fr.conversion;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
@@ -10,8 +11,7 @@ import org.junit.jupiter.api.Test;
 class JavaMapFromJSONStringTest {
 
   private JavaMapFromJSONString javaMapFromJSONString;
-  private static final String JSON =
-    "{\"color\": \"Black\", \"type\": \"BMW\"}";
+  private static final String JSON = "{\"color\": \"Black\", \"type\": \"BMW\"}";
 
   @BeforeEach
   public void init() {

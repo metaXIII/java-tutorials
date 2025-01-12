@@ -13,22 +13,14 @@ import org.junit.jupiter.api.Test;
 
 class CustomCarDeserializerTest {
 
-  private static final String JSON =
-    "{ \"color\" : \"Black\", \"type\" : \"BMW\"}";
+  private static final String JSON = "{ \"color\" : \"Black\", \"type\" : \"BMW\"}";
   private ObjectMapper mapper = new ObjectMapper();
-  private SimpleModule module = new SimpleModule(
-    "CustomCarDeserializer",
-    new Version(1, 0, 0, null, null, null)
-  );
+  private SimpleModule module = new SimpleModule("CustomCarDeserializer", new Version(1, 0, 0, null, null, null));
 
   @BeforeEach
   public void init() {
     this.mapper = new ObjectMapper();
-    this.module =
-      new SimpleModule(
-        "CustomCarDeserializer",
-        new Version(1, 0, 0, null, null, null)
-      );
+    this.module = new SimpleModule("CustomCarDeserializer", new Version(1, 0, 0, null, null, null));
   }
 
   @AfterEach

@@ -14,10 +14,7 @@ public class Zoo {
 
   @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
   @JsonSubTypes(
-    {
-      @JsonSubTypes.Type(value = Dog.class, name = "dog"),
-      @JsonSubTypes.Type(value = Cat.class, name = "cat"),
-    }
+    { @JsonSubTypes.Type(value = Dog.class, name = "dog"), @JsonSubTypes.Type(value = Cat.class, name = "cat") }
   )
   @AllArgsConstructor
   @NoArgsConstructor

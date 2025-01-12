@@ -1,6 +1,6 @@
 package com.metaxiii.fr.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
 class EventWithFormatTest {
 
   @Test
-  void whenSerializingUsingJsonFormat_thenCorrect()
-    throws JsonProcessingException, ParseException {
+  void whenSerializingUsingJsonFormat_thenCorrect() throws JsonProcessingException, ParseException {
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     df.setTimeZone(TimeZone.getTimeZone("UTC"));
     String toParse = "20-12-2014 02:30:00";

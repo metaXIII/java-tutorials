@@ -10,8 +10,7 @@ class TypeEnumWithValueTest {
 
   @Test
   void whenSerializingUsingJsonValue_thenCorrect() throws IOException {
-    String enumAsString = new ObjectMapper()
-      .writeValueAsString(TypeEnumWithValue.TYPE1);
+    String enumAsString = new ObjectMapper().writeValueAsString(TypeEnumWithValue.TYPE1);
     assertEquals("\"Type A\"", enumAsString);
   }
 }

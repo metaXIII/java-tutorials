@@ -11,9 +11,7 @@ class BeanWithCreatorTest {
   @Test
   void whenDeserializingUsingJsonCreator_thenCorrect() throws IOException {
     String json = "{\"custom_id\":1,\"custom_name\":\"My bean\"}";
-    BeanWithCreator bean = new ObjectMapper()
-      .readerFor(BeanWithCreator.class)
-      .readValue(json);
+    BeanWithCreator bean = new ObjectMapper().readerFor(BeanWithCreator.class).readValue(json);
     assertEquals("My bean", bean.getName());
   }
 }

@@ -23,9 +23,7 @@ public class PostDto {
   private UserDto user;
 
   public void setSubmissionDate(Date date, String timezone) {
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
-      "yyyy-MM-dd HH:mm"
-    );
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     simpleDateFormat.setTimeZone(TimeZone.getTimeZone(timezone));
     this.date = simpleDateFormat.format(date);
   }

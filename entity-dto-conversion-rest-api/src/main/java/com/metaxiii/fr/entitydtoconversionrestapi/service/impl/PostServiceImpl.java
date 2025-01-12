@@ -19,22 +19,9 @@ public class PostServiceImpl implements PostService {
   private final UserService userService;
 
   @Override
-  public List<Post> getPostsList(
-    final int page,
-    final int size,
-    final String sortDir,
-    final String sort
-  ) {
-    PageRequest pageReq = PageRequest.of(
-      page,
-      size,
-      Sort.Direction.fromString(sortDir),
-      sort
-    );
-    Page<Post> posts = postRepository.findByUser(
-      userService.getCurrentUser(),
-      pageReq
-    );
+  public List<Post> getPostsList(final int page, final int size, final String sortDir, final String sort) {
+    PageRequest pageReq = PageRequest.of(page, size, Sort.Direction.fromString(sortDir), sort);
+    Page<Post> posts = postRepository.findByUser(userService.getCurrentUser(), pageReq);
     return posts.getContent();
   }
 }

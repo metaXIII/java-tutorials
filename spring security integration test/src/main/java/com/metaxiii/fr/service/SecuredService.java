@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SecuredService {
 
-  @PreAuthorize("authenticated")
+  @PreAuthorize(value = "hasRole('ROLE_USER')")
   public String sayHelloSecured() {
     return "Hello user.";
   }

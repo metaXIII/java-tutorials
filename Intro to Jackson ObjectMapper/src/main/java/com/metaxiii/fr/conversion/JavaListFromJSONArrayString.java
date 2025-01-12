@@ -11,19 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JavaListFromJSONArrayString {
 
-  public List<Car> processAsList(final String json)
-    throws JsonProcessingException {
+  public List<Car> processAsList(final String json) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
     return objectMapper.readValue(json, new TypeReference<>() {});
   }
 
-  public Car[] processAsArray(final String json)
-    throws JsonProcessingException {
+  public Car[] processAsArray(final String json) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.configure(
-      DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY,
-      true
-    );
+    objectMapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
     return objectMapper.readValue(json, Car[].class);
   }
 }

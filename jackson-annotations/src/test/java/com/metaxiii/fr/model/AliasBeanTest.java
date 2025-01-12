@@ -11,9 +11,7 @@ class AliasBeanTest {
   @Test
   void whenDeserializingUsingJsonAlias_thenCorrect() throws IOException {
     String json = "{\"fName\": \"John\", \"lastName\": \"Green\"}";
-    AliasBean aliasBean = new ObjectMapper()
-      .readerFor(AliasBean.class)
-      .readValue(json);
+    AliasBean aliasBean = new ObjectMapper().readerFor(AliasBean.class).readValue(json);
     assertEquals("John", aliasBean.getFirstName());
   }
 }

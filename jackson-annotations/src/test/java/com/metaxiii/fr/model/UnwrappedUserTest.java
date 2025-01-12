@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 class UnwrappedUserTest {
 
   @Test
-  void whenSerializingUsingJsonUnwrapped_thenCorrect()
-    throws JsonProcessingException {
+  void whenSerializingUsingJsonUnwrapped_thenCorrect() throws JsonProcessingException {
     UnwrappedUser.Name name = new UnwrappedUser.Name("John", "Doe");
     UnwrappedUser user = new UnwrappedUser(1, name);
     String result = new ObjectMapper().writeValueAsString(user);

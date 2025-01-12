@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Test;
 class EventWithSerializerTest {
 
   @Test
-  void whenSerializingUsingJsonSerialize_thenCorrect()
-    throws JsonProcessingException, ParseException {
+  void whenSerializingUsingJsonSerialize_thenCorrect() throws JsonProcessingException, ParseException {
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     String toParse = "20-12-2014 02:30:00";
     Date date = df.parse(toParse);
@@ -29,9 +28,7 @@ class EventWithSerializerTest {
   void whenDeserializingUsingJsonDeserialize_thenCorrect() throws IOException {
     String json = "{\"name\":\"party\",\"eventDate\":\"20-12-2014 02:30:00\"}";
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
-    EventWithSerializer event = new ObjectMapper()
-      .readerFor(EventWithSerializer.class)
-      .readValue(json);
+    EventWithSerializer event = new ObjectMapper().readerFor(EventWithSerializer.class).readValue(json);
     assertEquals("20-12-2014 02:30:00", df.format(event.eventDate));
   }
 }

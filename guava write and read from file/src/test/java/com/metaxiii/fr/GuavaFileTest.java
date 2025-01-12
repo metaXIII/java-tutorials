@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("deprecation")
 class GuavaFileTest {
+
   private File file;
 
   @BeforeEach

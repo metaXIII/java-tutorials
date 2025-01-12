@@ -9,8 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JavaMapFromJSONString {
 
-  public Map<String, Object> process(final String json)
-    throws JsonProcessingException {
+  public Map<String, Object> process(final String json) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
     return objectMapper.readValue(json, new TypeReference<>() {});
   }

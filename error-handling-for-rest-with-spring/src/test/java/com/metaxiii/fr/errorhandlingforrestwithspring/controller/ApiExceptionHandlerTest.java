@@ -1,6 +1,7 @@
 package com.metaxiii.fr.errorhandlingforrestwithspring.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.connector.Request;
@@ -32,7 +33,7 @@ class ApiExceptionHandlerTest {
         new Exception("custom exception"),
         getWebRequest()
       );
-      assertEquals(403, custom_exception.getStatusCodeValue());
+      assertEquals(403, custom_exception.getStatusCode().value());
       assertEquals("Access denied message here", custom_exception.getBody());
     });
   }

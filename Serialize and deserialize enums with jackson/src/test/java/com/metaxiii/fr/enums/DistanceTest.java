@@ -21,71 +21,48 @@ class DistanceTest {
   }
 
   @Test
-  void itShouldGiveJSONEnumRepresentationWhenDistanceAsJSONObject()
-    throws JsonProcessingException {
+  void itShouldGiveJSONEnumRepresentationWhenDistanceAsJSONObject() throws JsonProcessingException {
     final ObjectMapper objectMapper = new ObjectMapper();
-    final String string = objectMapper.writeValueAsString(
-      DistanceAsJSONObject.MILE
-    );
+    final String string = objectMapper.writeValueAsString(DistanceAsJSONObject.MILE);
     assertEquals("{\"unit\":\"miles\",\"meters\":1609.34}", string);
   }
 
   @Test
-  void itShouldGiveJSONEnumRepresentationWhenDistanceAsJSONValue()
-    throws JsonProcessingException {
+  void itShouldGiveJSONEnumRepresentationWhenDistanceAsJSONValue() throws JsonProcessingException {
     final ObjectMapper objectMapper = new ObjectMapper();
-    final String string = objectMapper.writeValueAsString(
-      DistanceAsJsonValue.MILE
-    );
+    final String string = objectMapper.writeValueAsString(DistanceAsJsonValue.MILE);
     assertEquals("1609.34", string);
   }
 
   @Test
-  void itShouldGiveJSONEnumRepresentationWhenDistanceAsDistanceSerializer()
-    throws JsonProcessingException {
+  void itShouldGiveJSONEnumRepresentationWhenDistanceAsDistanceSerializer() throws JsonProcessingException {
     final ObjectMapper objectMapper = new ObjectMapper();
-    final String string = objectMapper.writeValueAsString(
-      DistanceSerializer.MILE
-    );
-    assertEquals(
-      "{\"name\":\"MILE\",\"unit\":\"miles\",\"meters\":1609.34}",
-      string
-    );
+    final String string = objectMapper.writeValueAsString(DistanceSerializer.MILE);
+    assertEquals("{\"name\":\"MILE\",\"unit\":\"miles\",\"meters\":1609.34}", string);
   }
 
   @Test
-  void itShouldDeserializeJsonToEnumWithDefaultBehavior()
-    throws JsonProcessingException {
-    City city = new ObjectMapper()
-      .readValue("{\"distance\":\"KILOMETER\"}", City.class);
+  void itShouldDeserializeJsonToEnumWithDefaultBehavior() throws JsonProcessingException {
+    City city = new ObjectMapper().readValue("{\"distance\":\"KILOMETER\"}", City.class);
     assertEquals(Distance.KILOMETER, city.getDistance());
   }
 
   @Test
-  void itShouldDeserializeJsonToEnumUsingJsonValue()
-    throws JsonProcessingException {
+  void itShouldDeserializeJsonToEnumUsingJsonValue() throws JsonProcessingException {
     CityWithDistanceAsJsonValue city = new ObjectMapper()
-      .readValue(
-        "{\"distance\":\"0.0254\"}",
-        CityWithDistanceAsJsonValue.class
-      );
+      .readValue("{\"distance\":\"0.0254\"}", CityWithDistanceAsJsonValue.class);
     assertEquals(DistanceAsJsonValue.INCH, city.getDistance());
   }
 
   @Test
-  void itShouldDeserializeJsonToEnumUsingJsonproperties()
-    throws JsonProcessingException {
+  void itShouldDeserializeJsonToEnumUsingJsonproperties() throws JsonProcessingException {
     CityWithDistanceAsJsonProperty city = new ObjectMapper()
-      .readValue(
-        "{\"distance\": \"distance-in-km\"}",
-        CityWithDistanceAsJsonProperty.class
-      );
+      .readValue("{\"distance\": \"distance-in-km\"}", CityWithDistanceAsJsonProperty.class);
     assertEquals(DistanceAsJSONProperty.KILOMETER, city.getDistance());
   }
 
   @Test
-  void itShouldDeserializeJsonToEnumUsingJsonCreator()
-    throws JsonProcessingException {
+  void itShouldDeserializeJsonToEnumUsingJsonCreator() throws JsonProcessingException {
     CityWithDistanceAsJsonCreator city = new ObjectMapper()
       .readValue(
         """
@@ -101,8 +78,7 @@ class DistanceTest {
   }
 
   @Test
-  void itShouldDeserializeJsonToEnumUsingCustomDeserializor()
-    throws JsonProcessingException {
+  void itShouldDeserializeJsonToEnumUsingCustomDeserializor() throws JsonProcessingException {
     CityWithDistanceAsJsonCustomDeserializor city = new ObjectMapper()
       .readValue(
         """
