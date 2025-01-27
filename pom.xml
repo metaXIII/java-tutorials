@@ -78,6 +78,8 @@
         <module>convert-joda-time-datetime-sql-timestamp</module>
         <module>array-custom-tostring</module>
         <module>FloatvsDouble</module>
+        <module>null-array-empty-list-convert</module>
+        <module>camel-snake-case-conversion</module>
     </modules>
 
     <properties>
