@@ -13,7 +13,7 @@
     <description>avoid-no-multipart-boundary-was-found</description>
     <properties>
         <java.version>17</java.version>
-        <com.squareup.okhttp3.version>5.1.0</com.squareup.okhttp3.version>
+        <com.squareup.okhttp3.version>5.2.1</com.squareup.okhttp3.version>
     </properties>
     <dependencies>
         <dependency>
