@@ -80,6 +80,7 @@
         <module>FloatvsDouble</module>
         <module>null-array-empty-list-convert</module>
         <module>camel-snake-case-conversion</module>
+        <module>jpa-query-localdatetime-with-localdate</module>
     </modules>
 
     <properties>
