@@ -5,24 +5,24 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metaxiii.fr.entitydtoconversionrestapi.config.Config;
 import com.metaxiii.fr.entitydtoconversionrestapi.dto.PostDto;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.json.JsonMapper;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Import(Config.class)
-@Sql(scripts = "classpath:/init-db/post.sql")
 @AutoConfigureMockMvc
+@Sql(scripts = "classpath:/init-db/post.sql")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PostControllerTest {
 
   @Autowired
@@ -32,7 +32,7 @@ class PostControllerTest {
   void getPosts() throws Exception {
     final var url = "/0/1/asc/userName";
     final var mvcResult = mockMvc.perform(get(url)).andDo(print()).andExpect(status().isOk()).andReturn();
-    ObjectMapper objectMapper = new ObjectMapper();
+    final var objectMapper = new JsonMapper();
     Assertions.assertDoesNotThrow(() -> {
       final List<PostDto> result = objectMapper.readValue(
         mvcResult.getResponse().getContentAsString(),

@@ -15,12 +15,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfigurer {
 
   @Bean
-  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http
+  public SecurityFilterChain filterChain(final HttpSecurity http) {
+    return http
       .authorizeHttpRequests(cust -> cust.requestMatchers("/private/**").hasRole("USER"))
       .authorizeHttpRequests(cust -> cust.requestMatchers("/public/**").permitAll())
-      .httpBasic(Customizer.withDefaults());
-    return http.build();
+      .authorizeHttpRequests(cust -> cust.anyRequest().authenticated())
+      .httpBasic(Customizer.withDefaults())
+      .build();
   }
 
   @Bean

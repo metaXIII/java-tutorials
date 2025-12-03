@@ -16,11 +16,6 @@ class ApiExceptionHandlerTest {
 
   private ApiExceptionHandler apiExceptionHandler;
 
-  @BeforeEach
-  public void init() {
-    this.apiExceptionHandler = new ApiExceptionHandler();
-  }
-
   @AfterEach
   public void endEach() {
     this.apiExceptionHandler = null;
@@ -40,8 +35,12 @@ class ApiExceptionHandlerTest {
 
   private WebRequest getWebRequest() {
     final Connector connector = new Connector();
-    final Request request = new Request(connector);
-    request.setCoyoteRequest(new org.apache.coyote.Request());
+    final Request request = new Request(connector, new org.apache.coyote.Request());
     return new ServletWebRequest(request);
+  }
+
+  @BeforeEach
+  void init() {
+    this.apiExceptionHandler = new ApiExceptionHandler();
   }
 }
