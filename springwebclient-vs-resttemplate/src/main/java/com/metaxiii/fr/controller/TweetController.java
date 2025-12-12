@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.boot.web.server.autoconfigure.ServerProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -56,8 +56,7 @@ public class TweetController {
   @GetMapping(value = "/tweets-non-blocking", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public Flux<Tweet> getTweetsNonBlocking() {
     log.info("Starting NON-BLOCKING Controller!");
-    final Flux<Tweet> tweetFlux = WebClient
-      .create()
+    final Flux<Tweet> tweetFlux = WebClient.create()
       .get()
       .uri(URI.create("http://localhost:" + serverProperties.getPort() + "/slow-service-tweets"))
       .retrieve()
