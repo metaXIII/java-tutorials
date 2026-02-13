@@ -3,7 +3,7 @@ package com.metaxiii.fr;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.concurrent.Callable;
-import java.util.function.BiFunction;
+import java.util.function.IntBinaryOperator;
 import org.junit.jupiter.api.Test;
 
 class PassingMethodParameterWithInterfaceTest {
@@ -26,8 +26,11 @@ class PassingMethodParameterWithInterfaceTest {
     assertEquals(8, actualResult);
   }
 
-  int executeBiFunction(final BiFunction<Integer, Integer, Integer> function, final int a, final int b) {
-    return function.apply(a, b);
+  int executeBiFunction(
+      final IntBinaryOperator function,
+      final int a,
+      final int b) {
+    return function.applyAsInt(a, b);
   }
 
   @Test

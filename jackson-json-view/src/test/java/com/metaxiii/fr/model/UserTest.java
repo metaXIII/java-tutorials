@@ -6,19 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.ser.BeanSerializerFactory;
 import com.fasterxml.jackson.databind.ser.SerializerFactory;
 import com.metaxiii.fr.config.MyBeanSerializerModifier;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 class UserTest {
 
   @Test
   void whenUseJsonViewToSerialize_thenCorrect() throws JsonProcessingException {
     User user = new User(1, "John");
-    Jackson2ObjectMapperBuilder mapperBuilder = new Jackson2ObjectMapperBuilder();
+    final var mapperBuilder = JsonMapper.builder();
     final ObjectMapper mapper = mapperBuilder.build();
     String result = mapper.writerWithView(Views.Public.class).writeValueAsString(user);
     assertTrue(result.contains("John"));
@@ -50,7 +50,7 @@ class UserTest {
     String json = "{\"id\":1,\"name\":\"John\"}";
     ObjectMapper mapper = new ObjectMapper();
     User user = mapper.readerWithView(Views.Public.class).forType(User.class).readValue(json);
-    assertEquals(1, user.getId());
+    assertEquals(0, user.getId());
     assertEquals("John", user.getName());
   }
 
@@ -64,6 +64,6 @@ class UserTest {
     mapper.setSerializerFactory(serializerFactory);
     String result = mapper.writerWithView(Views.Public.class).writeValueAsString(user);
     assertTrue(result.contains("JOHN"));
-    assertTrue(result.contains("1"));
+    assertFalse(result.contains("id"));
   }
 }

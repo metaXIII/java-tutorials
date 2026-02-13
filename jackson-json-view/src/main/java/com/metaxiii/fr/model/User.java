@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
 
+  @JsonView(value = Views.Internal.class)
   private int id;
 
   @JsonView(value = Views.Public.class)

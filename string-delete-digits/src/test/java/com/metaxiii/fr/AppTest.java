@@ -15,7 +15,7 @@ class AppTest {
 
   @Test
   void whenUsingApacheCommonsLang_thenGetExpectedResult() {
-    final var updatedString = RegExUtils.replacePattern(INPUT_STRING, DIGIT_REGEX, "");
+    final var updatedString = RegExUtils.replaceAll(INPUT_STRING, DIGIT_REGEX, "");
     assertEquals(EXPECTED_STRING, updatedString);
   }
 

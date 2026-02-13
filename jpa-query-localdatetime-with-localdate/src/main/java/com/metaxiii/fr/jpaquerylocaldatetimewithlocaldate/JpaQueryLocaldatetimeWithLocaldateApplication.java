@@ -9,5 +9,4 @@ public class JpaQueryLocaldatetimeWithLocaldateApplication {
   public static void main(final String[] args) {
     SpringApplication.run(JpaQueryLocaldatetimeWithLocaldateApplication.class, args);
   }
-
 }
