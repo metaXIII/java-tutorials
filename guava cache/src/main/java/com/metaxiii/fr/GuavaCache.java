@@ -1,23 +1,19 @@
 package com.metaxiii.fr;
 
 import com.google.common.cache.CacheLoader;
-import org.springframework.lang.NonNull;
+import lombok.Getter;
 
+@Getter
 public class GuavaCache {
 
   private final CacheLoader<String, String> loader;
 
   public GuavaCache() {
-    loader =
-      new CacheLoader<>() {
-        @Override
-        public String load(@NonNull String key) {
-          return key.toUpperCase();
-        }
-      };
-  }
-
-  public CacheLoader<String, String> getLoader() {
-    return loader;
+    loader = new CacheLoader<>() {
+      @Override
+      public String load(String key) {
+        return key.toUpperCase();
+      }
+    };
   }
 }

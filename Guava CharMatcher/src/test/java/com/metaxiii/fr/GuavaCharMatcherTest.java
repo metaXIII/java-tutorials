@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Predicate;
 import java.nio.charset.Charset;
+import java.util.Objects;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.lang.NonNull;
 
 class GuavaCharMatcherTest {
 
@@ -35,7 +36,7 @@ class GuavaCharMatcherTest {
     final var encoder = charset.newEncoder();
     final var inRange = new Predicate<Character>() {
       @Override
-      public boolean apply(@NonNull final Character c) {
+      public boolean apply(final Character c) {
         return encoder.canEncode(c);
       }
     };
@@ -55,7 +56,7 @@ class GuavaCharMatcherTest {
   @Test
   void whenRemoveSpecialCharacters_thenRemoved() {
     final var input = "H:*el.lo,}12";
-    final var matcher = CharMatcher.forPredicate(Character::isLetterOrDigit);
+    final var matcher = CharMatcher.forPredicate(c -> Objects.nonNull(c) && Character.isLetterOrDigit(c));
     final var result = matcher.retainFrom(input);
     assertEquals("Hello12", result);
   }

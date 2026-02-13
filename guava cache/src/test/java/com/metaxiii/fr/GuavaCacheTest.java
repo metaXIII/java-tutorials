@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.lang.NonNull;
 
 class GuavaCacheTest {
 
@@ -114,7 +113,7 @@ class GuavaCacheTest {
     loader =
       new CacheLoader<>() {
         @Override
-        public Optional<String> load(@NonNull String key) {
+        public Optional<String> load(String key) {
           return Optional.ofNullable(getSuffix(key));
         }
       };
