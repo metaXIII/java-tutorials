@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public enum DistanceAsJSONCreator {
   KILOMETER("km", 1000),
   MILE("miles", 1609.34),
@@ -20,10 +20,10 @@ public enum DistanceAsJSONCreator {
 
   @JsonCreator
   public static DistanceAsJSONCreator forValues(
-    @JsonProperty("unit") String unit,
-    @JsonProperty("meters") double meters
+    @JsonProperty("unit") final String unit,
+    @JsonProperty("meters") final double meters
   ) {
-    for (DistanceAsJSONCreator distance : DistanceAsJSONCreator.values()) {
+    for (final DistanceAsJSONCreator distance : DistanceAsJSONCreator.values()) {
       if (distance.unit.equals(unit) && Double.compare(distance.meters, meters) == 0) {
         return distance;
       }

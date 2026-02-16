@@ -5,8 +5,8 @@ import com.metaxiii.fr.enums.config.DistanceDeserializerConfig;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 @JsonDeserialize(using = DistanceDeserializerConfig.class)
 public enum DistanceDeserializer {
   KILOMETER("km", 1000),
