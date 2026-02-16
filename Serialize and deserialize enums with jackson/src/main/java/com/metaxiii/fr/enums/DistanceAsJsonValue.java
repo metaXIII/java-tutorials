@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public enum DistanceAsJsonValue {
   KILOMETER("km", 1000),
   MILE("miles", 1609.34),

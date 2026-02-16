@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public enum DistanceAsJSONProperty {
   @JsonProperty("distance-in-km")
   KILOMETER("km", 1000),
