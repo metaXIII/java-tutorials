@@ -3,5 +3,13 @@
   "extends": [
     "config:base",
     ":disableDependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "com.metaxiii.fr*"
+      ],
+      "enabled": false
+    }
   ]
 }
