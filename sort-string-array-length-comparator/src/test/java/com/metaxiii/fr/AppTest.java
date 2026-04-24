@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 class AppTest {
 
-  private static final String[] INPUT_ARRAY = new String[] { "am", "today", "too", "I", "busy" };
-  private static final String[] SORTED = new String[] { "I", "am", "too", "busy", "today" };
+  private static final String[] INPUT_ARRAY = new String[] {"am", "today", "too", "I", "busy"};
+  private static final String[] SORTED = new String[] {"I", "am", "too", "busy", "today"};
 
   @Test
   void whenSortByCustomComparator_thenArraySorted() {

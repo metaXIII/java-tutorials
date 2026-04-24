@@ -16,12 +16,11 @@ public class WebSecurityConfigurer {
 
   @Bean
   public SecurityFilterChain filterChain(final HttpSecurity http) {
-    return http
-      .authorizeHttpRequests(cust -> cust.requestMatchers("/private/**").hasRole("USER"))
-      .authorizeHttpRequests(cust -> cust.requestMatchers("/public/**").permitAll())
-      .authorizeHttpRequests(cust -> cust.anyRequest().authenticated())
-      .httpBasic(Customizer.withDefaults())
-      .build();
+    return http.authorizeHttpRequests(cust -> cust.requestMatchers("/private/**").hasRole("USER"))
+        .authorizeHttpRequests(cust -> cust.requestMatchers("/public/**").permitAll())
+        .authorizeHttpRequests(cust -> cust.anyRequest().authenticated())
+        .httpBasic(Customizer.withDefaults())
+        .build();
   }
 
   @Bean
@@ -32,7 +31,11 @@ public class WebSecurityConfigurer {
   @Bean
   @SuppressWarnings("all")
   public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-    UserDetails user = User.withUsername("spring").password(passwordEncoder.encode("secret")).roles("USER").build();
+    UserDetails user =
+        User.withUsername("spring")
+            .password(passwordEncoder.encode("secret"))
+            .roles("USER")
+            .build();
     return new InMemoryUserDetailsManager(user);
   }
 }

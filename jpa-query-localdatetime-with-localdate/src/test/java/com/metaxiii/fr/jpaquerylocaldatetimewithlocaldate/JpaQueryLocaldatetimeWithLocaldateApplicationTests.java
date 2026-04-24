@@ -16,11 +16,9 @@ class JpaQueryLocaldatetimeWithLocaldateApplicationTests {
   private static final LocalDateTime startOfDay = date.atStartOfDay();
   private static final LocalDateTime endOfDay = date.plusDays(1).atStartOfDay().minusSeconds(1);
 
-  @Autowired
-  private EventRepository eventRepository;
+  @Autowired private EventRepository eventRepository;
 
-  @Autowired
-  private EventCriteriaRepository eventCriteriaRepository;
+  @Autowired private EventCriteriaRepository eventCriteriaRepository;
 
   @Test
   void contextLoads() {
@@ -35,7 +33,8 @@ class JpaQueryLocaldatetimeWithLocaldateApplicationTests {
 
   @Test
   void itShouldFindByCreatedAtGreaterThanEqualAndCreatedAtLessThan() {
-    final var results = eventRepository.findByCreatedAtGreaterThanEqualAndCreatedAtLessThan(startOfDay, endOfDay);
+    final var results =
+        eventRepository.findByCreatedAtGreaterThanEqualAndCreatedAtLessThan(startOfDay, endOfDay);
     assertEquals(3, results.size());
   }
 

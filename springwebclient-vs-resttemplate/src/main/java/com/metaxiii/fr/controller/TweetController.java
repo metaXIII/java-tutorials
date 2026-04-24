@@ -28,10 +28,10 @@ public class TweetController {
   @GetMapping("/slow-service-tweets")
   public Mono<List<Tweet>> getAllTweets() {
     return Mono.just(
-        Arrays.asList(
-            new Tweet("RestTemplate rules", "@user1"),
-            new Tweet("WebClient is better", "@user2"),
-            new Tweet("OK, both are useful", "@user1")))
+            Arrays.asList(
+                new Tweet("RestTemplate rules", "@user1"),
+                new Tweet("WebClient is better", "@user2"),
+                new Tweet("OK, both are useful", "@user1")))
         .delayElement(Duration.ofSeconds(1));
   }
 
@@ -42,22 +42,25 @@ public class TweetController {
         .get()
         .uri("/slow-service-tweets")
         .retrieve()
-        .bodyToMono(new ParameterizedTypeReference<List<Tweet>>() {
-        })
-        .doOnNext(result -> {
-          result.forEach(tweet -> log.info(tweet.toString()));
-          log.info("Exiting Controller!");
-        });
+        .bodyToMono(new ParameterizedTypeReference<List<Tweet>>() {})
+        .doOnNext(
+            result -> {
+              result.forEach(tweet -> log.info(tweet.toString()));
+              log.info("Exiting Controller!");
+            });
   }
 
   @GetMapping(value = "/tweets-non-blocking", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public Flux<Tweet> getTweetsNonBlocking() {
     log.info("Starting NON-BLOCKING Controller!");
-    final Flux<Tweet> tweetFlux = WebClient.create()
-        .get()
-        .uri(URI.create("http://localhost:" + serverProperties.getPort() + "/slow-service-tweets"))
-        .retrieve()
-        .bodyToFlux(Tweet.class);
+    final Flux<Tweet> tweetFlux =
+        WebClient.create()
+            .get()
+            .uri(
+                URI.create(
+                    "http://localhost:" + serverProperties.getPort() + "/slow-service-tweets"))
+            .retrieve()
+            .bodyToFlux(Tweet.class);
     // noinspection CallingSubscribeInNonBlockingScope
     tweetFlux.subscribe(tweet -> log.info(tweet.toString()));
     log.info("Exiting NON-BLOCKING Controller!");

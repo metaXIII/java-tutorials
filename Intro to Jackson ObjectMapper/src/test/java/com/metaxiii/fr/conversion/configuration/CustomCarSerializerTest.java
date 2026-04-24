@@ -15,7 +15,8 @@ class CustomCarSerializerTest {
 
   private static final String JSON = "{\"car_brand\":\"renault\"}";
   private ObjectMapper mapper = new ObjectMapper();
-  private SimpleModule module = new SimpleModule("CustomCarSerializer", new Version(1, 0, 0, null, null, null));
+  private SimpleModule module =
+      new SimpleModule("CustomCarSerializer", new Version(1, 0, 0, null, null, null));
 
   @BeforeEach
   public void init() {
@@ -31,11 +32,12 @@ class CustomCarSerializerTest {
 
   @Test
   void serialize() {
-    assertDoesNotThrow(() -> {
-      module.addSerializer(Car.class, new CustomCarSerializer());
-      mapper.registerModule(module);
-      Car car = new Car("yellow", "renault");
-      assertEquals(JSON, mapper.writeValueAsString(car));
-    });
+    assertDoesNotThrow(
+        () -> {
+          module.addSerializer(Car.class, new CustomCarSerializer());
+          mapper.registerModule(module);
+          Car car = new Car("yellow", "renault");
+          assertEquals(JSON, mapper.writeValueAsString(car));
+        });
   }
 }

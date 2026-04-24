@@ -17,7 +17,8 @@ class AppTest {
     Assertions.assertNotNull(simpleDestination);
     Assertions.assertEquals(simpleSource.getName(), simpleDestination.getName());
     Assertions.assertEquals(simpleSource.getDescription(), simpleDestination.getDescription());
-    final LombokDestination lombokDestination = lombokMapper.sourceToLombokDestination(simpleSource);
+    final LombokDestination lombokDestination =
+        lombokMapper.sourceToLombokDestination(simpleSource);
     Assertions.assertNotNull(lombokDestination);
     Assertions.assertEquals(simpleSource.getName(), lombokDestination.getName());
     Assertions.assertEquals(simpleSource.getDescription(), lombokDestination.getDescription());

@@ -20,9 +20,7 @@ public enum DistanceAsJSONCreator {
 
   @JsonCreator
   public static DistanceAsJSONCreator forValues(
-    @JsonProperty("unit") final String unit,
-    @JsonProperty("meters") final double meters
-  ) {
+      @JsonProperty("unit") final String unit, @JsonProperty("meters") final double meters) {
     for (final DistanceAsJSONCreator distance : DistanceAsJSONCreator.values()) {
       if (distance.unit.equals(unit) && Double.compare(distance.meters, meters) == 0) {
         return distance;

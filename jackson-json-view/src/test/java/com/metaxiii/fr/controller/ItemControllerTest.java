@@ -20,17 +20,18 @@ import org.springframework.test.web.servlet.MvcResult;
 @AutoConfigureMockMvc
 class ItemControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
   @Test
   void getItemInternal() throws Exception {
-    final MvcResult mvcResult = mockMvc
-      .perform(get("/items-internal").contentType(MediaType.APPLICATION_JSON))
-      .andDo(print())
-      .andExpect(status().isOk())
-      .andReturn();
-    final Item item = new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Item.class);
+    final MvcResult mvcResult =
+        mockMvc
+            .perform(get("/items-internal").contentType(MediaType.APPLICATION_JSON))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andReturn();
+    final Item item =
+        new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Item.class);
     assertEquals(1, item.getId());
     assertEquals("item name", item.getItemName());
     assertEquals("owner", item.getOwnerName());
@@ -40,12 +41,14 @@ class ItemControllerTest {
 
   @Test
   void getItemPublic() throws Exception {
-    final MvcResult mvcResult = mockMvc
-      .perform(get("/items-public").contentType(MediaType.APPLICATION_JSON))
-      .andDo(print())
-      .andExpect(status().isOk())
-      .andReturn();
-    final Item item = new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Item.class);
+    final MvcResult mvcResult =
+        mockMvc
+            .perform(get("/items-public").contentType(MediaType.APPLICATION_JSON))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andReturn();
+    final Item item =
+        new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), Item.class);
     assertEquals(1, item.getId());
     assertEquals("item name", item.getItemName());
     final var mapper = new ObjectMapper();

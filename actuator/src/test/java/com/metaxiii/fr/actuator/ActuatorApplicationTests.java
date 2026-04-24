@@ -15,8 +15,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @AutoConfigureMockMvc
 class ActuatorApplicationTests {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
   @Test
   void contextLoads() {
@@ -25,7 +24,13 @@ class ActuatorApplicationTests {
 
   @Test
   void itShouldCallActuator() throws Exception {
-    mockMvc.perform(MockMvcRequestBuilders.get("/actuator")).andDo(print()).andExpect(status().isOk());
-    mockMvc.perform(MockMvcRequestBuilders.get("/actuator/info")).andDo(print()).andExpect(status().isOk());
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/actuator"))
+        .andDo(print())
+        .andExpect(status().isOk());
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/actuator/info"))
+        .andDo(print())
+        .andExpect(status().isOk());
   }
 }

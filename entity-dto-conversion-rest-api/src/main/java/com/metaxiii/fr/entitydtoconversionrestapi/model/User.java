@@ -21,6 +21,5 @@ public class User {
 
   private String name;
 
-  @OneToOne
-  private Preference preference;
+  @OneToOne private Preference preference;
 }

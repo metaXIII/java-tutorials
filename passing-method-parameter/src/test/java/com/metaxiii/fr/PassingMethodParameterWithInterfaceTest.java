@@ -26,10 +26,7 @@ class PassingMethodParameterWithInterfaceTest {
     assertEquals(8, actualResult);
   }
 
-  int executeBiFunction(
-      final IntBinaryOperator function,
-      final int a,
-      final int b) {
+  int executeBiFunction(final IntBinaryOperator function, final int a, final int b) {
     return function.applyAsInt(a, b);
   }
 

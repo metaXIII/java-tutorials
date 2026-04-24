@@ -16,6 +16,5 @@ public enum DistanceAsJsonValue {
 
   private final String unit;
 
-  @JsonValue
-  private final double meters;
+  @JsonValue private final double meters;
 }

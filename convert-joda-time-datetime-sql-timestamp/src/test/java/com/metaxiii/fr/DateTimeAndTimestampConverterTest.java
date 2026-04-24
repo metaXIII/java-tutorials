@@ -13,7 +13,8 @@ class DateTimeAndTimestampConverterTest {
     final long currentTimeMillis = System.currentTimeMillis();
     final DateTime dateTime = new DateTime(currentTimeMillis);
     final Timestamp expectedTimestamp = new Timestamp(currentTimeMillis);
-    final Timestamp convertedTimestamp = DateTimeAndTimestampConverter.convertToTimestampUsingConstructor(dateTime);
+    final Timestamp convertedTimestamp =
+        DateTimeAndTimestampConverter.convertToTimestampUsingConstructor(dateTime);
     assertEquals(expectedTimestamp, convertedTimestamp);
   }
 
@@ -22,7 +23,8 @@ class DateTimeAndTimestampConverterTest {
     final long currentTimeMillis = System.currentTimeMillis();
     final DateTime dateTime = new DateTime(currentTimeMillis);
     final Timestamp expectedTimestamp = new Timestamp(currentTimeMillis);
-    final Timestamp convertedTimestamp = DateTimeAndTimestampConverter.convertToTimestampUsingInstant(dateTime);
+    final Timestamp convertedTimestamp =
+        DateTimeAndTimestampConverter.convertToTimestampUsingInstant(dateTime);
     assertEquals(expectedTimestamp, convertedTimestamp);
   }
 
@@ -31,7 +33,8 @@ class DateTimeAndTimestampConverterTest {
     final long currentTimeMillis = System.currentTimeMillis();
     final DateTime dateTime = new DateTime(currentTimeMillis);
     final Timestamp expectedTimestamp = new Timestamp(currentTimeMillis);
-    final Timestamp convertedTimestamp = DateTimeAndTimestampConverter.convertToTimestampUsingLocalDateTime(dateTime);
+    final Timestamp convertedTimestamp =
+        DateTimeAndTimestampConverter.convertToTimestampUsingLocalDateTime(dateTime);
     assertEquals(expectedTimestamp, convertedTimestamp);
   }
 
@@ -40,7 +43,8 @@ class DateTimeAndTimestampConverterTest {
     final long currentTimeMillis = System.currentTimeMillis();
     final Timestamp timestamp = new Timestamp(currentTimeMillis);
     final DateTime expectedDateTime = new DateTime(currentTimeMillis);
-    final DateTime convertedDateTime = DateTimeAndTimestampConverter.convertToDateTimeUsingConstructor(timestamp);
+    final DateTime convertedDateTime =
+        DateTimeAndTimestampConverter.convertToDateTimeUsingConstructor(timestamp);
     assertEquals(expectedDateTime, convertedDateTime);
   }
 
@@ -49,7 +53,8 @@ class DateTimeAndTimestampConverterTest {
     final long currentTimeMillis = System.currentTimeMillis();
     final Timestamp timestamp = new Timestamp(currentTimeMillis);
     final DateTime expectedDateTime = new DateTime(currentTimeMillis);
-    final DateTime convertedDateTime = DateTimeAndTimestampConverter.convertToDateTimeUsingInstant(timestamp);
+    final DateTime convertedDateTime =
+        DateTimeAndTimestampConverter.convertToDateTimeUsingInstant(timestamp);
     assertEquals(expectedDateTime, convertedDateTime);
   }
 
@@ -58,7 +63,8 @@ class DateTimeAndTimestampConverterTest {
     final long currentTimeMillis = System.currentTimeMillis();
     final Timestamp timestamp = new Timestamp(currentTimeMillis);
     final DateTime expectedDateTime = new DateTime(currentTimeMillis);
-    final DateTime convertedDateTime = DateTimeAndTimestampConverter.convertToDateTimeUsingLocalDateTime(timestamp);
+    final DateTime convertedDateTime =
+        DateTimeAndTimestampConverter.convertToDateTimeUsingLocalDateTime(timestamp);
     assertEquals(expectedDateTime, convertedDateTime);
   }
 }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class AppTest {
 
-  private static final int[] NUMS = { 1, 2, 2, 3, 3, 4, 4, 4, 5 };
+  private static final int[] NUMS = {1, 2, 2, 3, 3, 4, 4, 4, 5};
   private App app;
 
   @BeforeEach
@@ -28,8 +28,9 @@ class AppTest {
     final var mode = app.findModeBySorting(NUMS);
     assertEquals(1, mode.size());
     assertDoesNotThrow(() -> mode.stream().filter(e -> e.equals(4)).findFirst().orElseThrow());
-    final var modeWithOnlyOneElement = app.findModeBySorting(new int[] { 1 });
-    assertDoesNotThrow(() -> modeWithOnlyOneElement.stream().filter(e -> e.equals(1)).findFirst().orElseThrow());
+    final var modeWithOnlyOneElement = app.findModeBySorting(new int[] {1});
+    assertDoesNotThrow(
+        () -> modeWithOnlyOneElement.stream().filter(e -> e.equals(1)).findFirst().orElseThrow());
   }
 
   @Test

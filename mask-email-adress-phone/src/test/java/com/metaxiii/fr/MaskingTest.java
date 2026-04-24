@@ -26,7 +26,8 @@ class MaskingTest {
   @Test
   void givenEmailAddress_whenUsingStringManipulation_thenMaskEmail() {
     final var atIndex = email.indexOf('@');
-    final var repeatedString = IntStream.range(0, atIndex - 2).mapToObj(i -> "*").collect(Collectors.joining());
+    final var repeatedString =
+        IntStream.range(0, atIndex - 2).mapToObj(i -> "*").collect(Collectors.joining());
     final var maskedPart = email.substring(0, atIndex - repeatedString.length()) + repeatedString;
     final var maskedEmail = maskedPart + email.substring(atIndex);
 

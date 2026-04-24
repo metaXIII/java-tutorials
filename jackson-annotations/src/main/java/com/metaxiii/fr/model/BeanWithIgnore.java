@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@JsonIgnoreProperties({ "id" })
+@JsonIgnoreProperties({"id"})
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,6 +15,5 @@ public class BeanWithIgnore {
   private int id;
   private String name;
 
-  @JsonIgnore
-  private int otherId;
+  @JsonIgnore private int otherId;
 }

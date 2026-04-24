@@ -57,9 +57,8 @@ class UserTest {
   @Test
   void whenUseCustomJsonViewToSerialize_thenCorrect() throws JsonProcessingException {
     User user = new User(1, "John");
-    SerializerFactory serializerFactory = BeanSerializerFactory.instance.withSerializerModifier(
-      new MyBeanSerializerModifier()
-    );
+    SerializerFactory serializerFactory =
+        BeanSerializerFactory.instance.withSerializerModifier(new MyBeanSerializerModifier());
     ObjectMapper mapper = new ObjectMapper();
     mapper.setSerializerFactory(serializerFactory);
     String result = mapper.writerWithView(Views.Public.class).writeValueAsString(user);

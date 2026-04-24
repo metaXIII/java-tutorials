@@ -34,14 +34,16 @@ class GuavaSplitAndJoinTest {
   @SuppressWarnings("StaticPseudoFunctionalStyleMethod")
   @Test
   void whenJoinNestedCollections_thenJoined() {
-    final var nested = Lists.newArrayList(
-      Lists.newArrayList("apple", "banana", "orange"),
-      Lists.newArrayList("cat", "dog", "bird"),
-      Lists.newArrayList("John", "Jane", "Adam")
-    );
-    final var result = Joiner
-      .on(";")
-      .join(Iterables.transform(nested, (Function<List<String>, String>) input -> Joiner.on("-").join(input)));
+    final var nested =
+        Lists.newArrayList(
+            Lists.newArrayList("apple", "banana", "orange"),
+            Lists.newArrayList("cat", "dog", "bird"),
+            Lists.newArrayList("John", "Jane", "Adam"));
+    final var result =
+        Joiner.on(";")
+            .join(
+                Iterables.transform(
+                    nested, (Function<List<String>, String>) input -> Joiner.on("-").join(input)));
 
     assertTrue(result.contains("apple-banana-orange"));
     assertTrue(result.contains("cat-dog-bird"));

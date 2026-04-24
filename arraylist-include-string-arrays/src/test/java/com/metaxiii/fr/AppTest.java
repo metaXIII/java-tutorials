@@ -11,26 +11,26 @@ import org.junit.jupiter.api.Test;
 
 class AppTest {
 
-  private static final String[] ARRAY1 = { "Java", "Kotlin", "Sql", "Javascript" };
-  private static final String[] ARRAY2 = { "C", "C++", "C#", "Typescript" };
-  private static final String[] ARRAY3 = { "Python", "Ruby", "Go", "Rust" };
+  private static final String[] ARRAY1 = {"Java", "Kotlin", "Sql", "Javascript"};
+  private static final String[] ARRAY2 = {"C", "C++", "C#", "Typescript"};
+  private static final String[] ARRAY3 = {"Python", "Ruby", "Go", "Rust"};
 
-  private static final List<String> EXPECTED = List.of(
-    "Languages",
-    ":",
-    "Java",
-    "Kotlin",
-    "Sql",
-    "Javascript",
-    "C",
-    "C++",
-    "C#",
-    "Typescript",
-    "Python",
-    "Ruby",
-    "Go",
-    "Rust"
-  );
+  private static final List<String> EXPECTED =
+      List.of(
+          "Languages",
+          ":",
+          "Java",
+          "Kotlin",
+          "Sql",
+          "Javascript",
+          "C",
+          "C++",
+          "C#",
+          "Typescript",
+          "Python",
+          "Ruby",
+          "Go",
+          "Rust");
 
   @Test
   void whenConvertArrayToListThenAddAll_thenCorrect() {

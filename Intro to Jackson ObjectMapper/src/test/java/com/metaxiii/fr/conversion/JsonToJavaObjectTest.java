@@ -28,29 +28,32 @@ class JsonToJavaObjectTest {
 
   @Test
   void processAsObject() {
-    assertDoesNotThrow(() -> {
-      final Car car = jsonToJavaObject.processAsObject(JSON);
-      assertEquals("Black", car.getColor());
-      assertEquals("BMW", car.getType());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final Car car = jsonToJavaObject.processAsObject(JSON);
+          assertEquals("Black", car.getColor());
+          assertEquals("BMW", car.getType());
+        });
   }
 
   @Test
   void processAsFile() {
-    assertDoesNotThrow(() -> {
-      final Car car = jsonToJavaObject.processAsFile(FILE);
-      assertEquals("yellow", car.getColor());
-      assertEquals("diesel", car.getType());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final Car car = jsonToJavaObject.processAsFile(FILE);
+          assertEquals("yellow", car.getColor());
+          assertEquals("diesel", car.getType());
+        });
   }
 
   @Test
   void processAsUrl() {
-    assertDoesNotThrow(() -> {
-      final URL url = new URL("file:src/test/resources/json_car_url.json");
-      final Car car = jsonToJavaObject.processAsUrl(url);
-      assertEquals("pink", car.getColor());
-      assertEquals("diesel", car.getType());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final URL url = new File("src/test/resources/json_car_url.json").toURI().toURL();
+          final Car car = jsonToJavaObject.processAsUrl(url);
+          assertEquals("pink", car.getColor());
+          assertEquals("diesel", car.getType());
+        });
   }
 }

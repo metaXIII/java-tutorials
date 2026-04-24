@@ -13,7 +13,7 @@ class JavaListFromJSONArrayStringTest {
 
   private JavaListFromJSONArrayString javaListFromJSONArrayString;
   private static final String JSON_CAR_ARRAY =
-    "[{\"color\": \"Black\", \"type\": \"BMW\"}, {\"color\": \"Red\", \"type\": \"Fiat\"}]";
+      "[{\"color\": \"Black\", \"type\": \"BMW\"}, {\"color\": \"Red\", \"type\": \"Fiat\"}]";
 
   @BeforeEach
   public void init() {
@@ -27,19 +27,21 @@ class JavaListFromJSONArrayStringTest {
 
   @Test
   void processAsList() {
-    assertDoesNotThrow(() -> {
-      final List<Car> cars = javaListFromJSONArrayString.processAsList(JSON_CAR_ARRAY);
-      assertEquals("Black", cars.get(0).getColor());
-      assertEquals("Red", cars.get(1).getColor());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final List<Car> cars = javaListFromJSONArrayString.processAsList(JSON_CAR_ARRAY);
+          assertEquals("Black", cars.get(0).getColor());
+          assertEquals("Red", cars.get(1).getColor());
+        });
   }
 
   @Test
   void processAsArray() {
-    assertDoesNotThrow(() -> {
-      final Car[] cars = javaListFromJSONArrayString.processAsArray(JSON_CAR_ARRAY);
-      assertEquals("Black", cars[0].getColor());
-      assertEquals("Red", cars[1].getColor());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final Car[] cars = javaListFromJSONArrayString.processAsArray(JSON_CAR_ARRAY);
+          assertEquals("Black", cars[0].getColor());
+          assertEquals("Red", cars[1].getColor());
+        });
   }
 }

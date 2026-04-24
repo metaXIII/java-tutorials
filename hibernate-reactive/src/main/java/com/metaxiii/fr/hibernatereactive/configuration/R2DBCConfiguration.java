@@ -3,7 +3,6 @@ package com.metaxiii.fr.hibernatereactive.configuration;
 import io.r2dbc.h2.H2ConnectionConfiguration;
 import io.r2dbc.h2.H2ConnectionFactory;
 import io.r2dbc.spi.ConnectionFactory;
-
 import org.jspecify.annotations.NonNull;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +22,10 @@ public class R2DBCConfiguration extends AbstractR2dbcConfiguration {
   @Override
   public H2ConnectionFactory connectionFactory() {
     return new H2ConnectionFactory(
-      H2ConnectionConfiguration.builder().url("mem:testdb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=4;").username("sa").build()
-    );
+        H2ConnectionConfiguration.builder()
+            .url("mem:testdb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=4;")
+            .username("sa")
+            .build());
   }
 
   @Bean

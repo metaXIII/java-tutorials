@@ -25,10 +25,11 @@ class JavaMapFromJSONStringTest {
 
   @Test
   void process() {
-    assertDoesNotThrow(() -> {
-      final Map<String, Object> cars = javaMapFromJSONString.process(JSON);
-      assertEquals("[color, type]", cars.keySet().toString());
-      assertEquals("[Black, BMW]", cars.values().toString());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final Map<String, Object> cars = javaMapFromJSONString.process(JSON);
+          assertEquals("[color, type]", cars.keySet().toString());
+          assertEquals("[Black, BMW]", cars.values().toString());
+        });
   }
 }

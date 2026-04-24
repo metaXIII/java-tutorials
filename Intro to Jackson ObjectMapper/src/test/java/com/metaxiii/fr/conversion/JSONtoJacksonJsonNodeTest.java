@@ -25,9 +25,10 @@ class JSONtoJacksonJsonNodeTest {
 
   @Test
   void process() {
-    assertDoesNotThrow(() -> {
-      final JsonNode process = jSONtoJacksonJsonNode.process(JSON);
-      assertEquals("Black", process.get("color").asText());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final JsonNode process = jSONtoJacksonJsonNode.process(JSON);
+          assertEquals("Black", process.get("color").asText());
+        });
   }
 }

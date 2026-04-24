@@ -15,7 +15,8 @@ public class UpperCasingWriter extends BeanPropertyWriter {
   }
 
   @Override
-  public void serializeAsField(Object bean, JsonGenerator gen, SerializerProvider prov) throws Exception {
+  public void serializeAsField(Object bean, JsonGenerator gen, SerializerProvider prov)
+      throws Exception {
     String value = ((User) bean).name;
     value = (value == null) ? "" : value.toUpperCase();
     gen.writeStringField("name", value);

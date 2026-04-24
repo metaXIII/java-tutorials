@@ -13,8 +13,7 @@ import org.springframework.test.context.jdbc.Sql;
 @Sql(scripts = "classpath:/data.sql")
 class PostServiceTest {
 
-  @Autowired
-  private PostRepository repository;
+  @Autowired private PostRepository repository;
 
   @Test
   void givenPosts_whenUsingQueryAnnotation_thenReturnLastPost() {

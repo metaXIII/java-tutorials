@@ -18,7 +18,8 @@ public class FileController {
   protected static final String FILES = "/files";
 
   @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-  public String upload(@RequestParam("file") final MultipartFile file, final String fileDescription) {
+  public String upload(
+      @RequestParam("file") final MultipartFile file, final String fileDescription) {
     log.info("Uploading file {}", file.getName());
     log.info("upload fileDescrition {}", fileDescription);
     return "files/success";

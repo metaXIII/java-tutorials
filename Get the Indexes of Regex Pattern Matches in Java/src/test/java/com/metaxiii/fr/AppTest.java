@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class AppTest {
 
   private static final String INPUT =
-    "This line contains <the first value>, <the second value>, and <the third value>.";
+      "This line contains <the first value>, <the second value>, and <the third value>.";
 
   @Test
   void whenCallingMatcherEnd_thenGetIndexesAfterTheMatchSequence() {
@@ -43,15 +43,13 @@ class AppTest {
       result.add(matcher.group(1));
       indexesOfMatches.put(matcher.start(1), matcher.end(1));
     }
-    assertTrue(result.containsAll(List.of("the first value", "the second value", "the third value")));
     assertTrue(
-      indexesOfMatches
-        .entrySet()
-        .stream()
-        .map(entry -> INPUT.substring(entry.getKey(), entry.getValue()))
-        .toList()
-        .containsAll(List.of("the first value", "the second value", "the third value"))
-    );
+        result.containsAll(List.of("the first value", "the second value", "the third value")));
+    assertTrue(
+        indexesOfMatches.entrySet().stream()
+            .map(entry -> INPUT.substring(entry.getKey(), entry.getValue()))
+            .toList()
+            .containsAll(List.of("the first value", "the second value", "the third value")));
   }
 
   @Test
@@ -64,15 +62,14 @@ class AppTest {
       result.add(matcher.group());
       indexesOfMatches.put(matcher.start(), matcher.end());
     }
-    assertTrue(result.containsAll(List.of("<the first value>", "<the second value>", "<the third value>")));
     assertTrue(
-      indexesOfMatches
-        .entrySet()
-        .stream()
-        .map(entry -> INPUT.substring(entry.getKey(), entry.getValue()))
-        .toList()
-        .containsAll(List.of("<the first value>", "<the second value>", "<the third value>"))
-    );
+        result.containsAll(
+            List.of("<the first value>", "<the second value>", "<the third value>")));
+    assertTrue(
+        indexesOfMatches.entrySet().stream()
+            .map(entry -> INPUT.substring(entry.getKey(), entry.getValue()))
+            .toList()
+            .containsAll(List.of("<the first value>", "<the second value>", "<the third value>")));
   }
 
   @Test
@@ -83,6 +80,8 @@ class AppTest {
     while (matcher.find()) {
       result.add(matcher.group());
     }
-    assertTrue(result.containsAll(List.of("<the first value>", "<the second value>", "<the third value>")));
+    assertTrue(
+        result.containsAll(
+            List.of("<the first value>", "<the second value>", "<the third value>")));
   }
 }

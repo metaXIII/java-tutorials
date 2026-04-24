@@ -17,16 +17,16 @@ class PassingMethodParameterWithInterfaceBeforeJava8Test {
   @Test
   @SuppressWarnings("Convert2Lambda")
   void itShouldPassMethodParameterWithInterface_BeforeJava8() {
-    final var actualResult = performOperation(
-      5,
-      3,
-      new Operation() {
-        @Override
-        public int execute(final int a, final int b) {
-          return a + b;
-        }
-      }
-    );
+    final var actualResult =
+        performOperation(
+            5,
+            3,
+            new Operation() {
+              @Override
+              public int execute(final int a, final int b) {
+                return a + b;
+              }
+            });
     assertEquals(8, actualResult);
   }
 }

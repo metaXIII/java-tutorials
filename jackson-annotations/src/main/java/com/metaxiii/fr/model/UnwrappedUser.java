@@ -12,8 +12,7 @@ public class UnwrappedUser {
 
   private int id;
 
-  @JsonUnwrapped
-  private Name name;
+  @JsonUnwrapped private Name name;
 
   @AllArgsConstructor
   @Getter

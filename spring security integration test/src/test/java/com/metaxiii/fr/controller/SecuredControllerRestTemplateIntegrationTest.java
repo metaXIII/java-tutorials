@@ -14,20 +14,21 @@ import org.springframework.http.ResponseEntity;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SecuredControllerRestTemplateIntegrationTest {
 
-  @Autowired
-  private TestRestTemplate testRestTemplate;
+  @Autowired private TestRestTemplate testRestTemplate;
 
   @Test
   void givenAuthRequestOnPrivateService_shouldSucceedWith200() {
-    final ResponseEntity<String> result = testRestTemplate
-      .withBasicAuth("spring", "secret")
-      .getForEntity("/private/hello", String.class);
+    final ResponseEntity<String> result =
+        testRestTemplate
+            .withBasicAuth("spring", "secret")
+            .getForEntity("/private/hello", String.class);
     assertEquals(HttpStatus.OK, result.getStatusCode());
   }
 
   @Test
   void givenRequestOnPrivateService_shouldFailWith401() {
-    final ResponseEntity<String> result = testRestTemplate.getForEntity("/private/hello", String.class);
+    final ResponseEntity<String> result =
+        testRestTemplate.getForEntity("/private/hello", String.class);
     assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
   }
 }

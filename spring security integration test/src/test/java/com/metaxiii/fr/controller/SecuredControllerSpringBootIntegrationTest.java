@@ -19,22 +19,22 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SecuredControllerSpringBootIntegrationTest {
 
-  @Autowired
-  private WebApplicationContext context;
+  @Autowired private WebApplicationContext context;
 
-  @Autowired
-  private MockMvc mvc;
+  @Autowired private MockMvc mvc;
 
   @Test
   @WithMockUser("spring")
   void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
-    mvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+    mvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk());
   }
 
   @Test
   @WithMockUser(roles = "NO_ROLE")
   void givenAuthRequestOnPrivateService_shouldSucceedWith401() throws Exception {
-    mvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isForbidden());
+    mvc.perform(get("/private/hello").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isForbidden());
   }
 
   @BeforeEach

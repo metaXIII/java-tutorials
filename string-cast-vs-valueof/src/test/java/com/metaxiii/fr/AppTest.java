@@ -22,22 +22,20 @@ class AppTest {
   }
 
   @Test
-  @SuppressWarnings({ "DataFlowIssue", "unused" })
+  @SuppressWarnings({"DataFlowIssue", "unused"})
   void itShouldCast2NonStringObject() {
     final Object obj = 42;
     assertThrows(
-      ClassCastException.class,
-      () -> {
-        final String castResult = (String) obj;
-      }
-    );
+        ClassCastException.class,
+        () -> {
+          final String castResult = (String) obj;
+        });
     final Object obj2 = List.of("Java", "is", "cool");
     assertThrows(
-      ClassCastException.class,
-      () -> {
-        final String castResult = (String) obj2;
-      }
-    );
+        ClassCastException.class,
+        () -> {
+          final String castResult = (String) obj2;
+        });
     String valueOfResult = String.valueOf(obj);
     assertEquals("42", valueOfResult);
     valueOfResult = String.valueOf(obj2);
@@ -45,7 +43,7 @@ class AppTest {
   }
 
   @Test
-  @SuppressWarnings({ "CastCanBeRemovedNarrowingVariableType", "ConstantValue" })
+  @SuppressWarnings({"CastCanBeRemovedNarrowingVariableType", "ConstantValue"})
   void itShouldCast3HandleNullValues() {
     final Object obj = null;
     final String castResult = (String) obj;

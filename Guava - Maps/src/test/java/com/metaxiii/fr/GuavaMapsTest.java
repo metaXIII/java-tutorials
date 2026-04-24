@@ -52,13 +52,13 @@ class GuavaMapsTest {
 
   @Test
   void whenCreatingImmutableMap_thenCorrect() {
-    final var salary = ImmutableMap
-      .<String, Integer>builder()
-      .put("John", 1000)
-      .put("Jane", 1500)
-      .put("Adam", 2000)
-      .put("Tom", 2000)
-      .build();
+    final var salary =
+        ImmutableMap.<String, Integer>builder()
+            .put("John", 1000)
+            .put("Jane", 1500)
+            .put("Adam", 2000)
+            .put("Tom", 2000)
+            .build();
 
     assertEquals(1000, salary.get("John"));
     assertEquals(2000, salary.get("Tom"));
@@ -78,11 +78,12 @@ class GuavaMapsTest {
   @Test
   void whenGroupingListsUsingMultimap_thenGrouped() {
     final var names = Lists.newArrayList("John", "Adam", "Tom");
-    final var func = new Function<String, Integer>() {
-      public Integer apply(final String input) {
-        return input.length();
-      }
-    };
+    final var func =
+        new Function<String, Integer>() {
+          public Integer apply(final String input) {
+            return input.length();
+          }
+        };
     final var groups = Multimaps.index(names, func);
     assertTrue(groups.get(3).contains("Tom"));
     assertTrue(groups.get(4).containsAll(List.of("John", "Adam")));
@@ -101,12 +102,13 @@ class GuavaMapsTest {
 
   @Test
   void whenUsingSortedMap_thenKeysAreSorted() {
-    final var salary = new ImmutableSortedMap.Builder<String, Integer>(Ordering.natural())
-      .put("John", 1000)
-      .put("Jane", 1500)
-      .put("Adam", 2000)
-      .put("Tom", 2000)
-      .build();
+    final var salary =
+        new ImmutableSortedMap.Builder<String, Integer>(Ordering.natural())
+            .put("John", 1000)
+            .put("Jane", 1500)
+            .put("Adam", 2000)
+            .put("Tom", 2000)
+            .build();
     assertEquals("Adam", salary.firstKey());
     assertEquals(2000, Objects.requireNonNull(salary.lastEntry()).getValue().intValue());
   }
