@@ -9,8 +9,7 @@ public enum TypeEnumWithValue {
   TYPE1(1, "Type A"),
   TYPE2(2, "Type B");
 
-  @Getter
-  private final Integer id;
+  @Getter private final Integer id;
 
   private final String name;
 

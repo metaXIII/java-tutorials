@@ -15,11 +15,11 @@ class AppTest {
   void givenMonthName_whenUsingChronoFieldEnum_thenReturnNumber() {
     final String givenMonthName = "Sep";
     final int expectedMonthNumber = 9;
-    final int monthNumber = DateTimeFormatter
-      .ofPattern("MMM")
-      .withLocale(Locale.ENGLISH)
-      .parse(givenMonthName)
-      .get(ChronoField.MONTH_OF_YEAR);
+    final int monthNumber =
+        DateTimeFormatter.ofPattern("MMM")
+            .withLocale(Locale.ENGLISH)
+            .parse(givenMonthName)
+            .get(ChronoField.MONTH_OF_YEAR);
     assertEquals(expectedMonthNumber, monthNumber);
   }
 
@@ -27,11 +27,11 @@ class AppTest {
   void givenMonthName_whenUsingJodaTime_thenReturnNumber() {
     final String givenMonthName = "April";
     final int expectedMonthNumber = 4;
-    final int monthNumber = DateTimeFormat
-      .forPattern("MMM")
-      .withLocale(Locale.ENGLISH)
-      .parseDateTime(givenMonthName)
-      .getMonthOfYear();
+    final int monthNumber =
+        DateTimeFormat.forPattern("MMM")
+            .withLocale(Locale.ENGLISH)
+            .parseDateTime(givenMonthName)
+            .getMonthOfYear();
     assertEquals(expectedMonthNumber, monthNumber);
   }
 

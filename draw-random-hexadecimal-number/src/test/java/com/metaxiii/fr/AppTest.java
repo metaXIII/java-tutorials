@@ -31,7 +31,8 @@ class AppTest {
 
   @ParameterizedTest
   @MethodSource(value = "argumentsProvider")
-  void itShouldGenerateRandomHexUsingSecureRandomNextIntWithInRange(final int lower, final int upper) {
+  void itShouldGenerateRandomHexUsingSecureRandomNextIntWithInRange(
+      final int lower, final int upper) {
     assertThat(app.generateRandomHexUsingSecureRandomNextIntWithInRange(lower, upper)).isNotNull();
   }
 
@@ -41,24 +42,28 @@ class AppTest {
   }
 
   @ParameterizedTest
-  @ValueSource(ints = { 1, 2, 3, 4, 5, 6, 7, 8, 9 })
+  @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
   void itShouldGenerateRandomHexWithCommonsMathRandomDataGenerator(final int len) {
     assertThat(app.generateRandomHexWithCommonsMathRandomDataGenerator(len)).isNotNull();
   }
 
   @ParameterizedTest
   @MethodSource(value = "argumentsProvider")
-  void itShouldGenerateRandomHexWithCommonsMathRandomDataGeneratorNextIntWithRange(final int lower, final int upper) {
-    assertThat(app.generateRandomHexWithCommonsMathRandomDataGeneratorNextIntWithRange(lower, upper)).isNotNull();
+  void itShouldGenerateRandomHexWithCommonsMathRandomDataGeneratorNextIntWithRange(
+      final int lower, final int upper) {
+    assertThat(
+            app.generateRandomHexWithCommonsMathRandomDataGeneratorNextIntWithRange(lower, upper))
+        .isNotNull();
   }
 
   @ParameterizedTest
   @MethodSource(value = "argumentsProvider")
   void itShouldGenerateRandomHexWithCommonsMathRandomDataGeneratorSecureNextIntWithRange(
-    final int lower,
-    final int upper
-  ) {
-    assertThat(app.generateRandomHexWithCommonsMathRandomDataGeneratorSecureNextIntWithRange(lower, upper)).isNotNull();
+      final int lower, final int upper) {
+    assertThat(
+            app.generateRandomHexWithCommonsMathRandomDataGeneratorSecureNextIntWithRange(
+                lower, upper))
+        .isNotNull();
   }
 
   @Test
@@ -67,7 +72,7 @@ class AppTest {
   }
 
   @ParameterizedTest
-  @ValueSource(ints = { 1, 2, 3, 4, 5, 6, 7, 8, 9 })
+  @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
   void itShouldGenerateSecureRandomHexWithCommonsMathRandomDataGenerator(final int len) {
     assertThat(app.generateSecureRandomHexWithCommonsMathRandomDataGenerator(len)).isNotNull();
   }

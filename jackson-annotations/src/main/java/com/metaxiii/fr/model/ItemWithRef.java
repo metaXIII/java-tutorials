@@ -13,6 +13,5 @@ public class ItemWithRef {
   private int id;
   private String name;
 
-  @JsonManagedReference
-  public UserWithRef owner;
+  @JsonManagedReference public UserWithRef owner;
 }

@@ -7,7 +7,8 @@ import org.w3c.dom.Document;
 
 class AppTest {
 
-  private static final String startXml = """
+  private static final String startXml =
+      """
       <?xml version="1.0" encoding="UTF-8" standalone="no"?>""";
 
   @Test

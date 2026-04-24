@@ -23,14 +23,14 @@ class ApiExceptionHandlerTest {
 
   @Test
   void handleAccessDeniedException() {
-    assertDoesNotThrow(() -> {
-      final ResponseEntity<Object> custom_exception = apiExceptionHandler.handleAccessDeniedException(
-        new Exception("custom exception"),
-        getWebRequest()
-      );
-      assertEquals(403, custom_exception.getStatusCode().value());
-      assertEquals("Access denied message here", custom_exception.getBody());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final ResponseEntity<Object> customException =
+              apiExceptionHandler.handleAccessDeniedException(
+                  new Exception("custom exception"), getWebRequest());
+          assertEquals(403, customException.getStatusCode().value());
+          assertEquals("Access denied message here", customException.getBody());
+        });
   }
 
   private WebRequest getWebRequest() {

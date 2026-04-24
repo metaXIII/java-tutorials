@@ -12,7 +12,7 @@ public class App {
     return Integer.toHexString(randomInt);
   }
 
-  @SuppressWarnings({ "java:S2245" })
+  @SuppressWarnings({"java:S2245"})
   private static Random getRandom() {
     return new Random();
   }
@@ -40,13 +40,15 @@ public class App {
     return randomDataGenerator.nextHexString(len);
   }
 
-  String generateRandomHexWithCommonsMathRandomDataGeneratorNextIntWithRange(final int lower, final int upper) {
+  String generateRandomHexWithCommonsMathRandomDataGeneratorNextIntWithRange(
+      final int lower, final int upper) {
     final var randomDataGenerator = new RandomDataGenerator();
     final var randomInt = randomDataGenerator.nextInt(lower, upper);
     return Integer.toHexString(randomInt);
   }
 
-  String generateRandomHexWithCommonsMathRandomDataGeneratorSecureNextIntWithRange(final int lower, final int upper) {
+  String generateRandomHexWithCommonsMathRandomDataGeneratorSecureNextIntWithRange(
+      final int lower, final int upper) {
     final var randomDataGenerator = new RandomDataGenerator();
     final var randomInt = randomDataGenerator.nextSecureInt(lower, upper);
     return Integer.toHexString(randomInt);

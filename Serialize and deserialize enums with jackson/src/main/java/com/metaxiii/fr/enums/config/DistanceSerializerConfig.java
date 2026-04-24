@@ -13,8 +13,9 @@ public class DistanceSerializerConfig extends StdSerializer<DistanceSerializer> 
   }
 
   @Override
-  public void serialize(final DistanceSerializer distance, final JsonGenerator gen, final SerializerProvider provider)
-    throws IOException {
+  public void serialize(
+      final DistanceSerializer distance, final JsonGenerator gen, final SerializerProvider provider)
+      throws IOException {
     gen.writeStartObject();
     gen.writeFieldName("name");
     gen.writeString((distance.name()));

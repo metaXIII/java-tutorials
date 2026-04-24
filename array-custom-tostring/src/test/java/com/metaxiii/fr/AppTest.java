@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 class AppTest {
 
-  private static final String[] CONTENT = new String[] { "www.", "Baeldung.", "com" };
+  private static final String[] CONTENT = new String[] {"www.", "Baeldung.", "com"};
 
   @Test
   void givenArray_whenUsingJoinerJoin_thenPrintedArrayWithoutCommaBrackets() {
@@ -49,7 +49,8 @@ class AppTest {
 
   @Test
   void givenArray_whenUsingStringReplace_thenPrintedArrayWithoutCommaBrackets() {
-    final String result = Arrays.toString(CONTENT).replace("[", "").replace("]", "").replace(", ", "");
+    final String result =
+        Arrays.toString(CONTENT).replace("[", "").replace("]", "").replace(", ", "");
     assertEquals("www.Baeldung.com", result);
   }
 

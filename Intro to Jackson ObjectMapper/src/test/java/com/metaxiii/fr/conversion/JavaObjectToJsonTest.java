@@ -26,9 +26,10 @@ class JavaObjectToJsonTest {
   @Test
   void itShouldRenderCarAsJson() {
     final Car car = new Car("Black", "BMW");
-    assertDoesNotThrow(() -> {
-      final String process = javaObjectToJson.process(car);
-      assertEquals(JSON, process);
-    });
+    assertDoesNotThrow(
+        () -> {
+          final String process = javaObjectToJson.process(car);
+          assertEquals(JSON, process);
+        });
   }
 }

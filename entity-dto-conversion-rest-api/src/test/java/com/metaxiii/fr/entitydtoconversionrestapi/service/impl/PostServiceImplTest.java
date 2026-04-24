@@ -16,14 +16,14 @@ import org.springframework.test.context.jdbc.Sql;
 @Sql(scripts = "classpath:/init-db/post.sql")
 class PostServiceImplTest {
 
-  @Autowired
-  private PostServiceImpl postService;
+  @Autowired private PostServiceImpl postService;
 
   @Test
   void getPostsList() {
-    assertDoesNotThrow(() -> {
-      final List<Post> postsList = postService.getPostsList(0, 1, "asc", "userName");
-      assertEquals(1, postsList.size());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final List<Post> postsList = postService.getPostsList(0, 1, "asc", "userName");
+          assertEquals(1, postsList.size());
+        });
   }
 }

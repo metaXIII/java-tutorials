@@ -22,14 +22,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class BookServiceImplTest {
 
-  @InjectMocks
-  private BookServiceImpl bookService;
+  @InjectMocks private BookServiceImpl bookService;
 
-  @Mock
-  BookMapper mapper;
+  @Mock BookMapper mapper;
 
-  @Mock
-  private BookRepository repository;
+  @Mock private BookRepository repository;
 
   private static BookDTO getBookDTO() {
     return BookDTO.builder().id(1L).author("author").title("title").build();
@@ -37,37 +34,41 @@ class BookServiceImplTest {
 
   @Test
   void findAll() {
-    assertDoesNotThrow(() -> {
-      bookService.findAll();
-    });
+    assertDoesNotThrow(
+        () -> {
+          bookService.findAll();
+        });
   }
 
   @Test
   void findByTitle() {
-    assertDoesNotThrow(() -> {
-      bookService.findByTitle(anyString());
-    });
+    assertDoesNotThrow(
+        () -> {
+          bookService.findByTitle(anyString());
+        });
   }
 
   @Test
   void findById() {
     assertThrows(BookNotFoundException.class, () -> bookService.findById(1L));
     when(repository.findById(1L)).thenReturn(Optional.of(getBook()));
-    assertDoesNotThrow(() -> {
-      bookService.findById(1L);
-    });
+    assertDoesNotThrow(
+        () -> {
+          bookService.findById(1L);
+        });
   }
 
   @Test
   void save() {
-    assertDoesNotThrow(() -> {
-      when(mapper.toEntity(any(BookDTO.class))).thenReturn(getBook());
-      when(repository.save(any(Book.class))).thenReturn(getBook());
-      final Book save = bookService.save(getBookDTO());
-      assertEquals(1, save.getId());
-      assertEquals("author", save.getAuthor());
-      assertEquals("title", save.getTitle());
-    });
+    assertDoesNotThrow(
+        () -> {
+          when(mapper.toEntity(any(BookDTO.class))).thenReturn(getBook());
+          when(repository.save(any(Book.class))).thenReturn(getBook());
+          final Book save = bookService.save(getBookDTO());
+          assertEquals(1, save.getId());
+          assertEquals("author", save.getAuthor());
+          assertEquals("title", save.getTitle());
+        });
   }
 
   private static Book getBook() {

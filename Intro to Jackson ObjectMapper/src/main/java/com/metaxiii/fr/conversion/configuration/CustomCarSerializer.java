@@ -17,8 +17,9 @@ public class CustomCarSerializer extends StdSerializer<Car> {
   }
 
   @Override
-  public void serialize(final Car car, final JsonGenerator jsonGenerator, final SerializerProvider serializerProvider)
-    throws IOException {
+  public void serialize(
+      final Car car, final JsonGenerator jsonGenerator, final SerializerProvider serializerProvider)
+      throws IOException {
     jsonGenerator.writeStartObject();
     jsonGenerator.writeStringField("car_brand", car.getType());
     jsonGenerator.writeEndObject();

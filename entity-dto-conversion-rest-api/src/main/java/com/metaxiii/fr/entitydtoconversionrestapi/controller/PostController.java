@@ -23,18 +23,18 @@ public class PostController {
   @GetMapping("{page}/{size}/{sortDir}/{sort}")
   @ResponseBody
   public List<PostDto> getPosts(
-    @PathVariable("page") int page,
-    @PathVariable("size") int size,
-    @PathVariable("sortDir") String sortDir,
-    @PathVariable("sort") String sort
-  ) {
+      @PathVariable("page") int page,
+      @PathVariable("size") int size,
+      @PathVariable("sortDir") String sortDir,
+      @PathVariable("sort") String sort) {
     List<Post> posts = postService.getPostsList(page, size, sortDir, sort);
     return posts.stream().map(this::toDTO).toList();
   }
 
   private PostDto toDTO(final Post post) {
     PostDto postDto = modelMapper.map(post, PostDto.class);
-    postDto.setSubmissionDate(post.getSubmissionDate(), userService.getCurrentUser().getPreference().getTimezone());
+    postDto.setSubmissionDate(
+        post.getSubmissionDate(), userService.getCurrentUser().getPreference().getTimezone());
     return postDto;
   }
 }

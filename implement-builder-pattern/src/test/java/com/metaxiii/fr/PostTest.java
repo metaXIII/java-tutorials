@@ -26,12 +26,12 @@ class PostTest {
 
   @Test
   void itShouldCreatePostWithGenericBuilder() {
-    final var post = GenericBuilder
-      .of(GenericPost::new)
-      .with(GenericPost::setTitle, TITLE)
-      .with(GenericPost::setText, TEXT)
-      .with(GenericPost::setCategory, CATEGORY)
-      .build();
+    final var post =
+        GenericBuilder.of(GenericPost::new)
+            .with(GenericPost::setTitle, TITLE)
+            .with(GenericPost::setText, TEXT)
+            .with(GenericPost::setCategory, CATEGORY)
+            .build();
     assertEquals(TITLE, post.getTitle());
     assertEquals(TEXT, post.getText());
     assertEquals(CATEGORY, post.getCategory());
@@ -61,8 +61,9 @@ class PostTest {
     assertThrows(NullPointerException.class, () -> getPersonalPost(true, true, false));
   }
 
-  private static void getPersonalPost(final boolean title, final boolean text, final boolean category)
-    throws IllegalAccessException {
+  private static void getPersonalPost(
+      final boolean title, final boolean text, final boolean category)
+      throws IllegalAccessException {
     if (!title && !text && !category) {
       PersonalPost.builder().build();
     }

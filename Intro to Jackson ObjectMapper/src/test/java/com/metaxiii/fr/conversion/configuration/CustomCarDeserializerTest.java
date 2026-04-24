@@ -15,7 +15,8 @@ class CustomCarDeserializerTest {
 
   private static final String JSON = "{ \"color\" : \"Black\", \"type\" : \"BMW\"}";
   private ObjectMapper mapper = new ObjectMapper();
-  private SimpleModule module = new SimpleModule("CustomCarDeserializer", new Version(1, 0, 0, null, null, null));
+  private SimpleModule module =
+      new SimpleModule("CustomCarDeserializer", new Version(1, 0, 0, null, null, null));
 
   @BeforeEach
   public void init() {
@@ -37,17 +38,16 @@ class CustomCarDeserializerTest {
 
   @Test
   void deserialize() {
-    assertDoesNotThrow(() -> {
-      ObjectMapper deserializeMapper = new ObjectMapper();
-      SimpleModule deserializeModule = new SimpleModule(
-        "CustomCarDeserializer",
-        new Version(1, 0, 0, null, null, null)
-      );
-      deserializeModule.addDeserializer(Car.class, new CustomCarDeserializer());
-      deserializeMapper.registerModule(module);
-      final Car car = mapper.readValue(JSON, Car.class);
-      assertEquals("Black", car.getColor());
-      assertEquals("BMW", car.getType());
-    });
+    assertDoesNotThrow(
+        () -> {
+          ObjectMapper deserializeMapper = new ObjectMapper();
+          SimpleModule deserializeModule =
+              new SimpleModule("CustomCarDeserializer", new Version(1, 0, 0, null, null, null));
+          deserializeModule.addDeserializer(Car.class, new CustomCarDeserializer());
+          deserializeMapper.registerModule(module);
+          final Car car = mapper.readValue(JSON, Car.class);
+          assertEquals("Black", car.getColor());
+          assertEquals("BMW", car.getType());
+        });
   }
 }

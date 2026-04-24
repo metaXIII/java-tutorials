@@ -19,7 +19,8 @@ public class CustomCarDeserializer extends StdDeserializer<Car> {
   }
 
   @Override
-  public Car deserialize(JsonParser parser, DeserializationContext deserializer) throws IOException {
+  public Car deserialize(JsonParser parser, DeserializationContext deserializer)
+      throws IOException {
     Car car = new Car();
     ObjectCodec codec = parser.getCodec();
     JsonNode node = codec.readTree(parser);

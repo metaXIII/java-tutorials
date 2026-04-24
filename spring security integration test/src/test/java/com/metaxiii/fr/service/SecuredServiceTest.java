@@ -12,8 +12,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SecuredServiceTest {
 
-  @Autowired
-  private SecuredService service;
+  @Autowired private SecuredService service;
 
   @Test
   void givenUnauthenticated_whenCallService_thenThrowsException() {

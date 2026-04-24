@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 class HandlingDateFormatTest {
 
   private HandlingDateFormat handlingDateFormat;
-  private static final String JSON = "{\"car\":{\"color\":\"Black\",\"type\":\"BMW\"},\"datePurcharsed\":\"";
+  private static final String JSON =
+      "{\"car\":{\"color\":\"Black\",\"type\":\"BMW\"},\"datePurcharsed\":\"";
 
   @BeforeEach
   public void init() {
@@ -25,9 +26,10 @@ class HandlingDateFormatTest {
 
   @Test
   void process() {
-    assertDoesNotThrow(() -> {
-      final Car car = new Car("Black", "BMW");
-      assertTrue(handlingDateFormat.process(car).contains(JSON));
-    });
+    assertDoesNotThrow(
+        () -> {
+          final Car car = new Car("Black", "BMW");
+          assertTrue(handlingDateFormat.process(car).contains(JSON));
+        });
   }
 }

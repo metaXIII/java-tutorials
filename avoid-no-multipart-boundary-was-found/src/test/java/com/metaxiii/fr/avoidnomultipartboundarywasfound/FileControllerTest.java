@@ -22,45 +22,45 @@ class FileControllerTest {
   private static final String BOUNDARY = "OurCustomBoundaryValue";
 
   private static final String BODY =
-    "--" +
-    BOUNDARY +
-    "\r\n" +
-    "Content-Disposition: form-data; name=\"file\"; filename=\"import.csv\"\r\n" +
-    "Content-Type: text/csv\r\n" +
-    "\r\n" +
-    "content-of-the-csv-file\r\n" +
-    "--" +
-    BOUNDARY +
-    "\r\n" +
-    "Content-Disposition: form-data; name=\"fileDescription\"\r\n" +
-    "\r\n" +
-    "Records\r\n" +
-    "--" +
-    BOUNDARY +
-    "--";
+      "--"
+          + BOUNDARY
+          + "\r\n"
+          + "Content-Disposition: form-data; name=\"file\"; filename=\"import.csv\"\r\n"
+          + "Content-Type: text/csv\r\n"
+          + "\r\n"
+          + "content-of-the-csv-file\r\n"
+          + "--"
+          + BOUNDARY
+          + "\r\n"
+          + "Content-Disposition: form-data; name=\"fileDescription\"\r\n"
+          + "\r\n"
+          + "Records\r\n"
+          + "--"
+          + BOUNDARY
+          + "--";
 
-  @LocalServerPort
-  private int port;
+  @LocalServerPort private int port;
 
   @Test
   void givenFormData_whenPostWithBoundary_thenReturn200() throws IOException {
-    final RequestBody requestBody = RequestBody.create(
-      BODY.getBytes(),
-      parse(MediaType.MULTIPART_FORM_DATA_VALUE + "; boundary=" + BOUNDARY)
-    );
+    final RequestBody requestBody =
+        RequestBody.create(
+            BODY.getBytes(), parse(MediaType.MULTIPART_FORM_DATA_VALUE + "; boundary=" + BOUNDARY));
     try (final Response response = executeCall(requestBody)) {
       assertEquals(HttpStatus.OK.value(), response.code());
     }
   }
 
   private Response executeCall(final RequestBody requestBody) throws IOException {
-    final Request request = new Request.Builder().url(HOST + port + FILES).post(requestBody).build();
+    final Request request =
+        new Request.Builder().url(HOST + port + FILES).post(requestBody).build();
     return new OkHttpClient().newCall(request).execute();
   }
 
   @Test
   void givenFormData_whenPostWithoutBoundary_thenReturn500() throws IOException {
-    final RequestBody requestBody = RequestBody.create(BODY.getBytes(), parse(MediaType.MULTIPART_FORM_DATA_VALUE));
+    final RequestBody requestBody =
+        RequestBody.create(BODY.getBytes(), parse(MediaType.MULTIPART_FORM_DATA_VALUE));
     try (final Response response = executeCall(requestBody)) {
       assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.code());
     }

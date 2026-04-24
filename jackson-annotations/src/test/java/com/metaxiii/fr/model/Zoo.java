@@ -13,9 +13,10 @@ public class Zoo {
   public Animal animal;
 
   @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-  @JsonSubTypes(
-    { @JsonSubTypes.Type(value = Dog.class, name = "dog"), @JsonSubTypes.Type(value = Cat.class, name = "cat") }
-  )
+  @JsonSubTypes({
+    @JsonSubTypes.Type(value = Dog.class, name = "dog"),
+    @JsonSubTypes.Type(value = Cat.class, name = "cat")
+  })
   @AllArgsConstructor
   @NoArgsConstructor
   public static class Animal {

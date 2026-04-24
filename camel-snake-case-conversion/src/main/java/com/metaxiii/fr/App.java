@@ -19,6 +19,9 @@ public class App {
   }
 
   public static String convertCamelCaseToSnakeRegex(final String input) {
-    return input.replaceAll("([A-Z])(?=[A-Z])", "$1_").replaceAll("([a-z])([A-Z])", "$1_$2").toLowerCase();
+    return input
+        .replaceAll("([A-Z])(?=[A-Z])", "$1_")
+        .replaceAll("([a-z])([A-Z])", "$1_$2")
+        .toLowerCase();
   }
 }

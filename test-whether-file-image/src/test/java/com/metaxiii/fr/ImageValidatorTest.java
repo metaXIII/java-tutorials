@@ -16,7 +16,8 @@ class ImageValidatorTest {
   }
 
   @Test
-  void givenFakeImageFile_whenCheckedUsingProbeContentType_thenShouldReturnTrue() throws IOException {
+  void givenFakeImageFile_whenCheckedUsingProbeContentType_thenShouldReturnTrue()
+      throws IOException {
     final File file = new File("src/test/resources/fake-image.jpg");
     assertTrue(ImageValidator.isImageFileUsingProbeContentType(file));
   }
@@ -46,7 +47,8 @@ class ImageValidatorTest {
   }
 
   @Test
-  void givenNonImageFile_whenCheckedUsingProbeContentType_thenShouldReturnFalse() throws IOException {
+  void givenNonImageFile_whenCheckedUsingProbeContentType_thenShouldReturnFalse()
+      throws IOException {
     final File file = new File("src/test/resources/test-document.txt");
     assertFalse(ImageValidator.isImageFileUsingProbeContentType(file));
   }

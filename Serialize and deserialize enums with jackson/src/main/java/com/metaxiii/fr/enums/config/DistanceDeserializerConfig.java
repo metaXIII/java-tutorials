@@ -14,8 +14,8 @@ public class DistanceDeserializerConfig extends StdDeserializer<DistanceDeserial
   }
 
   @Override
-  public DistanceDeserializer deserialize(final JsonParser jsonParser, final DeserializationContext ctxt)
-    throws IOException {
+  public DistanceDeserializer deserialize(
+      final JsonParser jsonParser, final DeserializationContext ctxt) throws IOException {
     JsonNode node = jsonParser.getCodec().readTree(jsonParser);
     String unit = node.get("unit").asText();
     double meters = node.get("meters").asDouble();

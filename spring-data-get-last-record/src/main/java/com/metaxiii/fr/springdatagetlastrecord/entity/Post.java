@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Post {
 
-  @Id
-  private Long id;
+  @Id private Long id;
 
   private String title;
   private LocalDate publicationDate;

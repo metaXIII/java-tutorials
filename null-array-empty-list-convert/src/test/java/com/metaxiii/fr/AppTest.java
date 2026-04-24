@@ -32,13 +32,13 @@ class AppTest {
 
   @Test
   void whenArrayIsNotEmpty_thenReturnListWithSameElements_getAsListApacheCommonsLang() {
-    final String[] possiblyNullArray = { "a", "b" };
+    final String[] possiblyNullArray = {"a", "b"};
     assertThat(getAsListApacheCommonsLang(possiblyNullArray)).containsExactly(possiblyNullArray);
   }
 
   @Test
   void whenArrayIsNotEmpty_thenReturnListWithSameElements_getAsListOptional() {
-    final String[] possiblyNullArray = { "a", "b" };
+    final String[] possiblyNullArray = {"a", "b"};
     assertThat(getAsListOptional(possiblyNullArray)).containsExactly(possiblyNullArray);
   }
 

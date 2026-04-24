@@ -24,7 +24,8 @@ import org.junit.jupiter.api.Test;
 class JacksonDateTest {
 
   @Test
-  void whenSerializingDateWithJackson_thenSerializedToTimestamp() throws JsonProcessingException, ParseException {
+  void whenSerializingDateWithJackson_thenSerializedToTimestamp()
+      throws JsonProcessingException, ParseException {
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
     df.setTimeZone(TimeZone.getTimeZone("UTC"));
     Date date = df.parse("01-01-1970 01:00");
@@ -34,7 +35,8 @@ class JacksonDateTest {
   }
 
   @Test
-  void whenSerializingDateToISO8601_thenSerializedToText() throws JsonProcessingException, ParseException {
+  void whenSerializingDateToISO8601_thenSerializedToText()
+      throws JsonProcessingException, ParseException {
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
     df.setTimeZone(TimeZone.getTimeZone("UTC"));
     String toParse = "01-01-1970 02:30";
@@ -48,7 +50,8 @@ class JacksonDateTest {
   }
 
   @Test
-  void whenSettingObjectMapperDateFormat_thenCorrect() throws JsonProcessingException, ParseException {
+  void whenSettingObjectMapperDateFormat_thenCorrect()
+      throws JsonProcessingException, ParseException {
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
     String toParse = "20-12-2014 02:30";
     Date date = df.parse(toParse);
@@ -60,7 +63,8 @@ class JacksonDateTest {
   }
 
   @Test
-  void whenUsingJsonFormatAnnotationToFormatDate_thenCorrect() throws JsonProcessingException, ParseException {
+  void whenUsingJsonFormatAnnotationToFormatDate_thenCorrect()
+      throws JsonProcessingException, ParseException {
     SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     df.setTimeZone(TimeZone.getTimeZone("UTC"));
     String toParse = "20-12-2014 02:30:00";
@@ -126,7 +130,8 @@ class JacksonDateTest {
     }
 
     @Override
-    public void serialize(Date value, JsonGenerator gen, SerializerProvider arg2) throws IOException {
+    public void serialize(Date value, JsonGenerator gen, SerializerProvider arg2)
+        throws IOException {
       gen.writeString(FORMATTER.format(value));
     }
   }

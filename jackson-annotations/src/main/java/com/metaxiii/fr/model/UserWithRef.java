@@ -13,8 +13,7 @@ public class UserWithRef {
   private int id;
   private String name;
 
-  @JsonBackReference
-  public List<ItemWithRef> userItems;
+  @JsonBackReference public List<ItemWithRef> userItems;
 
   public UserWithRef(final int id, final String name) {
     this.id = id;

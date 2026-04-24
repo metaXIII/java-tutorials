@@ -39,12 +39,11 @@ public class App {
     if (name == null || name.isEmpty()) {
       return "";
     }
-    return Arrays
-      .stream(name.split("\\s+"))
-      .filter(part -> part.matches("[a-zA-Z].*"))
-      .map(part -> part.substring(0, 1))
-      .collect(Collectors.joining())
-      .toUpperCase();
+    return Arrays.stream(name.split("\\s+"))
+        .filter(part -> part.matches("[a-zA-Z].*"))
+        .map(part -> part.substring(0, 1))
+        .collect(Collectors.joining())
+        .toUpperCase();
   }
 
   String getInitialUsingStringTokenizer(final String name) {

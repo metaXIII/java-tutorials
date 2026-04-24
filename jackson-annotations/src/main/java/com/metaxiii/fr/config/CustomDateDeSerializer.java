@@ -21,8 +21,9 @@ public class CustomDateDeSerializer extends StdDeserializer<Date> {
   }
 
   @Override
-  public Date deserialize(final JsonParser jsonParser, final DeserializationContext deserializationContext)
-    throws IOException {
+  public Date deserialize(
+      final JsonParser jsonParser, final DeserializationContext deserializationContext)
+      throws IOException {
     String date = jsonParser.getText();
     try {
       return formatter.parse(date);

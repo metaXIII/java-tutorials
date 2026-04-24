@@ -15,7 +15,8 @@ class AppTest {
   static final String INPUT1 = "some text [THE IMPORTANT MESSAGE] something else";
   static final String EXPECTED1 = "THE IMPORTANT MESSAGE";
 
-  static final String INPUT2 = "[La La Land], [The last Emperor], and [Life of Pi] are all great movies.";
+  static final String INPUT2 =
+      "[La La Land], [The last Emperor], and [Life of Pi] are all great movies.";
   static final List<String> EXPECTED2 = List.of("La La Land", "The last Emperor", "Life of Pi");
 
   @Test
@@ -90,6 +91,7 @@ class AppTest {
     assertTrue(Arrays.stream(strArray).toList().containsAll(List.of("", "THE IMPORTANT MESSAGE")));
     strArray = "[THE IMPORTANT MESSAGE]".split("[\\[\\]]", -1);
     assertEquals(3, strArray.length);
-    assertTrue(Arrays.stream(strArray).toList().containsAll(List.of("", "THE IMPORTANT MESSAGE", "")));
+    assertTrue(
+        Arrays.stream(strArray).toList().containsAll(List.of("", "THE IMPORTANT MESSAGE", "")));
   }
 }

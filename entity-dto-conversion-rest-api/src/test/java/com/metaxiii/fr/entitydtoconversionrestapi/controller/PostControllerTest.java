@@ -25,20 +25,20 @@ import tools.jackson.databind.json.JsonMapper;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PostControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
   @Test
   void getPosts() throws Exception {
     final var url = "/0/1/asc/userName";
-    final var mvcResult = mockMvc.perform(get(url)).andDo(print()).andExpect(status().isOk()).andReturn();
+    final var mvcResult =
+        mockMvc.perform(get(url)).andDo(print()).andExpect(status().isOk()).andReturn();
     final var objectMapper = new JsonMapper();
-    Assertions.assertDoesNotThrow(() -> {
-      final List<PostDto> result = objectMapper.readValue(
-        mvcResult.getResponse().getContentAsString(),
-        new TypeReference<>() {}
-      );
-      assertEquals(1, result.size());
-    });
+    Assertions.assertDoesNotThrow(
+        () -> {
+          final List<PostDto> result =
+              objectMapper.readValue(
+                  mvcResult.getResponse().getContentAsString(), new TypeReference<>() {});
+          assertEquals(1, result.size());
+        });
   }
 }

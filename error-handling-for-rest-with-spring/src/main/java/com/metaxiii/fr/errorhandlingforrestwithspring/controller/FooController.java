@@ -31,7 +31,7 @@ public class FooController {
     throw new AccessDeniedException("Not allowed here");
   }
 
-  @ExceptionHandler({ CustomException.class })
+  @ExceptionHandler({CustomException.class})
   private void handleException() {
     log.error("une erreur est survenue");
   }

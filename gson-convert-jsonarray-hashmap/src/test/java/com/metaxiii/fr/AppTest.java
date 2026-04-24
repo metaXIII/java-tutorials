@@ -43,15 +43,12 @@ class AppTest {
   }
 
   Map<String, Integer> convertUsingStreams(final JsonArray jsonArray) {
-    return StreamSupport
-      .stream(jsonArray.spliterator(), false)
-      .map(JsonElement::getAsJsonObject)
-      .collect(
-        Collectors.toMap(
-          jsonObject -> jsonObject.get("name").getAsString(),
-          jsonObject -> jsonObject.get("age").getAsInt()
-        )
-      );
+    return StreamSupport.stream(jsonArray.spliterator(), false)
+        .map(JsonElement::getAsJsonObject)
+        .collect(
+            Collectors.toMap(
+                jsonObject -> jsonObject.get("name").getAsString(),
+                jsonObject -> jsonObject.get("age").getAsInt()));
   }
 
   @BeforeEach

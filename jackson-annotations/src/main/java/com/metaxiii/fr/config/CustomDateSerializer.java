@@ -21,10 +21,10 @@ public class CustomDateSerializer extends StdSerializer<Date> {
 
   @Override
   public void serialize(
-    final Date date,
-    final JsonGenerator jsonGenerator,
-    final SerializerProvider serializerProvider
-  ) throws IOException {
+      final Date date,
+      final JsonGenerator jsonGenerator,
+      final SerializerProvider serializerProvider)
+      throws IOException {
     jsonGenerator.writeString(formatter.format(date));
   }
 }

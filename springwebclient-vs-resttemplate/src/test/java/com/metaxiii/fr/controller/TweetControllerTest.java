@@ -15,34 +15,39 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class TweetControllerTest {
 
-  @Autowired
-  private WebTestClient webTestClient;
+  @Autowired private WebTestClient webTestClient;
 
   @Test
   void getAllTweets() {
     webTestClient
-      .get()
-      .uri("/slow-service-tweets")
-      .exchange()
-      .expectStatus()
-      .is2xxSuccessful()
-      .expectBodyList(Tweet.class)
-      .value(tweets -> assertEquals(3, tweets.size()));
+        .get()
+        .uri("/slow-service-tweets")
+        .exchange()
+        .expectStatus()
+        .is2xxSuccessful()
+        .expectBodyList(Tweet.class)
+        .value(tweets -> assertEquals(3, tweets.size()));
   }
 
   @Test
   void getTweetsBlocking() {
-    webTestClient.get().uri("/tweets-blocking").exchange().expectStatus().is2xxSuccessful().expectBodyList(Tweet.class);
+    webTestClient
+        .get()
+        .uri("/tweets-blocking")
+        .exchange()
+        .expectStatus()
+        .is2xxSuccessful()
+        .expectBodyList(Tweet.class);
   }
 
   @Test
   void getTweetsNonBlocking() {
     webTestClient
-      .get()
-      .uri("/tweets-non-blocking")
-      .exchange()
-      .expectStatus()
-      .is2xxSuccessful()
-      .expectBodyList(Tweet.class);
+        .get()
+        .uri("/tweets-non-blocking")
+        .exchange()
+        .expectStatus()
+        .is2xxSuccessful()
+        .expectBodyList(Tweet.class);
   }
 }

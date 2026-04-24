@@ -13,8 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class EventCriteriaRepository {
 
-  @PersistenceContext
-  private EntityManager entityManager;
+  @PersistenceContext private EntityManager entityManager;
 
   public List<Event> findByCreatedDate(final LocalDate date) {
     final LocalDateTime startOfDay = date.atStartOfDay();

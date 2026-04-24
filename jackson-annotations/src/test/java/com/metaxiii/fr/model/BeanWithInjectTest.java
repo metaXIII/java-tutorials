@@ -13,7 +13,8 @@ class BeanWithInjectTest {
   void whenDeserializingUsingJsonInject_thenCorrect() throws IOException {
     String json = "{\"name\":\"My bean\"}";
     InjectableValues inject = new InjectableValues.Std().addValue(int.class, 1);
-    BeanWithInject bean = new ObjectMapper().reader(inject).forType(BeanWithInject.class).readValue(json);
+    BeanWithInject bean =
+        new ObjectMapper().reader(inject).forType(BeanWithInject.class).readValue(json);
     assertEquals("My bean", bean.getName());
     assertEquals(1, bean.getId());
   }

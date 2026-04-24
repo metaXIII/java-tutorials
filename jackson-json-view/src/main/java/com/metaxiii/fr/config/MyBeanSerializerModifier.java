@@ -10,10 +10,9 @@ public class MyBeanSerializerModifier extends BeanSerializerModifier {
 
   @Override
   public List<BeanPropertyWriter> changeProperties(
-    SerializationConfig config,
-    BeanDescription beanDesc,
-    List<BeanPropertyWriter> beanProperties
-  ) {
+      SerializationConfig config,
+      BeanDescription beanDesc,
+      List<BeanPropertyWriter> beanProperties) {
     for (int i = 0; i < beanProperties.size(); i++) {
       BeanPropertyWriter writer = beanProperties.get(i);
       if ("name".equals(writer.getName())) {

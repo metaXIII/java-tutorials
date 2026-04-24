@@ -52,7 +52,8 @@ class AppTest {
     final var distinctCities = Arrays.asList("Tamassint", "Madrid", "Paris", "Tokyo");
     final var arrayListCities = new ArrayList<>(distinctCities);
     final var newCity = "Tamassint";
-    final var optionalCity = arrayListCities.stream().filter(city -> city.equals(newCity)).findFirst();
+    final var optionalCity =
+        arrayListCities.stream().filter(city -> city.equals(newCity)).findFirst();
     if (optionalCity.isEmpty()) {
       arrayListCities.add(newCity);
     }
@@ -73,7 +74,8 @@ class AppTest {
 
   @Test
   void givenArrayList_whenUsingSet_thenAvoidDuplicates() {
-    final Set<String> distinctCities = new HashSet<>(Arrays.asList("Tamassint", "Madrid", "Paris", "Tokyo"));
+    final Set<String> distinctCities =
+        new HashSet<>(Arrays.asList("Tamassint", "Madrid", "Paris", "Tokyo"));
     final var newCity = "Paris";
     distinctCities.add(newCity);
     final var arrayListCities = new ArrayList<>(distinctCities);

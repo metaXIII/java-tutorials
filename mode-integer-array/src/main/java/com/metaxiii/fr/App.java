@@ -64,14 +64,13 @@ public class App {
   }
 
   public Set<Integer> findModeByUsingStreams(final int[] nums) {
-    final var frequencyMap = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+    final var frequencyMap =
+        Arrays.stream(nums).boxed().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
     final var maxFrequency = Collections.max(frequencyMap.values());
-    return frequencyMap
-      .entrySet()
-      .stream()
-      .filter(entry -> entry.getValue().equals(maxFrequency))
-      .map(Map.Entry::getKey)
-      .collect(Collectors.toSet());
+    return frequencyMap.entrySet().stream()
+        .filter(entry -> entry.getValue().equals(maxFrequency))
+        .map(Map.Entry::getKey)
+        .collect(Collectors.toSet());
   }
 
   public Set<Integer> findModeByUsingTreemap(final int[] nums) {

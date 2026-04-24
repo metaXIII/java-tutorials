@@ -42,9 +42,8 @@ class AppTest {
   void givenUnderflowScenario_whenExceedingFloatRange_thenFloatUnderflowsToZero() {
     float underflowValue = 1.4e-45f / 2; // Smaller than the smallest normalized float value
     assertEquals(
-      0.0f,
-      underflowValue,
-      "Float should underflow to zero for values smaller than the smallest representable number"
-    );
+        0.0f,
+        underflowValue,
+        "Float should underflow to zero for values smaller than the smallest representable number");
   }
 }

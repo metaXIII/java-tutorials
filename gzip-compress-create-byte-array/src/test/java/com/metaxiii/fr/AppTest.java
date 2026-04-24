@@ -18,7 +18,7 @@ public class AppTest {
   @Test
   void whenCompressingUsingGZip_thenGetCompressedByteArray() throws IOException {
     final String payload =
-      """
+        """
             This is a sample text to test method gzip. The gzip algorithm will compress this string.
             The result will be smaller than this string.
             """;

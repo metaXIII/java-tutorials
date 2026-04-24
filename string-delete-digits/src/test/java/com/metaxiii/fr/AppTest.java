@@ -21,12 +21,13 @@ class AppTest {
 
   @Test
   void whenUsingCharacterStream_thenGetExpectedResult() {
-    final var updatedString = INPUT_STRING
-      .chars()
-      .filter(c -> !Character.isDigit(c))
-      .mapToObj(c -> (char) c)
-      .map(String::valueOf)
-      .collect(Collectors.joining());
+    final var updatedString =
+        INPUT_STRING
+            .chars()
+            .filter(c -> !Character.isDigit(c))
+            .mapToObj(c -> (char) c)
+            .map(String::valueOf)
+            .collect(Collectors.joining());
     assertEquals(EXPECTED_STRING, updatedString);
   }
 

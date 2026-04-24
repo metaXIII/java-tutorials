@@ -22,7 +22,7 @@ import org.xml.sax.SAXException;
 public class App {
 
   public static final String FRUIT_XML =
-    """
+      """
           <fruit>
                   <name>Apple</name>
                   <color>Red</color>
@@ -30,7 +30,8 @@ public class App {
                   <sweetness>7</sweetness>
               </fruit>""";
 
-  public static Document getDocument() throws SAXException, IOException, ParserConfigurationException {
+  public static Document getDocument()
+      throws SAXException, IOException, ParserConfigurationException {
     final DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
     return factory.newDocumentBuilder().parse(new InputSource(new StringReader(FRUIT_XML)));
   }

@@ -9,6 +9,7 @@ class AvoidNoMultipartBoundaryWasFoundApplicationTests {
 
   @Test
   void contextLoads() {
-    Assertions.assertDoesNotThrow(() -> AvoidNoMultipartBoundaryWasFoundApplication.main(new String[] {}));
+    Assertions.assertDoesNotThrow(
+        () -> AvoidNoMultipartBoundaryWasFoundApplication.main(new String[] {}));
   }
 }

@@ -20,10 +20,11 @@ public class GenericBuilder<T> {
   }
 
   public <P> GenericBuilder<T> with(final BiConsumer<T, P> consumer, final P value) {
-    return new GenericBuilder<>(() -> {
-      final T obj = supplier.get();
-      consumer.accept(obj, value);
-      return obj;
-    });
+    return new GenericBuilder<>(
+        () -> {
+          final T obj = supplier.get();
+          consumer.accept(obj, value);
+          return obj;
+        });
   }
 }

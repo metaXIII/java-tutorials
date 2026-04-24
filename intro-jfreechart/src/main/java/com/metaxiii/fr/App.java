@@ -70,15 +70,9 @@ public class App {
     final TimeSeriesCollection dataset = new TimeSeriesCollection();
     dataset.addSeries(series);
 
-    final JFreeChart chart = ChartFactory.createTimeSeriesChart(
-      MONTHLY_SALES,
-      "Date",
-      SALES,
-      dataset,
-      true,
-      false,
-      false
-    );
+    final JFreeChart chart =
+        ChartFactory.createTimeSeriesChart(
+            MONTHLY_SALES, "Date", SALES, dataset, true, false, false);
     renderPanel(chart);
   }
 

@@ -14,7 +14,7 @@ public class JsonToJavaObject {
   public Car processAsObject(String json) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
     return objectMapper.readValue(json, Car.class);
-  }  
+  }
 
   public Car processAsFile(final File file) throws IOException {
     ObjectMapper objectMapper = new ObjectMapper();

@@ -16,7 +16,8 @@ import org.junit.jupiter.api.Test;
 class SerializationDeserializationTest {
 
   private SerializationDeserialization serializationDeserialization;
-  private static final String JSON = "{ \"color\" : \"Black\", \"type\" : \"BMW\", \"year\" : \"2022\" }";
+  private static final String JSON =
+      "{ \"color\" : \"Black\", \"type\" : \"BMW\", \"year\" : \"2022\" }";
   private static final String GOOD_JSON = "{ \"color\" : \"Black\", \"type\" : \"BMW\"}";
 
   @BeforeEach
@@ -30,39 +31,45 @@ class SerializationDeserializationTest {
   }
 
   @Test
-  void itShouldThrowsUnrecognizedPropertyExceptionWhenObjectMapperIsNotConfigureForDeserialization() {
+  void
+      itShouldThrowsUnrecognizedPropertyExceptionWhenObjectMapperIsNotConfigureForDeserialization() {
     assertThrows(
-      UnrecognizedPropertyException.class,
-      () -> {
-        final Car car = serializationDeserialization.processWithUnrecognizedPropertyException(JSON);
-        assertNull(car);
-      }
-    );
+        UnrecognizedPropertyException.class,
+        () -> {
+          final Car car =
+              serializationDeserialization.processWithUnrecognizedPropertyException(JSON);
+          assertNull(car);
+        });
   }
 
   @Test
-  void itShouldNotThrowsUnrecognizedPropertyExceptionWhenObjectMapperIsNotConfigureForDeserialization() {
-    assertDoesNotThrow(() -> {
-      final Car car = serializationDeserialization.processWithUnrecognizedPropertyException(GOOD_JSON);
-      assertNotNull(car);
-    });
+  void
+      itShouldNotThrowsUnrecognizedPropertyExceptionWhenObjectMapperIsNotConfigureForDeserialization() {
+    assertDoesNotThrow(
+        () -> {
+          final Car car =
+              serializationDeserialization.processWithUnrecognizedPropertyException(GOOD_JSON);
+          assertNotNull(car);
+        });
   }
 
   @Test
   void itShouldProcessWhenObjectMapperIsConfigure() {
-    assertDoesNotThrow(() -> {
-      final Car car = serializationDeserialization.process(JSON);
-      assertEquals("Black", car.getColor());
-      assertEquals("BMW", car.getType());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final Car car = serializationDeserialization.process(JSON);
+          assertEquals("Black", car.getColor());
+          assertEquals("BMW", car.getType());
+        });
   }
 
   @Test
   void itShouldRenderJsonNode() {
-    assertDoesNotThrow(() -> {
-      final JsonNode jsonNodeRoot = serializationDeserialization.processJsonNode(JSON);
-      JsonNode jsonNodeYear = jsonNodeRoot.get("year");
-      assertEquals("2022", jsonNodeYear.asText());
-    });
+    assertDoesNotThrow(
+        () -> {
+          final JsonNode jsonNodeRoot = serializationDeserialization.processJsonNode(JSON);
+          JsonNode jsonNodeYear = jsonNodeRoot.get("year");
+          assertEquals("2022", jsonNodeYear.asText());
+        });
   }
 }
