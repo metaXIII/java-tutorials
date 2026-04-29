@@ -10,35 +10,6 @@
         "com.metaxiii.fr*"
       ],
       "enabled": false
-    },
-    {
-      "description": "Par defaut, on attend (pas de PR automatique).",
-      "matchPackageNames": [
-        "*"
-      ],
-      "enabled": false
-    },
-    {
-      "description": "Confidence very-high: PR apres 14 jours.",
-      "matchPackageNames": [
-        "*"
-      ],
-      "matchConfidence": [
-        "very-high"
-      ],
-      "enabled": true,
-      "minimumReleaseAge": "14 days"
-    },
-    {
-      "description": "Confidence high: PR apres 20 jours.",
-      "matchPackageNames": [
-        "*"
-      ],
-      "matchConfidence": [
-        "high"
-      ],
-      "enabled": true,
-      "minimumReleaseAge": "20 days"
     }
   ]
 }
