@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,7 +20,7 @@ public class PostController {
   private final ModelMapper modelMapper;
 
   @GetMapping("{page}/{size}/{sortDir}/{sort}")
-  @ResponseBody
+
   public List<PostDto> getPosts(
       @PathVariable("page") int page,
       @PathVariable("size") int size,

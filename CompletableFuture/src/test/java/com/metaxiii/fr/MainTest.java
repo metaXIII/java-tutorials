@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -36,7 +37,7 @@ class MainTest {
     final var completableFuture = CompletableFuture.supplyAsync(() -> "Hello");
     final var future =
         completableFuture.thenAccept(s -> System.out.println("Computation returned: " + s));
-    assertDoesNotThrow(() -> future.get());
+    assertDoesNotThrow((Executable) future::get);
   }
 
   @Test
@@ -64,7 +65,7 @@ class MainTest {
   void whenAddingThenRunToFuture_thenFunctionExecutesAfterComputationIsFinished() {
     final var completableFuture = CompletableFuture.supplyAsync(() -> "Hello");
     final var future = completableFuture.thenRun(() -> System.out.println("Computation finished."));
-    assertDoesNotThrow(() -> future.get());
+    assertDoesNotThrow((Executable) future::get);
   }
 
   @Test

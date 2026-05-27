@@ -1,8 +1,12 @@
 package com.metaxiii.fr;
 
+import java.util.logging.Logger;
+
 public class Parent {
 
+  private static final Logger LOGGER = Logger.getLogger(Parent.class.getName());
+
   Parent() {
-    System.out.println("Parent constructor");
+    LOGGER.info("Parent constructor");
   }
 }

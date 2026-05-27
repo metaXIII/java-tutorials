@@ -28,7 +28,7 @@ public class App {
   private static final String MONTH = "Month";
   private static final String PROFIT = "Profit";
 
-  public static void main(final String[] args) {
+  public static void main() {
     final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     dataset.addValue(200, SALES, JANUARY);
     dataset.addValue(150, SALES, FEBRUARY);

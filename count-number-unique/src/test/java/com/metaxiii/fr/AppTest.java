@@ -29,6 +29,6 @@ class AppTest {
 
   @Test
   void itShouldMain() {
-    assertDoesNotThrow(() -> App.main(new String[] {}));
+    assertDoesNotThrow(App::main);
   }
 }

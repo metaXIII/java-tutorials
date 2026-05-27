@@ -11,7 +11,7 @@ public class Main {
           try {
             Thread.sleep(500); // Simuler une tâche longue
             return "Hello";
-          } catch (InterruptedException e) {
+          } catch (InterruptedException _) {
             Thread.currentThread().interrupt();
             return null;
           }

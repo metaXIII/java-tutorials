@@ -11,20 +11,20 @@ class AppTest {
   private App app;
 
   @BeforeEach
-  public void beforeEach() {
+  void beforeEach() {
     app = new App();
   }
 
   @ParameterizedTest
   @CsvSource({
-    "John F Kennedy,JFK",
-    ",''",
-    "'',''",
-    "Not Correct   88text,NC",
-    "michael jackson,MJ",
-    "123,''",
-    "123 234A,''",
-    "1test 2test, ''",
+      "John F Kennedy,JFK",
+      ",''",
+      "'',''",
+      "Not Correct   88text,NC",
+      "michael jackson,MJ",
+      "123,''",
+      "123 234A,''",
+      "1test 2test, ''",
   })
   void getInitialFromName_usingLoop(final String input, final String expected) {
     final String initial = app.getInitialUsingLoop(input);
@@ -33,14 +33,14 @@ class AppTest {
 
   @ParameterizedTest
   @CsvSource({
-    "John F Kennedy,JFK",
-    ",''",
-    "'',''",
-    "Not Correct   88text,NC",
-    "michael jackson,MJ",
-    "123,''",
-    "123 234A,''",
-    "1test 2test, ''",
+      "John F Kennedy,JFK",
+      ",''",
+      "'',''",
+      "Not Correct   88text,NC",
+      "michael jackson,MJ",
+      "123,''",
+      "123 234A,''",
+      "1test 2test, ''",
   })
   void getInitialUsingRegex(final String input, final String expected) {
     final String initial = app.getInitialUsingRegex(input);
@@ -49,14 +49,14 @@ class AppTest {
 
   @ParameterizedTest
   @CsvSource({
-    "John F Kennedy,JFK",
-    ",''",
-    "'',''",
-    "Not Correct   88text,NC",
-    "michael jackson,MJ",
-    "123,''",
-    "123 234A,''",
-    "1test 2test, ''",
+      "John F Kennedy,JFK",
+      ",''",
+      "'',''",
+      "Not Correct   88text,NC",
+      "michael jackson,MJ",
+      "123,''",
+      "123 234A,''",
+      "1test 2test, ''",
   })
   void getInitialUsingStreamsAPI(final String input, final String expected) {
     final String initial = app.getInitialUsingStreamsAPI(input);
@@ -65,14 +65,14 @@ class AppTest {
 
   @ParameterizedTest
   @CsvSource({
-    "John F Kennedy,JFK",
-    ",''",
-    "'',''",
-    "Not Correct   88text,NC",
-    "michael jackson,MJ",
-    "123,''",
-    "123 234A,''",
-    "1test 2test, ''",
+      "John F Kennedy,JFK",
+      ",''",
+      "'',''",
+      "Not Correct   88text,NC",
+      "michael jackson,MJ",
+      "123,''",
+      "123 234A,''",
+      "1test 2test, ''",
   })
   void getInitialUsingStringTokenizer(final String input, final String expected) {
     final String initial = app.getInitialUsingStringTokenizer(input);

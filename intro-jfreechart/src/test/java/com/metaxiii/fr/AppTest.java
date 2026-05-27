@@ -8,6 +8,6 @@ class AppTest {
 
   @Test
   void itShouldApp() {
-    assertDoesNotThrow(() -> App.main(new String[] {}));
+    assertDoesNotThrow(App::main);
   }
 }

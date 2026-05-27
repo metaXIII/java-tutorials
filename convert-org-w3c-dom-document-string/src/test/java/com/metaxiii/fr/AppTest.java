@@ -1,4 +1,4 @@
-package com.metaxiii.fr;
+ package com.metaxiii.fr;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,14 +7,14 @@ import org.w3c.dom.Document;
 
 class AppTest {
 
-  private static final String startXml =
+  private static final String START_XML =
       """
       <?xml version="1.0" encoding="UTF-8" standalone="no"?>""";
 
   @Test
   void givenXMLDocument_thenConvertToStringSuccessfully() throws Exception {
     final Document document = App.getDocument();
-    assertEquals(startXml + App.FRUIT_XML, App.toString(document));
+    assertEquals(START_XML + App.FRUIT_XML, App.toString(document));
   }
 
   @Test

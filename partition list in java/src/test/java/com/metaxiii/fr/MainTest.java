@@ -1,3 +1,5 @@
+package com.metaxiii.fr;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.common.collect.Iterables;
@@ -66,7 +68,7 @@ class MainTest {
   }
 
   @Test
-  public final void givenList_whenParitioningIntoNSublistsUsingGroupingBy_thenCorrect() {
+  void givenList_whenParitioningIntoNSublistsUsingGroupingBy_thenCorrect() {
     List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
     Map<Integer, List<Integer>> groups =
         intList.stream().collect(Collectors.groupingBy(s -> (s - 1) / 3));
@@ -90,7 +92,7 @@ class MainTest {
     List<List<Integer>> subSets =
         IntStream.range(0, indexes.length - 1)
             .mapToObj(i -> intList.subList(indexes[i] + 1, indexes[i + 1]))
-            .collect(Collectors.toList());
+            .toList();
     List<Integer> lastPartition = subSets.get(2);
     List<Integer> expectedLastPartition = Lists.<Integer>newArrayList(7, 8);
     assertEquals(3, subSets.size());
