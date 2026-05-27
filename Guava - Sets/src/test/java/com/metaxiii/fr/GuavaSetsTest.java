@@ -7,7 +7,6 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ContiguousSet;
 import com.google.common.collect.DiscreteDomain;
 import com.google.common.collect.HashMultiset;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multiset;
@@ -17,7 +16,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeRangeSet;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 class GuavaSetsTest {
@@ -26,10 +24,10 @@ class GuavaSetsTest {
   void whenCalculatingCartesianProductOfSets_thenCorrect() {
     final var first = ImmutableSet.of('a', 'b');
     final var second = ImmutableSet.of('c', 'd');
-    final var result = Sets.cartesianProduct(ImmutableList.of(first, second));
+    final var result = Sets.cartesianProduct(List.of(first, second));
 
     final Function<List<Character>, String> func = input -> Joiner.on(" ").join(input);
-    final Iterable<String> joined = result.stream().map(func).collect(Collectors.toList());
+    final Iterable<String> joined = result.stream().map(func).toList();
     assertTrue(Sets.newHashSet(joined).containsAll(List.of("a c", "a d", "b c", "b d")));
   }
 

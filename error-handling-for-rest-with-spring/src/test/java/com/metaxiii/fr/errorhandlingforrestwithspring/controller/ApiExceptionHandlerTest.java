@@ -17,7 +17,7 @@ class ApiExceptionHandlerTest {
   private ApiExceptionHandler apiExceptionHandler;
 
   @AfterEach
-  public void endEach() {
+  void endEach() {
     this.apiExceptionHandler = null;
   }
 

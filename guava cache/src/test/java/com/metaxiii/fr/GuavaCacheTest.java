@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import com.google.common.base.Ticker;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -15,6 +16,8 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,12 +27,12 @@ class GuavaCacheTest {
   private GuavaCache guavaCache;
 
   @BeforeEach
-  public void initAll() {
+  void initAll() {
     guavaCache = new GuavaCache();
   }
 
   @AfterEach
-  public void endEach() {
+  void endEach() {
     guavaCache = null;
   }
 
@@ -71,29 +74,33 @@ class GuavaCacheTest {
   }
 
   @Test
-  void whenEntryIdle_thenEviction() throws InterruptedException {
+  void whenEntryIdle_thenEviction() {
+    final var ticker = new MutableTicker();
     final var cache =
         CacheBuilder.newBuilder()
+            .ticker(ticker)
             .expireAfterAccess(Duration.ofMillis(2))
             .build(guavaCache.getLoader());
     cache.getUnchecked("hello");
     assertEquals(1, cache.size());
     cache.getUnchecked("hello");
-    Thread.sleep(300);
+    ticker.advance(300, TimeUnit.MILLISECONDS);
     cache.getUnchecked("test");
     assertEquals(1, cache.size());
     assertNull(cache.getIfPresent("hello"));
   }
 
   @Test
-  void whenEntryLiveTimeExpire_thenEviction() throws InterruptedException {
+  void whenEntryLiveTimeExpire_thenEviction() {
+    final var ticker = new MutableTicker();
     final var cache =
         CacheBuilder.newBuilder()
+            .ticker(ticker)
             .expireAfterWrite(Duration.ofMillis(2))
             .build(guavaCache.getLoader());
     cache.getUnchecked("hello");
     assertEquals(1, cache.size());
-    Thread.sleep(300);
+    ticker.advance(300, TimeUnit.MILLISECONDS);
     cache.getUnchecked("test");
     assertEquals(1, cache.size());
     assertNull(cache.getIfPresent("hello"));
@@ -174,5 +181,19 @@ class GuavaCacheTest {
       return null;
     }
     return str.substring(lastIndex + 1);
+  }
+
+  private static final class MutableTicker extends Ticker {
+
+    private final AtomicLong nanos = new AtomicLong();
+
+    @Override
+    public long read() {
+      return nanos.get();
+    }
+
+    void advance(long time, TimeUnit unit) {
+      nanos.addAndGet(unit.toNanos(time));
+    }
   }
 }

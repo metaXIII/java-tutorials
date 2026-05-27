@@ -22,12 +22,12 @@ class GuavaFileTest {
   private File file;
 
   @BeforeEach
-  public void init() {
+  void init() {
     file = new File("test.txt");
   }
 
   @AfterEach
-  public void endEach() {
+  void endEach() {
     if (file.delete()) {
       System.out.println("file deleted");
     }
@@ -36,7 +36,6 @@ class GuavaFileTest {
   @Test
   void whenWriteUsingFiles_thenWritten() throws IOException {
     final var expectedValue = "Hello world";
-    final var file = new File("test.txt");
     Files.write(expectedValue, file, Charsets.UTF_8);
     final var result = Files.toString(file, Charsets.UTF_8);
     assertEquals(expectedValue, result);
@@ -64,15 +63,6 @@ class GuavaFileTest {
 
   @Test
   void whenWriteUsingByteSink_thenWritten() throws IOException {
-    final var expectedValue = "Hello world";
-    ByteSink sink = Files.asByteSink(file);
-    sink.write(expectedValue.getBytes());
-    final var result = Files.toString(file, Charsets.UTF_8);
-    assertEquals(expectedValue, result);
-  }
-
-  @Test
-  void whenReadUsingFiles_thenRead() throws IOException {
     final var expectedValue = "Hello world";
     ByteSink sink = Files.asByteSink(file);
     sink.write(expectedValue.getBytes());

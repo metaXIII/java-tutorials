@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 public class App {
 
+  private static final String ALPHABETIQUE_REGEX = "[a-zA-Z].*";
+
   String getInitialUsingLoop(final String name) {
     if (name == null || name.isEmpty()) {
       return "";
@@ -15,7 +17,7 @@ public class App {
     final String[] parts = name.split("\\s+");
     final StringBuilder initials = new StringBuilder();
     for (final String part : parts) {
-      if (part.matches("[a-zA-Z].*")) {
+      if (part.matches(ALPHABETIQUE_REGEX)) {
         initials.append(part.charAt(0));
       }
     }
@@ -40,7 +42,7 @@ public class App {
       return "";
     }
     return Arrays.stream(name.split("\\s+"))
-        .filter(part -> part.matches("[a-zA-Z].*"))
+        .filter(part -> part.matches(ALPHABETIQUE_REGEX))
         .map(part -> part.substring(0, 1))
         .collect(Collectors.joining())
         .toUpperCase();
@@ -54,7 +56,7 @@ public class App {
     final StringBuilder initials = new StringBuilder();
     while (tokenizer.hasMoreTokens()) {
       final String part = tokenizer.nextToken();
-      if (part.matches("[a-zA-Z].*")) {
+      if (part.matches(ALPHABETIQUE_REGEX)) {
         initials.append(part.charAt(0));
       }
     }

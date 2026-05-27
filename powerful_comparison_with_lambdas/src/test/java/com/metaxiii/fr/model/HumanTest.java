@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class HumanTest {
 
   @Test
-  public void givenPreLambda_whenSortingEntitiesByName_thenCorrectlySorted() {
+  void givenPreLambda_whenSortingEntitiesByName_thenCorrectlySorted() {
     final ArrayList<Human> humans =
         new ArrayList<>(List.of(new Human("Sarah", 10), new Human("Jack", 12)));
     Collections.sort(
@@ -29,35 +29,35 @@ class HumanTest {
   }
 
   @Test
-  public void whenSortingEntitiesByName_thenCorrectlySorted() {
+  void whenSortingEntitiesByName_thenCorrectlySorted() {
     List<Human> humans = new ArrayList<>(List.of(new Human("Sarah", 10), new Human("Jack", 12)));
     humans.sort((Human h1, Human h2) -> h1.getName().compareTo(h2.getName()));
     assertEquals(humans.get(0), new Human("Jack", 12));
   }
 
   @Test
-  public void givenLambdaShortForm_whenSortingEntitiesByName_thenCorrectlySorted() {
+  void givenLambdaShortForm_whenSortingEntitiesByName_thenCorrectlySorted() {
     List<Human> humans = new ArrayList<>(List.of(new Human("Sarah", 10), new Human("Jack", 12)));
     humans.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
     assertEquals(humans.get(0), new Human("Jack", 12));
   }
 
   @Test
-  public void givenMethodDefinition_whenSortingEntitiesByNameThenAge_thenCorrectlySorted() {
+  void givenMethodDefinition_whenSortingEntitiesByNameThenAge_thenCorrectlySorted() {
     List<Human> humans = new ArrayList<>(List.of(new Human("Sarah", 10), new Human("Jack", 12)));
     humans.sort(Human::compareByNameThenAge);
     assertEquals(humans.get(0), new Human("Jack", 12));
   }
 
   @Test
-  public void givenInstanceMethod_whenSortingEntitiesByName_thenCorrectlySorted() {
+  void givenInstanceMethod_whenSortingEntitiesByName_thenCorrectlySorted() {
     List<Human> humans = new ArrayList<>(List.of(new Human("Sarah", 10), new Human("Jack", 12)));
     Collections.sort(humans, Comparator.comparing(Human::getName));
     assertEquals(humans.get(0), new Human("Jack", 12));
   }
 
   @Test
-  public void whenSortingEntitiesByNameReversed_thenCorrectlySorted() {
+  void whenSortingEntitiesByNameReversed_thenCorrectlySorted() {
     List<Human> humans = new ArrayList<>(List.of(new Human("Sarah", 10), new Human("Jack", 12)));
     Comparator<Human> comparator = (h1, h2) -> h1.getName().compareTo(h2.getName());
     humans.sort(comparator.reversed());
@@ -65,7 +65,7 @@ class HumanTest {
   }
 
   @Test
-  public void whenSortingEntitiesByNameThenAge_thenCorrectlySorted() {
+  void whenSortingEntitiesByNameThenAge_thenCorrectlySorted() {
     List<Human> humans =
         new ArrayList<>(
             List.of(new Human("Sarah", 10), new Human("Sarah", 10), new Human("Zack", 12)));
@@ -81,7 +81,7 @@ class HumanTest {
   }
 
   @Test
-  public void givenComposition_whenSortingEntitiesByNameThenAge_thenCorrectlySorted() {
+  void givenComposition_whenSortingEntitiesByNameThenAge_thenCorrectlySorted() {
     List<Human> humans =
         new ArrayList<>(
             List.of(new Human("Sarah", 10), new Human("Sarah", 12), new Human("Zack", 12)));
@@ -138,7 +138,7 @@ class HumanTest {
   }
 
   @Test
-  public void givenANullElement_whenSortingEntitiesByName_thenThrowsNPE() {
+  void givenANullElement_whenSortingEntitiesByName_thenThrowsNPE() {
     final var humans = new ArrayList<Human>();
     humans.add(null);
     humans.add(new Human("Jack", 12));
@@ -150,7 +150,7 @@ class HumanTest {
   }
 
   @Test
-  public void givenANullElement_whenSortingEntitiesByNameManually_thenMovesTheNullToLast() {
+  void givenANullElement_whenSortingEntitiesByNameManually_thenMovesTheNullToLast() {
     final var humans = new ArrayList<Human>();
     humans.add(null);
     humans.add(new Human("Jack", 12));
@@ -170,7 +170,7 @@ class HumanTest {
   }
 
   @Test
-  public void givenANullElement_whenSortingEntitiesByName_thenMovesTheNullToLast() {
+  void givenANullElement_whenSortingEntitiesByName_thenMovesTheNullToLast() {
     final var humans = new ArrayList<Human>();
     humans.add(null);
     humans.add(new Human("Jack", 12));
@@ -182,7 +182,7 @@ class HumanTest {
   }
 
   @Test
-  public void givenANullElement_whenSortingEntitiesByName_thenMovesTheNullToStart() {
+  void givenANullElement_whenSortingEntitiesByName_thenMovesTheNullToStart() {
     final var humans = new ArrayList<Human>();
     humans.add(null);
     humans.add(new Human("Jack", 12));

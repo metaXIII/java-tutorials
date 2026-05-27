@@ -21,15 +21,6 @@ class AppTest {
     absolutePath = file.getAbsolutePath();
   }
 
-  // Test work but not passing on github actions
-  // @Test
-  // void givenHtmlFile_whenUsingDesktopClass_thenOpenFileInDefaultBrowser()
-  // throws IOException {
-  // final var htmlFile = new File(absolutePath);
-  // Desktop.getDesktop().browse(htmlFile.toURI());
-  // assertTrue(true);
-  // }
-
   @Test
   void givenHtmlFile_whenUsingProcessBuilder_thenOpenFileInDefaultBrowser() throws IOException {
     final ProcessBuilder pb;
