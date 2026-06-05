@@ -105,7 +105,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>
             ${maven.multiModuleProjectDirectory}/report/target/site/jacoco-aggregate/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
-        <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <spotless-maven-plugin.version>1.35.0</spotless-maven-plugin.version>
     </properties>
